@@ -2,19 +2,11 @@
 // BaseSlotSettings.php (Stateless Version)
 namespace Games;
 
-use Models\User;
-use Models\Game;
-use Models\Shop;
-use Models\JPG;
-use Models\GameBank;
-use Models\GameLog;
-use Models\StatGame;
-use Models\Banker;
-use Models\UserStatus;
 use Games\Log;
 
 class BaseSlotSettings
 {
+    // protected UnifiedReelManager $reelManager;
     public $splitScreen = null;
     public $reelStrip1 = null;
     public $reelStrip2 = null;
@@ -48,7 +40,7 @@ class BaseSlotSettings
     public $slotGamble = null;
     public $slotSounds = [];
     public $jpgs = null;
-
+    public $betLogs;
     public $increaseRTP = null;
 
     protected $betRemains = null;
@@ -111,8 +103,10 @@ class BaseSlotSettings
     // -------------------------------------------------------
     // CONSTRUCTOR
     // -------------------------------------------------------
+    public $slotFastStop;
     public function __construct($settings)
     {
+
         // 1. Unpack settings
         $this->user = $settings['user'] ?? null;
         $this->game = $settings['game'] ?? null;
@@ -121,6 +115,7 @@ class BaseSlotSettings
         $this->gameData = $settings['gameData'] ?? [];
         $this->gameDataStatic = $settings['gameDataStatic'] ?? [];
         $this->bankerService = $settings['bankerService'] ?? null;
+        $this->betLogs = $settings['betLogs'] ?? null;
 
         $this->slotId = $settings['slotId'] ?? null;
         $this->playerId = $settings['playerId'] ?? null;
@@ -339,10 +334,8 @@ class BaseSlotSettings
 
     public function GetHistory()
     {
-        $history = \VanguardLTE\GameLog::whereRaw('game_id=? and user_id=? ORDER BY id DESC LIMIT 10', [
-            $this->slotDBId,
-            $this->playerId
-        ])->get();
+
+        $history = $this->betLogs;
         $this->lastEvent = 'NULL';
         foreach ($history as $log) {
             $tmpLog = json_decode($log->str);

@@ -1,84 +1,63 @@
-2025-11-22 04:50:40 pid:867232 Workerman[workerman_server_example.php] start in DEBUG mode
-2025-11-22 04:50:56 pid:867232 Workerman[workerman_server_example.php] received signal SIGINT
-2025-11-22 04:50:56 pid:867232 Workerman[workerman_server_example.php] stopping
-2025-11-22 04:50:56 pid:867232 Workerman[workerman_server_example.php] has been stopped
-2025-11-22 04:50:58 pid:867409 Workerman[workerman_server_example.php] start in DAEMON mode
-2025-11-22 04:50:59 pid:867414 TypeError: json_decode(): Argument #1 ($json) must be of type string, array given in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/workerman_server_example.php:13
+2025-11-22 08:01:43 pid:930530 Workerman[start.php] start in DEBUG mode
+2025-11-22 08:01:43 pid:930530 RuntimeException: stream_socket_server(): Unable to connect to tcp://127.0.0.1:8787 (Address in use) in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/vendor/workerman/workerman/src/Worker.php:2534
 Stack trace:
-#0 /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/workerman_server_example.php(13): json_decode(Array, true)
-#1 /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/vendor/workerman/workerman/src/Connection/TcpConnection.php(742): {closure}(Object(Workerman\Connection\TcpConnection), Object(Workerman\Protocols\Http\Request))
-#2 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #24, true, NULL)
-#3 /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/vendor/workerman/workerman/src/Events/Event.php(250): EventBase->loop()
-#4 /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/vendor/workerman/workerman/src/Worker.php(1756): Workerman\Events\Event->run()
-#5 /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/vendor/workerman/workerman/src/Worker.php(1552): Workerman\Worker::forkOneWorkerForLinux(Object(Workerman\Worker))
-#6 /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/vendor/workerman/workerman/src/Worker.php(1532): Workerman\Worker::forkWorkersForLinux()
-#7 /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/vendor/workerman/workerman/src/Worker.php(601): Workerman\Worker::forkWorkers()
-#8 /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/workerman_server_example.php(72): Workerman\Worker::runAll()
-#9 {main}
-2025-11-22 04:50:59 pid:867413 worker[none:867414] exit with status 64000
-2025-11-22 04:51:36 pid:867868 Workerman[workerman_server_example.php] start in DAEMON mode
-2025-11-22 04:51:36 pid:867868 Master pid:867413 is not alive
-2025-11-22 04:51:41 pid:867883 TypeError: json_decode(): Argument #1 ($json) must be of type string, array given in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/workerman_server_example.php:13
+#0 [internal function]: Workerman\Worker::Workerman\{closure}(2, 'stream_socket_s...', '/home/ash/Docum...', 2536)
+#1 /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/vendor/workerman/workerman/src/Worker.php(2536): stream_socket_server('tcp://127.0.0.1...', 0, '')
+#2 /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/vendor/workerman/workerman/src/Worker.php(593): Workerman\Worker::checkPortAvailable()
+#3 /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/start.php(43): Workerman\Worker::runAll()
+#4 {main}
+2025-11-22 08:02:30 pid:870586 Workerman[workerman_server_example.php] received signal SIGINT
+2025-11-22 08:02:30 pid:870586 Workerman[workerman_server_example.php] stopping
+2025-11-22 08:02:31 pid:870586 Workerman[workerman_server_example.php] received signal SIGINT
+2025-11-22 08:02:31 pid:870586 Workerman[workerman_server_example.php] stopping
+2025-11-22 08:02:32 pid:870586 Workerman[workerman_server_example.php] received signal SIGINT
+2025-11-22 08:02:32 pid:870586 Workerman[workerman_server_example.php] stopping
+2025-11-22 08:02:32 pid:870586 worker[none:870587] exit with status 9
+2025-11-22 08:02:32 pid:870586 Workerman[workerman_server_example.php] has been stopped
+2025-11-22 08:02:39 pid:931053 Workerman[start.php] start in DEBUG mode
+2025-11-22 08:02:42 pid:931053 Workerman[start.php] received signal SIGINT
+2025-11-22 08:02:42 pid:931053 Workerman[start.php] stopping
+2025-11-22 08:02:42 pid:931053 Workerman[start.php] has been stopped
+2025-11-22 08:02:45 pid:931228 Workerman[start.php] start in DEBUG mode
+2025-11-22 08:02:48 pid:931229 Error: Class "VanguardLTE\Stateless\TheWolfsBaneNET\SlotSettings" not found in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/start.php:33
 Stack trace:
-#0 /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/workerman_server_example.php(13): json_decode(Array, true)
-#1 /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/vendor/workerman/workerman/src/Connection/TcpConnection.php(742): {closure}(Object(Workerman\Connection\TcpConnection), Object(Workerman\Protocols\Http\Request))
-#2 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #26, true, NULL)
-#3 /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/vendor/workerman/workerman/src/Events/Event.php(250): EventBase->loop()
-#4 /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/vendor/workerman/workerman/src/Worker.php(1756): Workerman\Events\Event->run()
-#5 /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/vendor/workerman/workerman/src/Worker.php(1552): Workerman\Worker::forkOneWorkerForLinux(Object(Workerman\Worker))
-#6 /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/vendor/workerman/workerman/src/Worker.php(1532): Workerman\Worker::forkWorkersForLinux()
-#7 /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/vendor/workerman/workerman/src/Worker.php(601): Workerman\Worker::forkWorkers()
-#8 /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/workerman_server_example.php(72): Workerman\Worker::runAll()
-#9 {main}
-2025-11-22 04:51:41 pid:867882 worker[none:867883] exit with status 64000
-2025-11-22 04:53:14 pid:868006 TypeError: json_decode(): Argument #1 ($json) must be of type string, array given in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/workerman_server_example.php:13
+#0 /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/vendor/workerman/workerman/src/Connection/TcpConnection.php(753): {closure}(Object(Workerman\Connection\TcpConnection), '{"gameId":"TheW...')
+#1 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #23, true, NULL)
+#2 /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/vendor/workerman/workerman/src/Events/Event.php(250): EventBase->loop()
+#3 /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/vendor/workerman/workerman/src/Worker.php(1756): Workerman\Events\Event->run()
+#4 /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/vendor/workerman/workerman/src/Worker.php(1552): Workerman\Worker::forkOneWorkerForLinux(Object(Workerman\Worker))
+#5 /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/vendor/workerman/workerman/src/Worker.php(1532): Workerman\Worker::forkWorkersForLinux()
+#6 /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/vendor/workerman/workerman/src/Worker.php(601): Workerman\Worker::forkWorkers()
+#7 /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/start.php(43): Workerman\Worker::runAll()
+#8 {main}
+2025-11-22 08:02:48 pid:931228 worker[none:931229] exit with status 64000
+2025-11-22 08:07:46 pid:931232 Error: Class "VanguardLTE\Stateless\TheWolfsBaneNET\SlotSettings" not found in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/start.php:33
 Stack trace:
-#0 /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/workerman_server_example.php(13): json_decode(Array, true)
-#1 /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/vendor/workerman/workerman/src/Connection/TcpConnection.php(742): {closure}(Object(Workerman\Connection\TcpConnection), Object(Workerman\Protocols\Http\Request))
-#2 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #25, true, NULL)
-#3 /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/vendor/workerman/workerman/src/Events/Event.php(250): EventBase->loop()
-#4 /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/vendor/workerman/workerman/src/Worker.php(1756): Workerman\Events\Event->run()
-#5 /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/vendor/workerman/workerman/src/Worker.php(1552): Workerman\Worker::forkOneWorkerForLinux(Object(Workerman\Worker))
-#6 /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/vendor/workerman/workerman/src/Worker.php(1532): Workerman\Worker::forkWorkersForLinux()
-#7 /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/vendor/workerman/workerman/src/Worker.php(1901): Workerman\Worker::forkWorkers()
-#8 /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/vendor/workerman/workerman/src/Worker.php(1836): Workerman\Worker::monitorWorkersForLinux()
-#9 /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/vendor/workerman/workerman/src/Worker.php(603): Workerman\Worker::monitorWorkers()
-#10 /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/workerman_server_example.php(72): Workerman\Worker::runAll()
-#11 {main}
-2025-11-22 04:53:14 pid:867882 worker[none:868006] exit with status 64000
-2025-11-22 04:53:51 pid:868845 Workerman[workerman_server_example.php] start in DEBUG mode
-2025-11-22 04:53:51 pid:868845 Master pid:867882 is not alive
-2025-11-22 04:53:56 pid:868855 TypeError: json_decode(): Argument #1 ($json) must be of type string, array given in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/workerman_server_example.php:13
+#0 /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/vendor/workerman/workerman/src/Connection/TcpConnection.php(753): {closure}(Object(Workerman\Connection\TcpConnection), '{"gameId":"TheW...')
+#1 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #21, true, NULL)
+#2 /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/vendor/workerman/workerman/src/Events/Event.php(250): EventBase->loop()
+#3 /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/vendor/workerman/workerman/src/Worker.php(1756): Workerman\Events\Event->run()
+#4 /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/vendor/workerman/workerman/src/Worker.php(1552): Workerman\Worker::forkOneWorkerForLinux(Object(Workerman\Worker))
+#5 /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/vendor/workerman/workerman/src/Worker.php(1532): Workerman\Worker::forkWorkersForLinux()
+#6 /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/vendor/workerman/workerman/src/Worker.php(601): Workerman\Worker::forkWorkers()
+#7 /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/start.php(43): Workerman\Worker::runAll()
+#8 {main}
+2025-11-22 08:07:46 pid:931228 worker[none:931232] exit with status 64000
+2025-11-22 08:07:57 pid:932693 Error: Class "VanguardLTE\Stateless\TheWolfsBaneNET\SlotSettings" not found in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/start.php:33
 Stack trace:
-#0 /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/workerman_server_example.php(13): json_decode(Array, true)
-#1 /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/vendor/workerman/workerman/src/Connection/TcpConnection.php(742): {closure}(Object(Workerman\Connection\TcpConnection), Object(Workerman\Protocols\Http\Request))
-#2 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #25, true, NULL)
-#3 /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/vendor/workerman/workerman/src/Events/Event.php(250): EventBase->loop()
-#4 /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/vendor/workerman/workerman/src/Worker.php(1756): Workerman\Events\Event->run()
-#5 /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/vendor/workerman/workerman/src/Worker.php(1552): Workerman\Worker::forkOneWorkerForLinux(Object(Workerman\Worker))
-#6 /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/vendor/workerman/workerman/src/Worker.php(1532): Workerman\Worker::forkWorkersForLinux()
-#7 /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/vendor/workerman/workerman/src/Worker.php(601): Workerman\Worker::forkWorkers()
-#8 /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/workerman_server_example.php(72): Workerman\Worker::runAll()
-#9 {main}
-2025-11-22 04:53:56 pid:868845 worker[none:868855] exit with status 64000
-2025-11-22 04:54:23 pid:868845 Workerman[workerman_server_example.php] received signal SIGINT
-2025-11-22 04:54:23 pid:868845 Workerman[workerman_server_example.php] stopping
-2025-11-22 04:54:23 pid:868845 Workerman[workerman_server_example.php] has been stopped
-2025-11-22 04:54:25 pid:869226 Workerman[workerman_server_example.php] start in DEBUG mode
-2025-11-22 04:54:43 pid:869227 TypeError: json_decode(): Argument #1 ($json) must be of type string, array given in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/workerman_server_example.php:27
-Stack trace:
-#0 /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/workerman_server_example.php(27): json_decode(Array, true)
-#1 /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/vendor/workerman/workerman/src/Connection/TcpConnection.php(742): {closure}(Object(Workerman\Connection\TcpConnection), Object(Workerman\Protocols\Http\Request))
-#2 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #25, true, NULL)
-#3 /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/vendor/workerman/workerman/src/Events/Event.php(250): EventBase->loop()
-#4 /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/vendor/workerman/workerman/src/Worker.php(1756): Workerman\Events\Event->run()
-#5 /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/vendor/workerman/workerman/src/Worker.php(1552): Workerman\Worker::forkOneWorkerForLinux(Object(Workerman\Worker))
-#6 /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/vendor/workerman/workerman/src/Worker.php(1532): Workerman\Worker::forkWorkersForLinux()
-#7 /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/vendor/workerman/workerman/src/Worker.php(601): Workerman\Worker::forkWorkers()
-#8 /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/workerman_server_example.php(88): Workerman\Worker::runAll()
-#9 {main}
-2025-11-22 04:54:43 pid:869226 worker[none:869227] exit with status 64000
-2025-11-22 04:56:12 pid:869226 Workerman[workerman_server_example.php] received signal SIGINT
-2025-11-22 04:56:12 pid:869226 Workerman[workerman_server_example.php] stopping
-2025-11-22 04:56:12 pid:869226 Workerman[workerman_server_example.php] has been stopped
-2025-11-22 04:56:13 pid:870586 Workerman[workerman_server_example.php] start in DEBUG mode
+#0 /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/vendor/workerman/workerman/src/Connection/TcpConnection.php(753): {closure}(Object(Workerman\Connection\TcpConnection), '{"gameId":"TheW...')
+#1 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #23, true, NULL)
+#2 /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/vendor/workerman/workerman/src/Events/Event.php(250): EventBase->loop()
+#3 /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/vendor/workerman/workerman/src/Worker.php(1756): Workerman\Events\Event->run()
+#4 /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/vendor/workerman/workerman/src/Worker.php(1552): Workerman\Worker::forkOneWorkerForLinux(Object(Workerman\Worker))
+#5 /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/vendor/workerman/workerman/src/Worker.php(1532): Workerman\Worker::forkWorkersForLinux()
+#6 /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/vendor/workerman/workerman/src/Worker.php(1901): Workerman\Worker::forkWorkers()
+#7 /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/vendor/workerman/workerman/src/Worker.php(1836): Workerman\Worker::monitorWorkersForLinux()
+#8 /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/vendor/workerman/workerman/src/Worker.php(603): Workerman\Worker::monitorWorkers()
+#9 /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/start.php(43): Workerman\Worker::runAll()
+#10 {main}
+2025-11-22 08:07:57 pid:931228 worker[none:932693] exit with status 64000
+2025-11-22 08:08:28 pid:931228 Workerman[start.php] received signal SIGINT
+2025-11-22 08:08:28 pid:931228 Workerman[start.php] stopping
+2025-11-22 08:08:28 pid:931228 Workerman[start.php] has been stopped
+2025-11-22 08:08:36 pid:933461 Workerman[start.php] start in DEBUG mode

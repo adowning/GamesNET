@@ -1,6 +1,6 @@
 <?php
-namespace VanguardLTE\Games\NarcosNET
-{
+
+namespace Games\NarcosNET {
     set_time_limit(5);
     class Server
     {
@@ -13,12 +13,12 @@ namespace VanguardLTE\Games\NarcosNET
                 'timestamp' => now()->toISOString(),
                 'user_id' => \Auth::id()
             ]);
-            
+
             // Debug: Log that we're about to call get_
             \Log::info('NarcosNET Server: About to call get_() function', [
                 'timestamp' => now()->toISOString()
             ]);
-            
+
             // Call the get_ function
             \Log::info('NarcosNET Server: Calling get_() function', [
                 'timestamp' => now()->toISOString()
@@ -27,7 +27,7 @@ namespace VanguardLTE\Games\NarcosNET
             \Log::info('NarcosNET Server: get_() function completed', [
                 'timestamp' => now()->toISOString()
             ]);
-            
+
             \Log::info('NarcosNET Server: Processing completed', [
                 'timestamp' => now()->toISOString()
             ]);
@@ -35,126 +35,109 @@ namespace VanguardLTE\Games\NarcosNET
 
         public function get_($request, $game)
         {
-            \DB::transaction(function() use ($request, $game)
-            {
-                try
-                {
+            \DB::transaction(function () use ($request, $game) {
+                try {
                     // Debug: Log that we're entering the get_ function
                     \Log::info('NarcosNET Server: Inside get_() function before transaction', [
                         'timestamp' => now()->toISOString()
                     ]);
-                    
+
                     // Log when entering the transaction
                     \Log::info('NarcosNET Server.get_() transaction started', [
                         'timestamp' => now()->toISOString()
                     ]);
-                    
+
                     $userId = \Auth::id();
-                    if( $userId == null )
-                    {
+                    if ($userId == null) {
                         \Log::warning('NarcosNET Server: Invalid login - userId is null', [
                             'timestamp' => now()->toISOString()
                         ]);
                         $response = '{"responseEvent":"error","responseType":"","serverResponse":"invalid login"}';
-                        exit( $response );
+                        exit($response);
                     }
-                    
+
                     \Log::info('NarcosNET Server: User authenticated', [
                         'user_id' => $userId,
                         'game' => $game,
                         'timestamp' => now()->toISOString()
                     ]);
-                    
-                        $slotSettings = new SlotSettings($game, $userId);
-                        if( !$slotSettings->is_active() )
-                        {
-                            \Log::warning('NarcosNET Server: Game is disabled', [
-                                'user_id' => $userId,
-                                'game' => $game,
-                                'timestamp' => now()->toISOString()
-                            ]);
-                            $response = '{"responseEvent":"error","responseType":"","serverResponse":"Game is disabled"}';
-                            exit( $response );
-                        }
-                        
-                        \Log::info('NarcosNET Server: Game is active', [
+
+                    $slotSettings = new SlotSettings($game, $userId);
+                    if (!$slotSettings->is_active()) {
+                        \Log::warning('NarcosNET Server: Game is disabled', [
                             'user_id' => $userId,
                             'game' => $game,
                             'timestamp' => now()->toISOString()
                         ]);
+                        $response = '{"responseEvent":"error","responseType":"","serverResponse":"Game is disabled"}';
+                        exit($response);
+                    }
+
+                    \Log::info('NarcosNET Server: Game is active', [
+                        'user_id' => $userId,
+                        'game' => $game,
+                        'timestamp' => now()->toISOString()
+                    ]);
                     // $postData = $_GET;
-                        $postData = json_decode(file_get_contents('php://input'), true);
+                    $postData = json_decode(file_get_contents('php://input'), true);
                     \Log::info('NarcosNET Server: Processing request', [
                         'user_id' => $userId,
                         'game' => $game,
                         'post_data' => $postData,
                         'timestamp' => now()->toISOString()
                     ]);
-                   
+
                     $balanceInCents = round($slotSettings->GetBalance() * $slotSettings->CurrentDenom * 100);
                     $result_tmp = [];
                     $aid = '';
                     $postData['slotEvent'] = 'bet';
-                    if( $postData['action'] == 'freespin' ) 
-                    {
+                    if ($postData['action'] == 'freespin') {
                         $postData['slotEvent'] = 'freespin';
                         $postData['action'] = 'spin';
                     }
-                    if( $postData['action'] == 'init' || $postData['action'] == 'reloadbalance' ) 
-                    {
+                    if ($postData['action'] == 'init' || $postData['action'] == 'reloadbalance') {
                         $postData['action'] = 'init';
                         $postData['slotEvent'] = 'init';
                     }
-                    if( $postData['action'] == 'paytable' ) 
-                    {
+                    if ($postData['action'] == 'paytable') {
                         $postData['slotEvent'] = 'paytable';
                     }
-                    if( $postData['action'] == 'initfreespin' ) 
-                    {
+                    if ($postData['action'] == 'initfreespin') {
                         $postData['slotEvent'] = 'initfreespin';
                     }
-                    if( $postData['action'] == 'respin' ) 
-                    {
+                    if ($postData['action'] == 'respin') {
                         $postData['slotEvent'] = 'respin';
                     }
-                    if( isset($postData['bet_denomination']) && $postData['bet_denomination'] >= 1 ) 
-                    {
+                    if (isset($postData['bet_denomination']) && $postData['bet_denomination'] >= 1) {
                         $postData['bet_denomination'] = $postData['bet_denomination'] / 100;
                         $slotSettings->CurrentDenom = $postData['bet_denomination'];
                         $slotSettings->CurrentDenomination = $postData['bet_denomination'];
                         $slotSettings->SetGameData($slotSettings->slotId . 'GameDenom', $postData['bet_denomination']);
-                    }
-                    else if( $slotSettings->HasGameData($slotSettings->slotId . 'GameDenom') ) 
-                    {
+                    } else if ($slotSettings->HasGameData($slotSettings->slotId . 'GameDenom')) {
                         $postData['bet_denomination'] = $slotSettings->GetGameData($slotSettings->slotId . 'GameDenom');
                         $slotSettings->CurrentDenom = $postData['bet_denomination'];
                         $slotSettings->CurrentDenomination = $postData['bet_denomination'];
                     }
                     $balanceInCents = round($slotSettings->GetBalance() * $slotSettings->CurrentDenom * 100);
-                    if( $postData['slotEvent'] == 'bet' ) 
-                    {
-                        if( !isset($postData['bet_betlevel']) ) 
-                        {
+                    if ($postData['slotEvent'] == 'bet') {
+                        if (!isset($postData['bet_betlevel'])) {
                             $response = '{"responseEvent":"error","responseType":"bet","serverResponse":"invalid bet request"}';
-                            exit( $response );
+                            exit($response);
                         }
                         $lines = 20;
                         $betline = $postData['bet_betlevel'];
-                        if( $lines <= 0 || $betline <= 0.0001 ) 
-                        {
+                        if ($lines <= 0 || $betline <= 0.0001) {
                             $response = '{"responseEvent":"error","responseType":"' . $postData['slotEvent'] . '","serverResponse":"invalid bet state"}';
-                            exit( $response );
+                            exit($response);
                         }
-                        if( $slotSettings->GetBalance() < ($lines * $betline) ) 
-                        {
+                        if ($slotSettings->GetBalance() < ($lines * $betline)) {
                             $response = '{"responseEvent":"error","responseType":"' . $postData['slotEvent'] . '","serverResponse":"invalid balance"}';
-                            exit( $response );
+                            exit($response);
                         }
                     }
-                    if( $slotSettings->GetGameData($slotSettings->slotId . 'FreeGames') < $slotSettings->GetGameData($slotSettings->slotId . 'CurrentFreeGame') && $postData['slotEvent'] == 'freespin' ) 
-                    {
+                    if ($slotSettings->GetGameData($slotSettings->slotId . 'FreeGames') < $slotSettings->GetGameData($slotSettings->slotId . 'CurrentFreeGame') && $postData['slotEvent'] == 'freespin') {
                         $response = '{"responseEvent":"error","responseType":"' . $postData['slotEvent'] . '","serverResponse":"invalid bonus state"}';
-                        exit( $response );
+                        exit($response);
                     }
                     $aid = (string)$postData['action'];
                     \Log::info('NarcosNET Server: Action detected', [
@@ -162,9 +145,8 @@ namespace VanguardLTE\Games\NarcosNET
                         'action' => $aid,
                         'timestamp' => now()->toISOString()
                     ]);
-                    
-                    switch( $aid )
-                    {
+
+                    switch ($aid) {
                         case 'init':
                             $gameBets = $slotSettings->Bet;
                             $lastEvent = $slotSettings->GetHistory();
@@ -175,8 +157,7 @@ namespace VanguardLTE\Games\NarcosNET
                             $slotSettings->SetGameData($slotSettings->slotId . 'FreeBalance', 0);
                             $slotSettings->SetGameData($slotSettings->slotId . 'WalkingWild', []);
                             $freeState = '';
-                            if( $lastEvent != 'NULL' ) 
-                            {
+                            if ($lastEvent != 'NULL') {
                                 $slotSettings->SetGameData($slotSettings->slotId . 'BonusWin', $lastEvent->serverResponse->bonusWin);
                                 $slotSettings->SetGameData($slotSettings->slotId . 'FreeGames', $lastEvent->serverResponse->totalFreeGames);
                                 $slotSettings->SetGameData($slotSettings->slotId . 'CurrentFreeGame', $lastEvent->serverResponse->currentFreeGames);
@@ -199,9 +180,7 @@ namespace VanguardLTE\Games\NarcosNET
                                 $curReels .= ('&rs.i1.r.i2.pos=' . $reels->rp[0]);
                                 $curReels .= ('&rs.i1.r.i3.pos=' . $reels->rp[0]);
                                 $curReels .= ('&rs.i1.r.i4.pos=' . $reels->rp[0]);
-                            }
-                            else
-                            {
+                            } else {
                                 $curReels = '&rs.i0.r.i0.syms=SYM' . rand(1, 7) . '%2CSYM' . rand(1, 7) . '%2CSYM' . rand(1, 7) . '%2CSYM' . rand(1, 7) . '';
                                 $curReels .= ('&rs.i0.r.i1.syms=SYM' . rand(1, 7) . '%2CSYM' . rand(1, 7) . '%2CSYM' . rand(1, 7) . '%2CSYM' . rand(1, 7) . '');
                                 $curReels .= ('&rs.i0.r.i2.syms=SYM' . rand(1, 7) . '%2CSYM' . rand(1, 7) . '%2CSYM' . rand(1, 7) . '%2CSYM' . rand(1, 7) . '');
@@ -218,12 +197,10 @@ namespace VanguardLTE\Games\NarcosNET
                                 $curReels .= ('&rs.i1.r.i3.pos=' . rand(1, 10));
                                 $curReels .= ('&rs.i1.r.i4.pos=' . rand(1, 10));
                             }
-                            for( $d = 0; $d < count($slotSettings->Denominations); $d++ ) 
-                            {
+                            for ($d = 0; $d < count($slotSettings->Denominations); $d++) {
                                 $slotSettings->Denominations[$d] = $slotSettings->Denominations[$d] * 100;
                             }
-                            if( $slotSettings->GetGameData($slotSettings->slotId . 'CurrentFreeGame') < $slotSettings->GetGameData($slotSettings->slotId . 'FreeGames') && $slotSettings->GetGameData($slotSettings->slotId . 'FreeGames') > 0 ) 
-                            {
+                            if ($slotSettings->GetGameData($slotSettings->slotId . 'CurrentFreeGame') < $slotSettings->GetGameData($slotSettings->slotId . 'FreeGames') && $slotSettings->GetGameData($slotSettings->slotId . 'FreeGames') > 0) {
                                 $freeState = 'rs.i4.id=basicwalkingwild&rs.i2.r.i1.hold=false&rs.i1.r.i0.syms=SYM8%2CSYM3%2CSYM7&rs.i2.r.i1.pos=53&gameServerVersion=1.21.0&g4mode=false&freespins.win.coins=0&historybutton=false&rs.i0.r.i4.hold=false&gameEventSetters.enabled=false&next.rs=freespin&gamestate.history=basic%2Cfreespin&rs.i0.r.i14.syms=SYM30&rs.i1.r.i2.hold=false&rs.i1.r.i3.pos=0&rs.i0.r.i1.syms=SYM30&rs.i0.r.i5.hold=false&rs.i0.r.i7.pos=0&game.win.cents=300&rs.i4.r.i4.pos=65&staticsharedurl=https%3A%2F%2Fstatic-shared.casinomodule.com%2Fgameclient_html%2Fdevicedetection%2Fcurrent&bl.i0.reelset=ALL&rs.i1.r.i3.hold=false&totalwin.coins=60&gamestate.current=freespin&freespins.initial=10&rs.i4.r.i0.pos=2&rs.i0.r.i12.syms=SYM30&jackpotcurrency=%26%23x20AC%3B&rs.i4.r.i0.overlay.i0.row=1&bet.betlines=243&walkingwilds.pos=0%2C0%2C0%2C0%2C0%2C0%2C0%2C0%2C0%2C0%2C0%2C0%2C0%2C0%2C0&rs.i3.r.i1.hold=false&rs.i2.r.i0.hold=false&rs.i0.r.i0.syms=SYM30&rs.i0.r.i3.syms=SYM30&rs.i1.r.i1.syms=SYM3%2CSYM9%2CSYM12&rs.i1.r.i1.pos=0&rs.i3.r.i4.pos=0&freespins.win.cents=0&isJackpotWin=false&rs.i0.r.i0.pos=0&rs.i2.r.i3.hold=false&rs.i2.r.i3.pos=49&freespins.betlines=243&rs.i0.r.i9.pos=0&rs.i4.r.i2.attention.i0=1&rs.i0.r.i1.pos=0&rs.i4.r.i4.syms=SYM5%2CSYM0%2CSYM7&rs.i1.r.i3.syms=SYM3%2CSYM9%2CSYM12&rs.i2.r.i4.hold=false&rs.i3.r.i1.pos=0&rs.i2.id=freespin&game.win.coins=60&rs.i1.r.i0.hold=false&denomination.last=0.05&rs.i0.r.i5.syms=SYM30&rs.i0.r.i1.hold=false&rs.i0.r.i13.pos=0&rs.i0.r.i13.hold=false&rs.i2.r.i1.syms=SYM12%2CSYM8%2CSYM7&rs.i0.r.i7.hold=false&clientaction=init&rs.i0.r.i8.hold=false&rs.i4.r.i0.hold=false&rs.i0.r.i2.hold=false&rs.i4.r.i3.syms=SYM4%2CSYM10%2CSYM9&casinoID=netent&betlevel.standard=1&rs.i3.r.i2.hold=false&gameover=false&rs.i3.r.i3.pos=60&rs.i0.r.i3.pos=0&rs.i4.r.i0.syms=SYM0%2CSYM7%2CSYM11&rs.i0.r.i11.pos=0&bl.i0.id=243&rs.i0.r.i10.syms=SYM30&rs.i0.r.i13.syms=SYM30&bl.i0.line=0%2F1%2F2%2C0%2F1%2F2%2C0%2F1%2F2%2C0%2F1%2F2%2C0%2F1%2F2&nextaction=freespin&rs.i0.r.i5.pos=0&rs.i4.r.i2.pos=32&rs.i0.r.i2.syms=SYM30&game.win.amount=3.00&betlevel.all=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9%2C10&freespins.totalwin.cents=300&denomination.all=1%2C2%2C5%2C10%2C20%2C50%2C100%2C200&freespins.betlevel=1&rs.i0.r.i6.pos=0&rs.i4.r.i3.pos=51&playercurrency=%26%23x20AC%3B&rs.i0.r.i10.hold=false&rs.i2.r.i0.pos=51&rs.i4.r.i4.hold=false&rs.i4.r.i0.overlay.i0.with=SYM1&rs.i0.r.i8.syms=SYM30&rs.i2.r.i4.syms=SYM6%2CSYM10%2CSYM9&betlevel.last=1&rs.i3.r.i2.syms=SYM4%2CSYM10%2CSYM9&rs.i4.r.i3.hold=false&rs.i0.id=respin&credit=' . $balanceInCents . '&rs.i1.r.i4.pos=0&rs.i0.r.i7.syms=SYM30&denomination.standard=5&rs.i0.r.i6.syms=SYM30&rs.i3.id=basic&rs.i4.r.i0.overlay.i0.pos=3&rs.i0.r.i12.hold=false&multiplier=1&rs.i2.r.i2.pos=25&rs.i0.r.i9.syms=SYM30&last.rs=freespin&freespins.denomination=5.000&rs.i0.r.i8.pos=0&autoplay=10%2C25%2C50%2C75%2C100%2C250%2C500%2C750%2C1000&freespins.totalwin.coins=60&freespins.total=10&gamestate.stack=basic%2Cfreespin&rs.i1.r.i4.syms=SYM8%2CSYM3%2CSYM7&rs.i4.r.i0.attention.i0=0&rs.i2.r.i2.syms=SYM10%2CSYM11%2CSYM12&gamesoundurl=https%3A%2F%2Fstatic.casinomodule.com%2F&rs.i1.r.i2.pos=0&rs.i2.r.i4.overlay.i0.row=0&rs.i3.r.i3.syms=SYM1%2CSYM10%2CSYM2&rs.i4.r.i4.attention.i0=1&bet.betlevel=1&rs.i3.r.i4.hold=false&rs.i4.r.i2.hold=false&rs.i0.r.i14.pos=0&rs.i4.r.i1.syms=SYM12%2CSYM5%2CSYM9&rs.i2.r.i4.pos=42&rs.i3.r.i0.syms=SYM11%2CSYM7%2CSYM10&playercurrencyiso=' . $slotSettings->slotCurrency . '&rs.i0.r.i11.syms=SYM30&rs.i4.r.i1.hold=false&freespins.wavecount=1&rs.i3.r.i2.pos=131&rs.i3.r.i3.hold=false&freespins.multiplier=1&playforfun=false&jackpotcurrencyiso=' . $slotSettings->slotCurrency . '&rs.i0.r.i4.syms=SYM30&rs.i0.r.i2.pos=0&rs.i1.r.i2.syms=SYM8%2CSYM3%2CSYM7&rs.i1.r.i0.pos=0&totalwin.cents=300&bl.i0.coins=20&rs.i0.r.i12.pos=0&rs.i2.r.i0.syms=SYM5%2CSYM8%2CSYM11&rs.i0.r.i0.hold=false&rs.i2.r.i3.syms=SYM10%2CSYM8%2CSYM4&restore=true&rs.i1.id=freespinwalkingwild&rs.i3.r.i4.syms=SYM3%2CSYM10%2CSYM0&rs.i0.r.i6.hold=false&rs.i3.r.i1.syms=SYM6%2CSYM12%2CSYM4&rs.i1.r.i4.hold=false&freespins.left=7&rs.i0.r.i4.pos=0&rs.i0.r.i9.hold=false&rs.i4.r.i1.pos=17&rs.i4.r.i2.syms=SYM11%2CSYM0%2CSYM6&bl.standard=243&rs.i0.r.i10.pos=0&rs.i0.r.i14.hold=false&rs.i0.r.i11.hold=false&rs.i3.r.i0.pos=0&rs.i3.r.i0.hold=false&rs.i4.nearwin=4&rs.i2.r.i2.hold=false&wavecount=1&rs.i1.r.i1.hold=false&rs.i0.r.i3.hold=false&bet.denomination=5';
                             }
                             $result_tmp[] = 'rs.i4.id=basic&rs.i2.r.i1.hold=false&rs.i2.r.i13.pos=0&rs.i1.r.i0.syms=SYM12%2CSYM2%2CSYM9&gameServerVersion=1.21.0&g4mode=false&historybutton=false&rs.i0.r.i4.hold=false&gameEventSetters.enabled=false&rs.i1.r.i2.hold=false&rs.i1.r.i3.pos=0&rs.i0.r.i1.syms=SYM6%2CSYM12%2CSYM8&rs.i2.r.i1.pos=0&game.win.cents=0&rs.i4.r.i4.pos=0&staticsharedurl=https%3A%2F%2Fstatic-shared.casinomodule.com%2Fgameclient_html%2Fdevicedetection%2Fcurrent&bl.i0.reelset=ALL&rs.i1.r.i3.hold=false&rs.i2.r.i11.pos=0&totalwin.coins=0&gamestate.current=basic&rs.i4.r.i0.pos=0&jackpotcurrency=%26%23x20AC%3B&walkingwilds.pos=0%2C0%2C0%2C0%2C0%2C0%2C0%2C0%2C0%2C0%2C0%2C0%2C0%2C0%2C0&rs.i3.r.i1.hold=false&rs.i2.r.i0.hold=false&rs.i0.r.i0.syms=SYM3%2CSYM11%2CSYM12&rs.i0.r.i3.syms=SYM6%2CSYM12%2CSYM8&rs.i1.r.i1.syms=SYM12%2CSYM7%2CSYM2&rs.i1.r.i1.pos=0&rs.i2.r.i10.hold=false&rs.i3.r.i4.pos=0&rs.i2.r.i8.syms=SYM30&isJackpotWin=false&rs.i0.r.i0.pos=0&rs.i2.r.i3.hold=false&rs.i2.r.i3.pos=0&rs.i0.r.i1.pos=0&rs.i4.r.i4.syms=SYM3%2CSYM10%2CSYM0&rs.i1.r.i3.syms=SYM3%2CSYM9%2CSYM11&rs.i2.r.i4.hold=false&rs.i3.r.i1.pos=0&rs.i2.id=respin&game.win.coins=0&rs.i1.r.i0.hold=false&rs.i0.r.i1.hold=false&rs.i2.r.i5.pos=0&rs.i2.r.i7.syms=SYM30&rs.i2.r.i1.syms=SYM30&clientaction=init&rs.i4.r.i0.hold=false&rs.i0.r.i2.hold=false&rs.i4.r.i3.syms=SYM1%2CSYM10%2CSYM2&casinoID=netent&betlevel.standard=1&rs.i3.r.i2.hold=false&rs.i2.r.i10.syms=SYM30&gameover=true&rs.i3.r.i3.pos=0&rs.i2.r.i7.pos=0&rs.i0.r.i3.pos=0&rs.i4.r.i0.syms=SYM11%2CSYM7%2CSYM10&bl.i0.id=243&bl.i0.line=0%2F1%2F2%2C0%2F1%2F2%2C0%2F1%2F2%2C0%2F1%2F2%2C0%2F1%2F2&nextaction=spin&rs.i2.r.i14.pos=0&rs.i2.r.i12.hold=false&rs.i4.r.i2.pos=131&rs.i0.r.i2.syms=SYM3%2CSYM11%2CSYM12&game.win.amount=0&betlevel.all=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9%2C10&rs.i2.r.i12.syms=SYM30&denomination.all=' . implode('%2C', $slotSettings->Denominations) . '&rs.i2.r.i9.pos=0&rs.i4.r.i3.pos=60&playercurrency=%26%23x20AC%3B&rs.i2.r.i7.hold=false&rs.i2.r.i0.pos=0&rs.i4.r.i4.hold=false&rs.i2.r.i4.syms=SYM30&rs.i3.r.i2.syms=SYM8%2CSYM3%2CSYM7&rs.i2.r.i12.pos=0&rs.i4.r.i3.hold=false&rs.i2.r.i13.syms=SYM30&rs.i0.id=freespin&credit=' . $balanceInCents . '&rs.i1.r.i4.pos=0&rs.i2.r.i14.hold=false&denomination.standard=' . ($slotSettings->CurrentDenomination * 100) . '&rs.i2.r.i13.hold=false&rs.i3.id=freespinwalkingwild&multiplier=1&rs.i2.r.i2.pos=0&rs.i2.r.i10.pos=0&autoplay=10%2C25%2C50%2C75%2C100%2C250%2C500%2C750%2C1000&rs.i2.r.i5.syms=SYM30&rs.i2.r.i6.hold=false&rs.i1.r.i4.syms=SYM12%2CSYM10%2CSYM0&rs.i2.r.i2.syms=SYM30&gamesoundurl=https%3A%2F%2Fstatic.casinomodule.com%2F&rs.i1.r.i2.pos=0&rs.i3.r.i3.syms=SYM3%2CSYM9%2CSYM12&rs.i3.r.i4.hold=false&rs.i4.r.i2.hold=false&nearwinallowed=true&rs.i2.r.i9.hold=false&rs.i4.r.i1.syms=SYM6%2CSYM12%2CSYM4&rs.i2.r.i4.pos=0&rs.i3.r.i0.syms=SYM8%2CSYM3%2CSYM7&playercurrencyiso=' . $slotSettings->slotCurrency . '&rs.i4.r.i1.hold=false&rs.i3.r.i2.pos=0&rs.i3.r.i3.hold=false&playforfun=false&jackpotcurrencyiso=' . $slotSettings->slotCurrency . '&rs.i0.r.i4.syms=SYM3%2CSYM11%2CSYM12&rs.i2.r.i11.hold=false&rs.i0.r.i2.pos=0&rs.i1.r.i2.syms=SYM12%2CSYM11%2CSYM0&rs.i2.r.i6.pos=0&rs.i1.r.i0.pos=0&totalwin.cents=0&bl.i0.coins=20&rs.i2.r.i0.syms=SYM30&rs.i0.r.i0.hold=false&rs.i2.r.i3.syms=SYM30&restore=false&rs.i1.id=basicwalkingwild&rs.i2.r.i6.syms=SYM30&rs.i3.r.i4.syms=SYM8%2CSYM3%2CSYM7&rs.i3.r.i1.syms=SYM3%2CSYM9%2CSYM12&rs.i1.r.i4.hold=false&rs.i2.r.i8.hold=false&rs.i0.r.i4.pos=0&rs.i2.r.i9.syms=SYM30&rs.i4.r.i1.pos=0&rs.i4.r.i2.syms=SYM4%2CSYM10%2CSYM9&rs.i2.r.i14.syms=SYM30&rs.i2.r.i5.hold=false&bl.standard=243&rs.i3.r.i0.pos=0&rs.i2.r.i8.pos=0&rs.i3.r.i0.hold=false&rs.i2.r.i2.hold=false&rs.i2.r.i11.syms=SYM30&wavecount=1&rs.i1.r.i1.hold=false&rs.i0.r.i3.hold=false';

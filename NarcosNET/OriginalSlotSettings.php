@@ -1,6 +1,6 @@
-<?php 
-namespace VanguardLTE\Games\NarcosNET
-{
+<?php
+
+namespace Games\NarcosNET {
     class SlotSettings
     {
         public $playerId = null;
@@ -57,183 +57,175 @@ namespace VanguardLTE\Games\NarcosNET
         public $shop = null;
         public $jpgPercentZero = false;
         public $count_balance = null;
-        public function __construct($sid, $playerId)
+        public $slotFastStop;
+        public function __construct($settings)
         {
-            $this->slotId = $sid;
-            $this->playerId = $playerId;
-            $user = \VanguardLTE\User::lockForUpdate()->find($this->playerId);
-            $this->user = $user;
-            $this->shop_id = $user->shop_id;
-            $gamebank = \VanguardLTE\GameBank::where(['shop_id' => $this->shop_id])->lockForUpdate()->get();
-            $game = \VanguardLTE\Game::where([
-                'name' => $this->slotId, 
-                'shop_id' => $this->shop_id
-            ])->lockForUpdate()->first();
-            $this->shop = \VanguardLTE\Shop::find($this->shop_id);
-            $this->game = $game;
+            $game = $this->game;
+            $user = $this->user;
+            $shop = $this->shop;
             $this->MaxWin = $this->shop->max_win;
             $this->increaseRTP = 1;
             $this->CurrentDenom = $this->game->denomination;
             $this->scaleMode = 0;
             $this->numFloat = 0;
             $this->Paytable['SYM_0'] = [
-                0, 
-                0, 
-                0, 
-                0, 
-                0, 
+                0,
+                0,
+                0,
+                0,
+                0,
                 0
             ];
             $this->Paytable['SYM_1'] = [
-                0, 
-                0, 
-                0, 
-                20, 
-                80, 
+                0,
+                0,
+                0,
+                20,
+                80,
                 300
             ];
             $this->Paytable['SYM_2'] = [
-                0, 
-                0, 
-                0, 
-                0, 
-                0, 
+                0,
+                0,
+                0,
+                0,
+                0,
                 0
             ];
             $this->Paytable['SYM_3'] = [
-                0, 
-                0, 
-                0, 
-                20, 
-                80, 
+                0,
+                0,
+                0,
+                20,
+                80,
                 300
             ];
             $this->Paytable['SYM_4'] = [
-                0, 
-                0, 
-                0, 
-                20, 
-                80, 
+                0,
+                0,
+                0,
+                20,
+                80,
                 300
             ];
             $this->Paytable['SYM_5'] = [
-                0, 
-                0, 
-                0, 
-                15, 
-                60, 
+                0,
+                0,
+                0,
+                15,
+                60,
                 250
             ];
             $this->Paytable['SYM_6'] = [
-                0, 
-                0, 
-                0, 
-                15, 
-                60, 
+                0,
+                0,
+                0,
+                15,
+                60,
                 250
             ];
             $this->Paytable['SYM_7'] = [
-                0, 
-                0, 
-                0, 
-                10, 
-                30, 
+                0,
+                0,
+                0,
+                10,
+                30,
                 120
             ];
             $this->Paytable['SYM_8'] = [
-                0, 
-                0, 
-                0, 
-                10, 
-                30, 
+                0,
+                0,
+                0,
+                10,
+                30,
                 120
             ];
             $this->Paytable['SYM_9'] = [
-                0, 
-                0, 
-                0, 
-                5, 
-                15, 
+                0,
+                0,
+                0,
+                5,
+                15,
                 60
             ];
             $this->Paytable['SYM_10'] = [
-                0, 
-                0, 
-                0, 
-                5, 
-                15, 
+                0,
+                0,
+                0,
+                5,
+                15,
                 60
             ];
             $this->Paytable['SYM_11'] = [
-                0, 
-                0, 
-                0, 
-                5, 
-                10, 
+                0,
+                0,
+                0,
+                5,
+                10,
                 40
             ];
             $this->Paytable['SYM_12'] = [
-                0, 
-                0, 
-                0, 
-                5, 
-                10, 
+                0,
+                0,
+                0,
+                5,
+                10,
                 40
             ];
             $reel = new GameReel();
-            foreach( [
-                'reelStrip1', 
-                'reelStrip2', 
-                'reelStrip3', 
-                'reelStrip4', 
-                'reelStrip5', 
-                'reelStrip6'
-            ] as $reelStrip ) 
-            {
-                if( count($reel->reelsStrip[$reelStrip]) ) 
-                {
+            foreach (
+                [
+                    'reelStrip1',
+                    'reelStrip2',
+                    'reelStrip3',
+                    'reelStrip4',
+                    'reelStrip5',
+                    'reelStrip6'
+                ] as $reelStrip
+            ) {
+                if (count($reel->reelsStrip[$reelStrip])) {
                     $this->$reelStrip = $reel->reelsStrip[$reelStrip];
                 }
             }
             $this->keyController = [
-                '13' => 'uiButtonSpin,uiButtonSkip', 
-                '49' => 'uiButtonInfo', 
-                '50' => 'uiButtonCollect', 
-                '51' => 'uiButtonExit2', 
-                '52' => 'uiButtonLinesMinus', 
-                '53' => 'uiButtonLinesPlus', 
-                '54' => 'uiButtonBetMinus', 
-                '55' => 'uiButtonBetPlus', 
-                '56' => 'uiButtonGamble', 
-                '57' => 'uiButtonRed', 
-                '48' => 'uiButtonBlack', 
-                '189' => 'uiButtonAuto', 
+                '13' => 'uiButtonSpin,uiButtonSkip',
+                '49' => 'uiButtonInfo',
+                '50' => 'uiButtonCollect',
+                '51' => 'uiButtonExit2',
+                '52' => 'uiButtonLinesMinus',
+                '53' => 'uiButtonLinesPlus',
+                '54' => 'uiButtonBetMinus',
+                '55' => 'uiButtonBetPlus',
+                '56' => 'uiButtonGamble',
+                '57' => 'uiButtonRed',
+                '48' => 'uiButtonBlack',
+                '189' => 'uiButtonAuto',
                 '187' => 'uiButtonSpin'
             ];
             $this->slotReelsConfig = [
                 [
-                    425, 
-                    142, 
+                    425,
+                    142,
                     3
-                ], 
+                ],
                 [
-                    669, 
-                    142, 
+                    669,
+                    142,
                     3
-                ], 
+                ],
                 [
-                    913, 
-                    142, 
+                    913,
+                    142,
                     3
-                ], 
+                ],
                 [
-                    1157, 
-                    142, 
+                    1157,
+                    142,
                     3
-                ], 
+                ],
                 [
-                    1401, 
-                    142, 
+                    1401,
+                    142,
                     3
                 ]
             ];
@@ -246,76 +238,75 @@ namespace VanguardLTE\Games\NarcosNET
             $this->slotExitUrl = '/';
             $this->slotWildMpl = 1;
             $this->GambleType = 1;
-            $this->Denominations = \VanguardLTE\Game::$values['denomination'];
+
             $this->CurrentDenom = $this->Denominations[0];
             $this->CurrentDenomination = $this->Denominations[0];
             $this->slotFreeCount = [
-                0, 
-                0, 
-                0, 
-                10, 
-                10, 
+                0,
+                0,
+                0,
+                10,
+                10,
                 10
             ];
             $this->slotFreeMpl = 1;
             $this->slotViewState = ($game->slotViewState == '' ? 'Normal' : $game->slotViewState);
             $this->hideButtons = [];
-            $this->jpgs = \VanguardLTE\JPG::where('shop_id', $this->shop_id)->lockForUpdate()->get();
+
             $this->slotJackPercent = [];
             $this->slotJackpot = [];
-            for( $jp = 1; $jp <= 4; $jp++ ) 
-            {
+            for ($jp = 1; $jp <= 4; $jp++) {
                 $this->slotJackpot[] = $game->{'jp_' . $jp};
                 $this->slotJackPercent[] = $game->{'jp_' . $jp . '_percent'};
             }
             $this->Line = [
-                1, 
-                2, 
-                3, 
-                4, 
-                5, 
-                6, 
-                7, 
-                8, 
-                9, 
-                10, 
-                11, 
-                12, 
-                13, 
-                14, 
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
                 15
             ];
             $this->gameLine = [
-                1, 
-                2, 
-                3, 
-                4, 
-                5, 
-                6, 
-                7, 
-                8, 
-                9, 
-                10, 
-                11, 
-                12, 
-                13, 
-                14, 
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
                 15
             ];
             $this->Bet = explode(',', $game->bet);
             $this->Balance = $user->balance;
             $this->SymbolGame = [
-                '1', 
-                '2', 
-                '3', 
-                '4', 
-                '5', 
-                '6', 
-                '7', 
-                '8', 
-                '9', 
-                '10', 
-                '11', 
+                '1',
+                '2',
+                '3',
+                '4',
+                '5',
+                '6',
+                '7',
+                '8',
+                '9',
+                '10',
+                '11',
                 '12'
             ];
             $this->Bank = $game->get_gamebank();
@@ -324,41 +315,30 @@ namespace VanguardLTE\Games\NarcosNET
             $this->slotDBId = $game->id;
             $this->slotCurrency = $user->shop->currency;
             $this->count_balance = $user->count_balance;
-            if( $user->address > 0 && $user->count_balance == 0 ) 
-            {
+            if ($user->address > 0 && $user->count_balance == 0) {
                 $this->Percent = 0;
                 $this->jpgPercentZero = true;
+            } else if ($user->count_balance == 0) {
+                $this->Percent = 100;
             }
-            else if( $user->count_balance == 0 ) 
-            {
-                $this->Percent = 100;					
-            }
-            if( !isset($this->user->session) || strlen($this->user->session) <= 0 ) 
-            {
+            if (!isset($this->user->session) || strlen($this->user->session) <= 0) {
                 $this->user->session = serialize([]);
             }
             $this->gameData = unserialize($this->user->session);
-            if( count($this->gameData) > 0 ) 
-            {
-                foreach( $this->gameData as $key => $vl ) 
-                {
-                    if( $vl['timelife'] <= time() ) 
-                    {
+            if (count($this->gameData) > 0) {
+                foreach ($this->gameData as $key => $vl) {
+                    if ($vl['timelife'] <= time()) {
                         unset($this->gameData[$key]);
                     }
                 }
             }
-            if( !isset($this->game->advanced) || strlen($this->game->advanced) <= 0 ) 
-            {
+            if (!isset($this->game->advanced) || strlen($this->game->advanced) <= 0) {
                 $this->game->advanced = serialize([]);
             }
             $this->gameDataStatic = unserialize($this->game->advanced);
-            if( count($this->gameDataStatic) > 0 ) 
-            {
-                foreach( $this->gameDataStatic as $key => $vl ) 
-                {
-                    if( $vl['timelife'] <= time() ) 
-                    {
+            if (count($this->gameDataStatic) > 0) {
+                foreach ($this->gameDataStatic as $key => $vl) {
+                    if ($vl['timelife'] <= time()) {
                         unset($this->gameDataStatic[$key]);
                     }
                 }
@@ -366,26 +346,21 @@ namespace VanguardLTE\Games\NarcosNET
         }
         public function is_active()
         {
-            if( $this->game && $this->shop && $this->user && (!$this->game->view || $this->shop->is_blocked || $this->user->is_blocked || $this->user->status == \VanguardLTE\Support\Enum\UserStatus::BANNED) ) 
-            {
+            if ($this->game && $this->shop && $this->user && (!$this->game->view || $this->shop->is_blocked || $this->user->is_blocked || $this->user->status == \VanguardLTE\Support\Enum\UserStatus::BANNED)) {
                 \VanguardLTE\Session::where('user_id', $this->user->id)->delete();
                 $this->user->update(['remember_token' => null]);
                 return false;
             }
-            if( !$this->game->view ) 
-            {
+            if (!$this->game->view) {
                 return false;
             }
-            if( $this->shop->is_blocked ) 
-            {
+            if ($this->shop->is_blocked) {
                 return false;
             }
-            if( $this->user->is_blocked ) 
-            {
+            if ($this->user->is_blocked) {
                 return false;
             }
-            if( $this->user->status == \VanguardLTE\Support\Enum\UserStatus::BANNED ) 
-            {
+            if ($this->user->status == \VanguardLTE\Support\Enum\UserStatus::BANNED) {
                 return false;
             }
             return true;
@@ -394,41 +369,30 @@ namespace VanguardLTE\Games\NarcosNET
         {
             $timeLife = 86400;
             $this->gameData[$key] = [
-                'timelife' => time() + $timeLife, 
+                'timelife' => time() + $timeLife,
                 'payload' => $value
             ];
         }
         public function GetGameData($key)
         {
-            if( isset($this->gameData[$key]) ) 
-            {
+            if (isset($this->gameData[$key])) {
                 return $this->gameData[$key]['payload'];
-            }
-            else
-            {
+            } else {
                 return 0;
             }
         }
         public function FormatFloat($num)
         {
             $str0 = explode('.', $num);
-            if( isset($str0[1]) ) 
-            {
-                if( strlen($str0[1]) > 4 ) 
-                {
+            if (isset($str0[1])) {
+                if (strlen($str0[1]) > 4) {
                     return round($num * 100) / 100;
-                }
-                else if( strlen($str0[1]) > 2 ) 
-                {
+                } else if (strlen($str0[1]) > 2) {
                     return floor($num * 100) / 100;
-                }
-                else
-                {
+                } else {
                     return $num;
                 }
-            }
-            else
-            {
+            } else {
                 return $num;
             }
         }
@@ -441,12 +405,9 @@ namespace VanguardLTE\Games\NarcosNET
         {
             $allRateCnt = 0;
             $allRate = 0;
-            foreach( $this->Paytable as $vl ) 
-            {
-                foreach( $vl as $vl2 ) 
-                {
-                    if( $vl2 > 0 ) 
-                    {
+            foreach ($this->Paytable as $vl) {
+                foreach ($vl as $vl2) {
+                    if ($vl2 > 0) {
                         $allRateCnt++;
                         $allRate += $vl2;
                         break;
@@ -458,31 +419,24 @@ namespace VanguardLTE\Games\NarcosNET
         public function GetRandomPay()
         {
             $allRate = [];
-            foreach( $this->Paytable as $vl ) 
-            {
-                foreach( $vl as $vl2 ) 
-                {
-                    if( $vl2 > 0 ) 
-                    {
+            foreach ($this->Paytable as $vl) {
+                foreach ($vl as $vl2) {
+                    if ($vl2 > 0) {
                         $allRate[] = $vl2;
                     }
                 }
             }
             shuffle($allRate);
-            if( $this->game->stat_in < ($this->game->stat_out + ($allRate[0] * $this->AllBet)) ) 
-            {
+            if ($this->game->stat_in < ($this->game->stat_out + ($allRate[0] * $this->AllBet))) {
                 $allRate[0] = 0;
             }
             return $allRate[0];
         }
         public function HasGameDataStatic($key)
         {
-            if( isset($this->gameDataStatic[$key]) ) 
-            {
+            if (isset($this->gameDataStatic[$key])) {
                 return true;
-            }
-            else
-            {
+            } else {
                 return false;
             }
         }
@@ -496,54 +450,43 @@ namespace VanguardLTE\Games\NarcosNET
         {
             $timeLife = 86400;
             $this->gameDataStatic[$key] = [
-                'timelife' => time() + $timeLife, 
+                'timelife' => time() + $timeLife,
                 'payload' => $value
             ];
         }
         public function GetGameDataStatic($key)
         {
-            if( isset($this->gameDataStatic[$key]) ) 
-            {
+            if (isset($this->gameDataStatic[$key])) {
                 return $this->gameDataStatic[$key]['payload'];
-            }
-            else
-            {
+            } else {
                 return 0;
             }
         }
         public function HasGameData($key)
         {
-            if( isset($this->gameData[$key]) ) 
-            {
+            if (isset($this->gameData[$key])) {
                 return true;
-            }
-            else
-            {
+            } else {
                 return false;
             }
         }
         public function GetHistory()
         {
             $history = \VanguardLTE\GameLog::whereRaw('game_id=? and user_id=? ORDER BY id DESC LIMIT 10', [
-                $this->slotDBId, 
+                $this->slotDBId,
                 $this->playerId
             ])->get();
             $this->lastEvent = 'NULL';
-            foreach( $history as $log ) 
-            {
+            foreach ($history as $log) {
                 $tmpLog = json_decode($log->str);
-                if( $tmpLog->responseEvent != 'gambleResult' && $tmpLog->responseEvent != 'jackpot' ) 
-                {
+                if ($tmpLog->responseEvent != 'gambleResult' && $tmpLog->responseEvent != 'jackpot') {
                     $this->lastEvent = $log->str;
                     break;
                 }
             }
-            if( isset($tmpLog) ) 
-            {
+            if (isset($tmpLog)) {
                 return $tmpLog;
-            }
-            else
-            {
+            } else {
                 return 'NULL';
             }
         }
@@ -553,42 +496,31 @@ namespace VanguardLTE\Games\NarcosNET
             $count_balance = $this->count_balance;
             $jsum = [];
             $payJack = 0;
-            for( $i = 0; $i < count($this->jpgs); $i++ ) 
-            {
-                if( $count_balance == 0 || $this->jpgPercentZero ) 
-                {
+            for ($i = 0; $i < count($this->jpgs); $i++) {
+                if ($count_balance == 0 || $this->jpgPercentZero) {
                     $jsum[$i] = $this->jpgs[$i]->balance;
-                }
-                else if( $count_balance < $bet ) 
-                {
+                } else if ($count_balance < $bet) {
                     $jsum[$i] = $count_balance / 100 * $this->jpgs[$i]->percent + $this->jpgs[$i]->balance;
-                }
-                else
-                {
+                } else {
                     $jsum[$i] = $bet / 100 * $this->jpgs[$i]->percent + $this->jpgs[$i]->balance;
                 }
-                if( $this->jpgs[$i]->get_pay_sum() < $jsum[$i] && $this->jpgs[$i]->get_pay_sum() > 0 ) 
-                {
-                    if( $this->jpgs[$i]->user_id && $this->jpgs[$i]->user_id != $this->user->id ) 
-                    {
-                    }
-                    else
-                    {
+                if ($this->jpgs[$i]->get_pay_sum() < $jsum[$i] && $this->jpgs[$i]->get_pay_sum() > 0) {
+                    if ($this->jpgs[$i]->user_id && $this->jpgs[$i]->user_id != $this->user->id) {
+                    } else {
                         $payJack = $this->jpgs[$i]->get_pay_sum() / $this->CurrentDenom;
                         $jsum[$i] = $jsum[$i] - $this->jpgs[$i]->get_pay_sum();
                         $this->SetBalance($this->jpgs[$i]->get_pay_sum() / $this->CurrentDenom);
-                        if( $this->jpgs[$i]->get_pay_sum() > 0 ) 
-                        {
+                        if ($this->jpgs[$i]->get_pay_sum() > 0) {
                             \VanguardLTE\StatGame::create([
-                                'user_id' => $this->playerId, 
-                                'balance' => $this->Balance * $this->CurrentDenom, 
-                                'bet' => 0, 
-                                'win' => $this->jpgs[$i]->get_pay_sum(), 
-                                'game' => $this->game->name . ' JPG ' . $this->jpgs[$i]->id, 
-                                'in_game' => 0, 
-                                'in_jpg' => 0, 
-                                'in_profit' => 0, 
-                                'shop_id' => $this->shop_id, 
+                                'user_id' => $this->playerId,
+                                'balance' => $this->Balance * $this->CurrentDenom,
+                                'bet' => 0,
+                                'win' => $this->jpgs[$i]->get_pay_sum(),
+                                'game' => $this->game->name . ' JPG ' . $this->jpgs[$i]->id,
+                                'in_game' => 0,
+                                'in_jpg' => 0,
+                                'in_profit' => 0,
+                                'shop_id' => $this->shop_id,
                                 'date_time' => \Carbon\Carbon::now()
                             ]);
                         }
@@ -596,29 +528,23 @@ namespace VanguardLTE\Games\NarcosNET
                 }
                 $this->jpgs[$i]->balance = $jsum[$i];
                 $this->jpgs[$i]->save();
-                if( $this->jpgs[$i]->balance < $this->jpgs[$i]->get_min('start_balance') ) 
-                {
+                if ($this->jpgs[$i]->balance < $this->jpgs[$i]->get_min('start_balance')) {
                     $summ = $this->jpgs[$i]->get_start_balance();
-                    if( $summ > 0 ) 
-                    {
+                    if ($summ > 0) {
                         $this->jpgs[$i]->add_jpg('add', $summ);
                     }
                 }
             }
-            if( $payJack > 0 ) 
-            {
+            if ($payJack > 0) {
                 $payJack = sprintf('%01.2f', $payJack);
                 $this->Jackpots['jackPay'] = $payJack;
             }
         }
         public function GetBank($slotState = '')
         {
-            if( $this->isBonusStart || $slotState == 'bonus' || $slotState == 'freespin' || $slotState == 'respin' ) 
-            {
+            if ($this->isBonusStart || $slotState == 'bonus' || $slotState == 'freespin' || $slotState == 'respin') {
                 $slotState = 'bonus';
-            }
-            else
-            {
+            } else {
                 $slotState = '';
             }
             $game = $this->game;
@@ -642,12 +568,11 @@ namespace VanguardLTE\Games\NarcosNET
             $strLog .= ' ############################################### ';
             $strLog .= "\n";
             $slg = '';
-            if( file_exists(storage_path('logs/') . $this->slotId . 'Internal.log') ) 
-            {
+            if (file_exists(storage_path('logs/') . $this->slotId . 'Internal.log')) {
                 $slg = file_get_contents(storage_path('logs/') . $this->slotId . 'Internal.log');
             }
             file_put_contents(storage_path('logs/') . $this->slotId . 'Internal.log', $slg . $strLog);
-            exit( '' );
+            exit('');
         }
         public function InternalErrorSilent($errcode)
         {
@@ -658,90 +583,69 @@ namespace VanguardLTE\Games\NarcosNET
             $strLog .= ' ############################################### ';
             $strLog .= "\n";
             $slg = '';
-            if( file_exists(storage_path('logs/') . $this->slotId . 'Internal.log') ) 
-            {
+            if (file_exists(storage_path('logs/') . $this->slotId . 'Internal.log')) {
                 $slg = file_get_contents(storage_path('logs/') . $this->slotId . 'Internal.log');
             }
             file_put_contents(storage_path('logs/') . $this->slotId . 'Internal.log', $slg . $strLog);
         }
         public function SetBank($slotState = '', $sum, $slotEvent = '')
         {
-            if( $this->isBonusStart || $slotState == 'bonus' || $slotState == 'freespin' || $slotState == 'respin' ) 
-            {
+            if ($this->isBonusStart || $slotState == 'bonus' || $slotState == 'freespin' || $slotState == 'respin') {
                 $slotState = 'bonus';
-            }
-            else
-            {
+            } else {
                 $slotState = '';
             }
-            if( $this->GetBank($slotState) + $sum < 0 ) 
-            {
+            if ($this->GetBank($slotState) + $sum < 0) {
                 $this->InternalError('Bank_   ' . $sum . '  CurrentBank_ ' . $this->GetBank($slotState) . ' CurrentState_ ' . $slotState . ' Trigger_ ' . ($this->GetBank($slotState) + $sum));
             }
             $sum = $sum * $this->CurrentDenom;
             $game = $this->game;
             $bankBonusSum = 0;
-            if( $sum > 0 && $slotEvent == 'bet' ) 
-            {
+            if ($sum > 0 && $slotEvent == 'bet') {
                 $this->toGameBanks = 0;
                 $this->toSlotJackBanks = 0;
                 $this->toSysJackBanks = 0;
                 $this->betProfit = 0;
                 $prc = $this->GetPercent();
                 $prc_b = 10;
-                if( $prc <= $prc_b ) 
-                {
+                if ($prc <= $prc_b) {
                     $prc_b = 0;
                 }
                 $count_balance = $this->count_balance;
                 $gameBet = $sum / $this->GetPercent() * 100;
-                if( $count_balance < $gameBet && $count_balance > 0 ) 
-                {
+                if ($count_balance < $gameBet && $count_balance > 0) {
                     $firstBid = $count_balance;
                     $secondBid = $gameBet - $firstBid;
-                    if( isset($this->betRemains0) ) 
-                    {
+                    if (isset($this->betRemains0)) {
                         $secondBid = $this->betRemains0;
                     }
                     $bankSum = $firstBid / 100 * $this->GetPercent();
-					$sum = $bankSum + $secondBid;
-					$bankBonusSum = $firstBid / 100 * $prc_b;
-                }
-                else if( $count_balance > 0 ) 
-                {
+                    $sum = $bankSum + $secondBid;
+                    $bankBonusSum = $firstBid / 100 * $prc_b;
+                } else if ($count_balance > 0) {
                     $bankBonusSum = $gameBet / 100 * $prc_b;
                 }
-                for( $i = 0; $i < count($this->jpgs); $i++ ) 
-                {
-                    if( !$this->jpgPercentZero ) 
-                    {
-                        if( $count_balance < $gameBet && $count_balance > 0 ) 
-
-                    {
-                        $this->toSlotJackBanks += ($count_balance / 100 * $this->jpgs[$i]->percent);
-                    }
-                    else if( $count_balance > 0 ) 
-                    {
-                        $this->toSlotJackBanks += ($gameBet / 100 * $this->jpgs[$i]->percent);
-					}
+                for ($i = 0; $i < count($this->jpgs); $i++) {
+                    if (!$this->jpgPercentZero) {
+                        if ($count_balance < $gameBet && $count_balance > 0) {
+                            $this->toSlotJackBanks += ($count_balance / 100 * $this->jpgs[$i]->percent);
+                        } else if ($count_balance > 0) {
+                            $this->toSlotJackBanks += ($gameBet / 100 * $this->jpgs[$i]->percent);
+                        }
                     }
                 }
                 $this->toGameBanks = $sum;
 
                 $this->betProfit = $gameBet - $this->toGameBanks - $this->toSlotJackBanks - $this->toSysJackBanks;
             }
-            if( $sum > 0 ) 
-            {
+            if ($sum > 0) {
                 $this->toGameBanks = $sum;
-
             }
-            if( $bankBonusSum > 0 ) 
-            {
+            if ($bankBonusSum > 0) {
                 $sum -= $bankBonusSum;
                 $game->set_gamebank($bankBonusSum, 'inc', 'bonus');
             }
-            if( $sum == 0 && $slotEvent == 'bet' && isset($this->betRemains) ) 
-            {
+            if ($sum == 0 && $slotEvent == 'bet' && isset($this->betRemains)) {
                 $sum = $this->betRemains;
             }
             $game->set_gamebank($sum, 'inc', $slotState);
@@ -751,75 +655,55 @@ namespace VanguardLTE\Games\NarcosNET
 
         public function SetBalance($sum, $slotEvent = '')
         {
-            if( $this->GetBalance() + $sum < 0 ) 
-            {
+            if ($this->GetBalance() + $sum < 0) {
                 $this->InternalError('Balance_   ' . $sum);
             }
             $sum = $sum * $this->CurrentDenom;
-            if( $sum < 0 && $slotEvent == 'bet' ) 
-            {
+            if ($sum < 0 && $slotEvent == 'bet') {
                 $user = $this->user;
-                if( $user->count_balance == 0 ) 
-                {
+                if ($user->count_balance == 0) {
                     $remains = [];
                     $this->betRemains = 0;
                     $sm = abs($sum);
-                    if( $user->address < $sm && $user->address > 0 ) 
-                    {
+                    if ($user->address < $sm && $user->address > 0) {
                         $remains[] = $sm - $user->address;
                     }
-                    for( $i = 0; $i < count($remains); $i++ ) 
-                    {
-                        if( $this->betRemains < $remains[$i] ) 
-                        {
+                    for ($i = 0; $i < count($remains); $i++) {
+                        if ($this->betRemains < $remains[$i]) {
                             $this->betRemains = $remains[$i];
                         }
                     }
                 }
-                if( $user->count_balance > 0 && $user->count_balance < abs($sum) ) 
-                {
+                if ($user->count_balance > 0 && $user->count_balance < abs($sum)) {
                     $remains0 = [];
                     $sm = abs($sum);
                     $tmpSum = $sm - $user->count_balance;
                     $this->betRemains0 = $tmpSum;
-                    if( $user->address > 0 ) 
-                    {
+                    if ($user->address > 0) {
                         $this->betRemains0 = 0;
-                        if( $user->address < $tmpSum && $user->address > 0 ) 
-                        {
+                        if ($user->address < $tmpSum && $user->address > 0) {
                             $remains0[] = $tmpSum - $user->address;
                         }
-                        for( $i = 0; $i < count($remains0); $i++ ) 
-                        {
-                            if( $this->betRemains0 < $remains0[$i] ) 
-                            {
+                        for ($i = 0; $i < count($remains0); $i++) {
+                            if ($this->betRemains0 < $remains0[$i]) {
                                 $this->betRemains0 = $remains0[$i];
                             }
                         }
                     }
                 }
                 $sum0 = abs($sum);
-                if( $user->count_balance == 0 ) 
-                {
+                if ($user->count_balance == 0) {
                     $sm = abs($sum);
-                    if( $user->address < $sm && $user->address > 0 ) 
-                    {
+                    if ($user->address < $sm && $user->address > 0) {
                         $user->address = 0;
-                    }
-                    else if( $user->address > 0 ) 
-                    {
+                    } else if ($user->address > 0) {
                         $user->address -= $sm;
                     }
-                }
-                else if( $user->count_balance > 0 && $user->count_balance < $sum0 ) 
-                {
+                } else if ($user->count_balance > 0 && $user->count_balance < $sum0) {
                     $sm = $sum0 - $user->count_balance;
-                    if( $user->address < $sm && $user->address > 0 ) 
-                    {
+                    if ($user->address < $sm && $user->address > 0) {
                         $user->address = 0;
-                    }
-                    else if( $user->address > 0 ) 
-                    {
+                    } else if ($user->address > 0) {
                         $user->address -= $sm;
                     }
                 }
@@ -840,50 +724,38 @@ namespace VanguardLTE\Games\NarcosNET
         public function SaveLogReport($spinSymbols, $bet, $lines, $win, $slotState)
         {
             $reportName = $this->slotId . ' ' . $slotState;
-            if( $slotState == 'freespin' ) 
-            {
+            if ($slotState == 'freespin') {
                 $reportName = $this->slotId . ' FG';
-            }
-            else if( $slotState == 'bet' ) 
-            {
+            } else if ($slotState == 'bet') {
                 $reportName = $this->slotId . '';
-            }
-            else if( $slotState == 'slotGamble' ) 
-            {
+            } else if ($slotState == 'slotGamble') {
                 $reportName = $this->slotId . ' DG';
             }
             $game = $this->game;
-            if( $slotState == 'bet' ) 
-            {
+            if ($slotState == 'bet') {
                 $this->user->update_level('bet', $bet * $this->CurrentDenom);
             }
-            if( $slotState != 'freespin' ) 
-            {
+            if ($slotState != 'freespin') {
                 $game->increment('stat_in', $bet * $this->CurrentDenom);
             }
             $game->increment('stat_out', $win * $this->CurrentDenom);
             $game->tournament_stat($slotState, $this->user->id, $bet * $this->CurrentDenom, $win * $this->CurrentDenom);
             $this->user->update(['last_bid' => \Carbon\Carbon::now()]);
-            if( !isset($this->betProfit) ) 
-            {
+            if (!isset($this->betProfit)) {
                 $this->betProfit = 0;
                 $this->toGameBanks = 0;
                 $this->toSlotJackBanks = 0;
                 $this->toSysJackBanks = 0;
             }
-            if( !isset($this->toGameBanks) ) 
-            {
+            if (!isset($this->toGameBanks)) {
                 $this->toGameBanks = 0;
             }
             $this->game->increment('bids');
             $this->game->refresh();
             $gamebank = \VanguardLTE\GameBank::where(['shop_id' => $game->shop_id])->first();
-            if( $gamebank ) 
-            {
+            if ($gamebank) {
                 list($slotsBank, $bonusBank, $fishBank, $tableBank, $littleBank) = \VanguardLTE\Lib\Banker::get_all_banks($game->shop_id);
-            }
-            else
-            {
+            } else {
                 $slotsBank = $game->get_gamebank('', 'slots');
                 $bonusBank = $game->get_gamebank('bonus', 'bonus');
                 $fishBank = $game->get_gamebank('', 'fish');
@@ -892,37 +764,36 @@ namespace VanguardLTE\Games\NarcosNET
             }
             $totalBank = $slotsBank + $bonusBank + $fishBank + $tableBank + $littleBank;
             \VanguardLTE\GameLog::create([
-                'game_id' => $this->slotDBId, 
-                'user_id' => $this->playerId, 
-                'ip' => $_SERVER['REMOTE_ADDR'], 
-                'str' => $spinSymbols, 
+                'game_id' => $this->slotDBId,
+                'user_id' => $this->playerId,
+                'ip' => $_SERVER['REMOTE_ADDR'],
+                'str' => $spinSymbols,
                 'shop_id' => $this->shop_id
             ]);
             \VanguardLTE\StatGame::create([
-                'user_id' => $this->playerId, 
-                'balance' => $this->Balance * $this->CurrentDenom, 
-                'bet' => $bet * $this->CurrentDenom, 
-                'win' => $win * $this->CurrentDenom, 
-                'game' => $reportName, 
-                'in_game' => $this->toGameBanks, 
-                'in_jpg' => $this->toSlotJackBanks, 
-                'in_profit' => $this->betProfit, 
-                'denomination' => $this->CurrentDenom, 
-                'shop_id' => $this->shop_id, 
-                'slots_bank' => (double)$slotsBank, 
-                'bonus_bank' => (double)$bonusBank, 
-                'fish_bank' => (double)$fishBank, 
-                'table_bank' => (double)$tableBank, 
-                'little_bank' => (double)$littleBank, 
-                'total_bank' => (double)$totalBank, 
+                'user_id' => $this->playerId,
+                'balance' => $this->Balance * $this->CurrentDenom,
+                'bet' => $bet * $this->CurrentDenom,
+                'win' => $win * $this->CurrentDenom,
+                'game' => $reportName,
+                'in_game' => $this->toGameBanks,
+                'in_jpg' => $this->toSlotJackBanks,
+                'in_profit' => $this->betProfit,
+                'denomination' => $this->CurrentDenom,
+                'shop_id' => $this->shop_id,
+                'slots_bank' => (float)$slotsBank,
+                'bonus_bank' => (float)$bonusBank,
+                'fish_bank' => (float)$fishBank,
+                'table_bank' => (float)$tableBank,
+                'little_bank' => (float)$littleBank,
+                'total_bank' => (float)$totalBank,
                 'date_time' => \Carbon\Carbon::now()
             ]);
         }
         public function GetSpinSettings($garantType = 'bet', $bet, $lines)
         {
             $curField = 10;
-            switch( $lines ) 
-            {
+            switch ($lines) {
                 case 10:
                     $curField = 10;
                     break;
@@ -949,12 +820,9 @@ namespace VanguardLTE\Games\NarcosNET
                     $curField = 10;
                     break;
             }
-            if( $garantType != 'bet' ) 
-            {
+            if ($garantType != 'bet') {
                 $pref = '_bonus';
-            }
-            else
-            {
+            } else {
                 $pref = '';
             }
             $this->AllBet = $bet * $lines;
@@ -964,13 +832,11 @@ namespace VanguardLTE\Games\NarcosNET
             $currentSpinWinChance = 0;
             $currentBonusWinChance = 0;
             $percentLevel = '';
-            foreach( $linesPercentConfigSpin['line' . $curField . $pref] as $k => $v ) 
-            {
+            foreach ($linesPercentConfigSpin['line' . $curField . $pref] as $k => $v) {
                 $l = explode('_', $k);
                 $l0 = $l[0];
                 $l1 = $l[1];
-                if( $l0 <= $currentPercent && $currentPercent <= $l1 ) 
-                {
+                if ($l0 <= $currentPercent && $currentPercent <= $l1) {
                     $percentLevel = $k;
                     break;
                 }
@@ -978,105 +844,82 @@ namespace VanguardLTE\Games\NarcosNET
             $currentSpinWinChance = $linesPercentConfigSpin['line' . $curField . $pref][$percentLevel];
             $currentBonusWinChance = $linesPercentConfigBonus['line' . $curField . $pref][$percentLevel];
             $RtpControlCount = 200;
-            if( !$this->HasGameDataStatic('SpinWinLimit') ) 
-            {
+            if (!$this->HasGameDataStatic('SpinWinLimit')) {
                 $this->SetGameDataStatic('SpinWinLimit', 0);
             }
-            if( !$this->HasGameDataStatic('RtpControlCount') ) 
-            {
+            if (!$this->HasGameDataStatic('RtpControlCount')) {
                 $this->SetGameDataStatic('RtpControlCount', $RtpControlCount);
             }
-            if( $this->game->stat_in > 0 ) 
-            {
+            if ($this->game->stat_in > 0) {
                 $rtpRange = $this->game->stat_out / $this->game->stat_in * 100;
-            }
-            else
-            {
+            } else {
                 $rtpRange = 0;
             }
-            if( $this->GetGameDataStatic('RtpControlCount') == 0 ) 
-            {
-                if( $currentPercent + rand(1, 2) < $rtpRange && $this->GetGameDataStatic('SpinWinLimit') <= 0 ) 
-                {
+            if ($this->GetGameDataStatic('RtpControlCount') == 0) {
+                if ($currentPercent + rand(1, 2) < $rtpRange && $this->GetGameDataStatic('SpinWinLimit') <= 0) {
                     $this->SetGameDataStatic('SpinWinLimit', rand(25, 50));
                 }
-                if( $pref == '' && $this->GetGameDataStatic('SpinWinLimit') > 0 ) 
-                {
+                if ($pref == '' && $this->GetGameDataStatic('SpinWinLimit') > 0) {
                     $currentBonusWinChance = 5000;
                     $currentSpinWinChance = 20;
                     $this->MaxWin = rand(1, 5);
-                    if( $rtpRange < ($currentPercent - 1) ) 
-                    {
+                    if ($rtpRange < ($currentPercent - 1)) {
                         $this->SetGameDataStatic('SpinWinLimit', 0);
                         $this->SetGameDataStatic('RtpControlCount', $this->GetGameDataStatic('RtpControlCount') - 1);
                     }
                 }
-            }
-            else if( $this->GetGameDataStatic('RtpControlCount') < 0 ) 
-            {
-                if( $currentPercent + rand(1, 2) < $rtpRange && $this->GetGameDataStatic('SpinWinLimit') <= 0 ) 
-                {
+            } else if ($this->GetGameDataStatic('RtpControlCount') < 0) {
+                if ($currentPercent + rand(1, 2) < $rtpRange && $this->GetGameDataStatic('SpinWinLimit') <= 0) {
                     $this->SetGameDataStatic('SpinWinLimit', rand(25, 50));
                 }
                 $this->SetGameDataStatic('RtpControlCount', $this->GetGameDataStatic('RtpControlCount') - 1);
-                if( $pref == '' && $this->GetGameDataStatic('SpinWinLimit') > 0 ) 
-                {
+                if ($pref == '' && $this->GetGameDataStatic('SpinWinLimit') > 0) {
                     $currentBonusWinChance = 5000;
                     $currentSpinWinChance = 20;
                     $this->MaxWin = rand(1, 5);
-                    if( $rtpRange < ($currentPercent - 1) ) 
-                    {
+                    if ($rtpRange < ($currentPercent - 1)) {
                         $this->SetGameDataStatic('SpinWinLimit', 0);
                     }
                 }
-                if( $this->GetGameDataStatic('RtpControlCount') < (-1 * $RtpControlCount) && $currentPercent - 1 <= $rtpRange && $rtpRange <= ($currentPercent + 2) ) 
-                {
+                if ($this->GetGameDataStatic('RtpControlCount') < (-1 * $RtpControlCount) && $currentPercent - 1 <= $rtpRange && $rtpRange <= ($currentPercent + 2)) {
                     $this->SetGameDataStatic('RtpControlCount', $RtpControlCount);
                 }
-            }
-            else
-            {
+            } else {
                 $this->SetGameDataStatic('RtpControlCount', $this->GetGameDataStatic('RtpControlCount') - 1);
             }
             $bonusWin = rand(1, $currentBonusWinChance);
             $spinWin = rand(1, $currentSpinWinChance);
             $return = [
-                'none', 
+                'none',
                 0
             ];
-            if( $bonusWin == 1 && $this->slotBonus ) 
-            {
+            if ($bonusWin == 1 && $this->slotBonus) {
                 $this->isBonusStart = true;
                 $garantType = 'bonus';
                 $winLimit = $this->GetBank($garantType);
                 $return = [
-                    'bonus', 
+                    'bonus',
                     $winLimit
                 ];
-                if( $this->game->stat_in < ($this->CheckBonusWin() * $bet + $this->game->stat_out) || $winLimit < ($this->CheckBonusWin() * $bet) ) 
-                {
+                if ($this->game->stat_in < ($this->CheckBonusWin() * $bet + $this->game->stat_out) || $winLimit < ($this->CheckBonusWin() * $bet)) {
                     $return = [
-                        'none', 
+                        'none',
                         0
                     ];
                 }
-            }
-            else if( $spinWin == 1 ) 
-            {
+            } else if ($spinWin == 1) {
                 $winLimit = $this->GetBank($garantType);
                 $return = [
-                    'win', 
+                    'win',
                     $winLimit
                 ];
             }
-            if( $garantType == 'bet' && $this->GetBalance() <= (2 / $this->CurrentDenom) ) 
-            {
+            if ($garantType == 'bet' && $this->GetBalance() <= (2 / $this->CurrentDenom)) {
                 $randomPush = rand(1, 10);
-                if( $randomPush == 1 ) 
-                {
+                if ($randomPush == 1) {
                     $winLimit = $this->GetBank('');
                     $return = [
-                        'win', 
+                        'win',
                         $winLimit
                     ];
                 }
@@ -1086,8 +929,7 @@ namespace VanguardLTE\Games\NarcosNET
         public function getNewSpin($game, $spinWin = 0, $bonusWin = 0, $lines, $garantType = 'bet')
         {
             $curField = 10;
-            switch( $lines ) 
-            {
+            switch ($lines) {
                 case 10:
                     $curField = 10;
                     break;
@@ -1114,20 +956,15 @@ namespace VanguardLTE\Games\NarcosNET
                     $curField = 10;
                     break;
             }
-            if( $garantType != 'bet' ) 
-            {
+            if ($garantType != 'bet') {
                 $pref = '_bonus';
-            }
-            else
-            {
+            } else {
                 $pref = '';
             }
-            if( $spinWin ) 
-            {
+            if ($spinWin) {
                 $win = explode(',', $game->game_win->{'winline' . $pref . $curField});
             }
-            if( $bonusWin ) 
-            {
+            if ($bonusWin) {
                 $win = explode(',', $game->game_win->{'winbonus' . $pref . $curField});
             }
             $number = rand(0, count($win) - 1);
@@ -1136,61 +973,43 @@ namespace VanguardLTE\Games\NarcosNET
         public function GetRandomScatterPos($rp, $rsym)
         {
             $rpResult = [];
-            for( $i = 0; $i < count($rp); $i++ ) 
-            {
-                if( $rp[$i] == $rsym ) 
-                {
-                    if( $rsym == '2' ) 
-                    {
-                        if( isset($rp[$i + 1]) && isset($rp[$i - 1]) ) 
-                        {
+            for ($i = 0; $i < count($rp); $i++) {
+                if ($rp[$i] == $rsym) {
+                    if ($rsym == '2') {
+                        if (isset($rp[$i + 1]) && isset($rp[$i - 1])) {
                             array_push($rpResult, $i + 1);
                         }
-                    }
-                    else
-                    {
-                        if( isset($rp[$i + 1]) && isset($rp[$i - 1]) ) 
-                        {
+                    } else {
+                        if (isset($rp[$i + 1]) && isset($rp[$i - 1])) {
                             array_push($rpResult, $i);
                         }
-                        if( isset($rp[$i - 1]) && isset($rp[$i - 2]) ) 
-                        {
+                        if (isset($rp[$i - 1]) && isset($rp[$i - 2])) {
                             array_push($rpResult, $i - 1);
                         }
-                        if( isset($rp[$i + 1]) && isset($rp[$i + 2]) ) 
-                        {
+                        if (isset($rp[$i + 1]) && isset($rp[$i + 2])) {
                             array_push($rpResult, $i + 1);
                         }
                     }
                 }
             }
             shuffle($rpResult);
-            if( !isset($rpResult[0]) ) 
-            {
+            if (!isset($rpResult[0])) {
                 $rpResult[0] = rand(2, count($rp) - 3);
             }
             return $rpResult[0];
         }
         public function GetCluster($reels)
         {
-            for( $p = 0; $p <= 2; $p++ ) 
-            {
-                for( $r = 1; $r <= 5; $r++ ) 
-                {
-                    if( $reels['reel' . $r][$p] == '2' ) 
-                    {
-                        if( $p == 0 && $r == 1 ) 
-                        {
+            for ($p = 0; $p <= 2; $p++) {
+                for ($r = 1; $r <= 5; $r++) {
+                    if ($reels['reel' . $r][$p] == '2') {
+                        if ($p == 0 && $r == 1) {
                             $reels['reel' . $r][$p] = '2c';
-                        }
-                        else
-                        {
-                            if( isset($reels['reel' . ($r - 1)][$p]) && $reels['reel' . ($r - 1)][$p] == '2c' ) 
-                            {
+                        } else {
+                            if (isset($reels['reel' . ($r - 1)][$p]) && $reels['reel' . ($r - 1)][$p] == '2c') {
                                 $reels['reel' . $r][$p] = '2c';
                             }
-                            if( isset($reels['reel' . $r][$p - 1]) && $reels['reel' . $r][$p - 1] == '2c' ) 
-                            {
+                            if (isset($reels['reel' . $r][$p - 1]) && $reels['reel' . $r][$p - 1] == '2c') {
                                 $reels['reel' . $r][$p] = '2c';
                             }
                         }
@@ -1207,86 +1026,71 @@ namespace VanguardLTE\Games\NarcosNET
         public function GetReelStrips($winType, $slotEvent)
         {
             $game = $this->game;
-            if( $slotEvent == 'freespin' ) 
-            {
+            if ($slotEvent == 'freespin') {
                 $reel = new GameReel();
                 $fArr = $reel->reelsStripBonus;
-                foreach( [
-                    'reelStrip1', 
-                    'reelStrip2', 
-                    'reelStrip3', 
-                    'reelStrip4', 
-                    'reelStrip5', 
-                    'reelStrip6'
-                ] as $reelStrip ) 
-                {
+                foreach (
+                    [
+                        'reelStrip1',
+                        'reelStrip2',
+                        'reelStrip3',
+                        'reelStrip4',
+                        'reelStrip5',
+                        'reelStrip6'
+                    ] as $reelStrip
+                ) {
                     $curReel = array_shift($fArr);
-                    if( count($curReel) ) 
-                    {
+                    if (count($curReel)) {
                         $this->$reelStrip = $curReel;
                     }
                 }
             }
-            if( $winType != 'bonus' ) 
-            {
+            if ($winType != 'bonus') {
                 $prs = [];
-                foreach( [
-                    'reelStrip1', 
-                    'reelStrip2', 
-                    'reelStrip3', 
-                    'reelStrip4', 
-                    'reelStrip5', 
-                    'reelStrip6'
-                ] as $index => $reelStrip ) 
-                {
-                    if( is_array($this->$reelStrip) && count($this->$reelStrip) > 0 ) 
-                    {
+                foreach (
+                    [
+                        'reelStrip1',
+                        'reelStrip2',
+                        'reelStrip3',
+                        'reelStrip4',
+                        'reelStrip5',
+                        'reelStrip6'
+                    ] as $index => $reelStrip
+                ) {
+                    if (is_array($this->$reelStrip) && count($this->$reelStrip) > 0) {
                         $prs[$index + 1] = mt_rand(0, count($this->$reelStrip) - 3);
                     }
                 }
-            }
-            else
-            {
+            } else {
                 $randomBonusType = rand(1, 2);
-                if( $randomBonusType == 1 ) 
-                {
+                if ($randomBonusType == 1) {
                     $reelsId = [
-                        1, 
-                        2, 
-                        3, 
-                        4, 
+                        1,
+                        2,
+                        3,
+                        4,
                         5
                     ];
-                    for( $i = 0; $i < count($reelsId); $i++ ) 
-                    {
-                        if( $i == 0 || $i == 2 || $i == 4 ) 
-                        {
+                    for ($i = 0; $i < count($reelsId); $i++) {
+                        if ($i == 0 || $i == 2 || $i == 4) {
                             $prs[$reelsId[$i]] = $this->GetRandomScatterPos($this->{'reelStrip' . $reelsId[$i]}, '0');
-                        }
-                        else
-                        {
+                        } else {
                             $prs[$reelsId[$i]] = rand(0, count($this->{'reelStrip' . $reelsId[$i]}) - 3);
                         }
                     }
-                }
-                else
-                {
+                } else {
                     $reelsId = [
-                        1, 
-                        2, 
-                        3, 
-                        4, 
+                        1,
+                        2,
+                        3,
+                        4,
                         5
                     ];
                     $sCnt = rand(3, 5);
-                    for( $i = 0; $i < count($reelsId); $i++ ) 
-                    {
-                        if( $i < $sCnt ) 
-                        {
+                    for ($i = 0; $i < count($reelsId); $i++) {
+                        if ($i < $sCnt) {
                             $prs[$reelsId[$i]] = $this->GetRandomScatterPos($this->{'reelStrip' . $reelsId[$i]}, '2');
-                        }
-                        else
-                        {
+                        } else {
                             $prs[$reelsId[$i]] = rand(0, count($this->{'reelStrip' . $reelsId[$i]}) - 3);
                         }
                     }
@@ -1295,8 +1099,7 @@ namespace VanguardLTE\Games\NarcosNET
             $reel = [
                 'rp' => []
             ];
-            foreach( $prs as $index => $value ) 
-            {
+            foreach ($prs as $index => $value) {
                 $key = $this->{'reelStrip' . $index};
                 $cnt = count($key);
                 $key[-1] = $key[$cnt - 1];
@@ -1310,5 +1113,4 @@ namespace VanguardLTE\Games\NarcosNET
             return $reel;
         }
     }
-
 }
