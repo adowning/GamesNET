@@ -1,0 +1,22 @@
+{
+    "name": "gamesnet/casino-framework",
+    "description": "Stateless casino gaming framework",
+    "type": "project",
+    "require": {
+        "php": "^8.0",
+        "workerman/workerman": "^5.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Models\\": "Models/",
+            "Services\\": "Models/Services/",
+            "Games\\": ""
+        }
+    },
+    "scripts": {
+        "start": "php workerman_server_example.php start",
+        "start-d": "php workerman_server_example.php start -d",
+        "status": "curl http://localhost:8787",
+        "test": "curl -X POST http://localhost:8787 -H 'Content-Type: application/json' -d '{\"user\":{\"id\":1},\"game\":{\"id\":1},\"shop\":{\"id\":1},\"jpg\":{\"id\":1},\"gameBank\":{\"id\":1}}'"
+    }
+}

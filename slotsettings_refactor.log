@@ -1,0 +1,36 @@
+[0;34m[2025-11-21 23:32:49][0m Starting SlotSettings refactoring...
+[0;34m[2025-11-21 23:32:49][0m Games to skip: StarBurstNET HalloweenJackNET
+[0;34m[2025-11-21 23:32:49][0m Created backup directory: .slotsettings_backups
+[1;33m[2025-11-21 23:32:49] WARNING:[0m SlotSettings.php not found in CreatureFromTheBlackLagoonNET/
+[1;33m[2025-11-21 23:32:49] WARNING:[0m SlotSettings.php not found in DazzleMeNET/
+[1;33m[2025-11-21 23:32:49] WARNING:[0m SlotSettings.php not found in FlowersChristmasNET/
+[1;33m[2025-11-21 23:32:49] WARNING:[0m SlotSettings.php not found in FlowersNET/
+[1;33m[2025-11-21 23:32:49] WARNING:[0m SlotSettings.php not found in FortuneRangersNET/
+[1;33m[2025-11-21 23:32:49] WARNING:[0m SlotSettings.php not found in FruitShopChristmasNET/
+[1;33m[2025-11-21 23:32:49] WARNING:[0m SlotSettings.php not found in FruitShopNET/
+[1;33m[2025-11-21 23:32:49] WARNING:[0m SlotSettings.php not found in GoBananasNET/
+[1;33m[2025-11-21 23:32:49] WARNING:[0m SlotSettings.php not found in GoldenGrimoireNET/
+[1;33m[2025-11-21 23:32:49] WARNING:[0m SlotSettings.php not found in GrandSpinnSuperpotNET/
+[1;33m[2025-11-21 23:32:49] WARNING:[0m SlotSettings.php not found in HalloweenJackNET/
+[1;33m[2025-11-21 23:32:49] WARNING:[0m SlotSettings.php not found in JumanjiNET/
+[1;33m[2025-11-21 23:32:49] WARNING:[0m SlotSettings.php not found in LightsNET/
+[1;33m[2025-11-21 23:32:49] WARNING:[0m SlotSettings.php not found in NarcosNET/
+[1;33m[2025-11-21 23:32:49] WARNING:[0m SlotSettings.php not found in ReelRush2NET/
+[1;33m[2025-11-21 23:32:49] WARNING:[0m SlotSettings.php not found in SantaVSRudolphNET/
+[1;33m[2025-11-21 23:32:49] WARNING:[0m SlotSettings.php not found in SpaceWarsNET/
+[1;33m[2025-11-21 23:32:49] WARNING:[0m SlotSettings.php not found in StarBurstNET/
+[1;33m[2025-11-21 23:32:49] WARNING:[0m SlotSettings.php not found in TheWolfsBaneNET/
+[1;33m[2025-11-21 23:32:49] WARNING:[0m SlotSettings.php not found in TurnYourFortuneNET/
+[1;33m[2025-11-21 23:32:49] WARNING:[0m SlotSettings.php not found in VikingsNET/
+[1;33m[2025-11-21 23:32:49] WARNING:[0m SlotSettings.php not found in WildWaterNET/
+[1;33m[2025-11-21 23:32:49] WARNING:[0m SlotSettings.php not found in WingsOfRichesNET/
+[0;34m[2025-11-21 23:32:49][0m Refactoring complete!
+[0;34m[2025-11-21 23:32:49][0m Successful: 0
+[0;34m[2025-11-21 23:32:49][0m Failed: 0
+[0;32m[2025-11-21 23:32:49] SUCCESS:[0m All files refactored successfully!
+[0;34m[2025-11-21 23:33:27][0m Starting SlotSettings refactoring...
+[0;34m[2025-11-21 23:33:27][0m Games to skip: StarBurstNET HalloweenJackNET
+[0;34m[2025-11-21 23:33:27][0m Found game: ReelRush2 at ./ReelRush2NET/SlotSettings.php
+[0;34m[2025-11-21 23:33:27][0m Processing ReelRush2...
+[0;34m[2025-11-21 23:33:27][0m Created backup: .slotsettings_backups/ReelRush2_SlotSettings.php.backup
+[0;32m[2025-11-21 23:33:27] SUCCESS:[0m Successfully refactored ReelRush2
