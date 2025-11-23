@@ -21,7 +21,7 @@ namespace Games\SantaVSRudolphNET {
         ];
         public function __construct()
         {
-            $temp = file(base_path() . '/app/Games/SantaVSRudolphNET/reels.txt');
+            $temp = file(__DIR__ . '/app/Games/SantaVSRudolphNET/reels.txt');
             foreach ($temp as $str) {
                 $str = explode('=', $str);
                 if (isset($this->reelsStrip[$str[0]])) {

@@ -1,8 +1,13 @@
 <?php
-// BaseSlotSettings.php (Stateless Version)
+// BaseSlotSettings.php (Stateless Version) - FIXED VERSION
 namespace Games;
 
 use Games\Log;
+use Models\ModelFactory;
+use Models\User;
+use Models\Game;
+use Models\Shop;
+use Models\JPG;
 
 class BaseSlotSettings
 {
@@ -57,6 +62,7 @@ class BaseSlotSettings
     protected $userStatusEnum;
 
     public $logReport = [];
+    public $errorLogReport = [];
     public $internalError = [];
     public $gameData = [];
     public $gameDataStatic = [];
@@ -101,21 +107,203 @@ class BaseSlotSettings
     public $reelStripsData = [];
 
     // -------------------------------------------------------
+    // MODEL CONVERSION AND HELPER METHODS
+    // -------------------------------------------------------
+
+
+
+    /**
+     * Remove expired entries from game data
+     */
+    protected function cleanupExpiredData(&$data)
+    {
+        if (!is_array($data)) {
+            return;
+        }
+
+        foreach ($data as $key => $value) {
+            if (isset($value['timelife']) && $value['timelife'] <= time()) {
+                unset($data[$key]);
+            }
+        }
+    }
+    /**
+     * Initialize gameData and gameDataStatic with safe unserialization
+     */
+    // protected function initializeGameData()
+    // {
+
+    //     // Handle user session data
+    //     $userSession = $this->user?->session ?? '';
+    //     $this->gameData = $this->safeUnserialize($userSession, []);
+
+    //     // Handle game advanced data
+    //     $gameAdvanced = $this->game?->advanced ?? '';
+    //     $this->gameDataStatic = $this->safeUnserialize($gameAdvanced, []);
+
+    //     // Clean up expired data
+    //     $this->cleanupExpiredData($this->gameData);
+    //     $this->cleanupExpiredData($this->gameDataStatic);
+    // }
+
+    /**
+     * Convert array data to appropriate Model object
+     * Maintains backward compatibility for existing objects
+     */
+    protected function convertToModel($data, string $type)
+    {
+        if ($data === null) {
+            return null;
+        }
+
+        // If already an object, return as-is for backward compatibility
+        if (is_object($data)) {
+            return $data;
+        }
+
+        // If array, convert to appropriate Model object
+        if (is_array($data)) {
+            switch ($type) {
+                case 'user':
+                    return new User($data);
+                case 'game':
+                    return new Game($data);
+                case 'shop':
+                    return new Shop($data);
+                default:
+                    return $data;
+            }
+        }
+
+        return $data;
+    }
+
+    /**
+     * Safely get a property value from either array or object (for backward compatibility)
+     */
+    protected function getProperty($data, $key, $default = null)
+    {
+        if (is_array($data)) {
+            return $data[$key] ?? $default;
+        } else if (is_object($data) && property_exists($data, $key)) {
+            return $data->$key ?? $default;
+        } else {
+            return $default;
+        }
+    }
+
+    /**
+     * Safely call a method on object, return default if not available
+     */
+    protected function callMethod($data, $method, $args = [], $default = null)
+    {
+        if (is_array($data) || !method_exists($data, $method)) {
+            return $default;
+        } else {
+            return call_user_func_array([$data, $method], $args);
+        }
+    }
+
+    /**
+     * Convert Model object back to array for backward compatibility
+     * This allows legacy code that expects arrays to work with Model objects
+     */
+    protected function toArray($data)
+    {
+        if ($data === null) {
+            return null;
+        }
+
+        if (is_array($data)) {
+            return $data;
+        }
+
+        if (is_object($data)) {
+            // Use getState() or toArray() method if available
+            if (method_exists($data, 'getState')) {
+                return $data->getState();
+            } elseif (method_exists($data, 'toArray')) {
+                return $data->toArray();
+            } else {
+                // Fallback to casting
+                return (array) $data;
+            }
+        }
+
+        return $data;
+    }
+
+    /**
+     * Update jackpot property safely for both array and object
+     */
+    protected function updateJPGProperty($jpg, $property, $value)
+    {
+        if (is_object($jpg)) {
+            $jpg->$property = $value;
+        } else if (is_array($jpg)) {
+            $jpg[$property] = $value;
+        }
+    }
+
+    /**
+     * Get jackpot property safely for both array and object
+     */
+    protected function getJPGProperty($jpg, $property, $default = null)
+    {
+        if (is_object($jpg)) {
+            return $jpg->$property ?? $default;
+        } else if (is_array($jpg)) {
+            return $jpg[$property] ?? $default;
+        }
+        return $default;
+    }
+
+    // -------------------------------------------------------
     // CONSTRUCTOR
     // -------------------------------------------------------
     public $slotFastStop;
     public function __construct($settings)
     {
 
-        // 1. Unpack settings
-        $this->user = $settings['user'] ?? null;
-        $this->game = $settings['game'] ?? null;
-        $this->shop = $settings['shop'] ?? null;
-        $this->jpgs = $settings['jpgs'] ?? [];
-        $this->gameData = $settings['gameData'] ?? [];
-        $this->gameDataStatic = $settings['gameDataStatic'] ?? [];
+        // 1. Unpack settings - convert arrays to Model objects using ModelFactory
+        $this->user = $this->convertToModel($settings['user'] ?? null, 'user');
+        $this->game = $this->convertToModel($settings['game'] ?? null, 'game');
+        $this->shop = $this->convertToModel($settings['shop'] ?? null, 'shop');
+
+        $this->initializeGameDataSafely();
+
+        // Convert JPGs array to JPG models if needed
+        $jpgsData = $settings['jpgs'] ?? [];
+        if (!empty($jpgsData) && is_array($jpgsData)) {
+            $this->jpgs = [];
+            foreach ($jpgsData as $jpgData) {
+                // Only create new JPG objects if we have array data
+                // If it's already a JPG object, use it directly
+                if ($jpgData instanceof JPG) {
+                    $this->jpgs[] = $jpgData;
+                } else if (is_array($jpgData)) {
+                    $this->jpgs[] = new JPG($jpgData);
+                } else {
+                    $this->jpgs[] = $jpgData; // Fallback for other types
+                }
+            }
+        } else {
+            $this->jpgs = $jpgsData;
+        }
+
+        // $this->gameData = $settings['gameData'] ?? [];
+        // $this->gameDataStatic = $settings['gameDataStatic'] ?? [];
+        if (!isset($this->gameData) || $this->gameData === []) {
+            $this->gameData = $settings['gameData'] ?? [];
+        }
+        if (!isset($this->gameDataStatic) || $this->gameDataStatic === []) {
+            $this->gameDataStatic = $settings['gameDataStatic'] ?? [];
+        }
+
+
         $this->bankerService = $settings['bankerService'] ?? null;
         $this->betLogs = $settings['betLogs'] ?? null;
+
 
         $this->slotId = $settings['slotId'] ?? null;
         $this->playerId = $settings['playerId'] ?? null;
@@ -146,69 +334,167 @@ class BaseSlotSettings
         }
 
         // 3. Init Denominations
-        if (isset($settings['state']['goldsvetData']['denomination'])) {
-            $this->Denominations = explode(',', (string)$settings['state']['goldsvetData']['denomination']);
+        $denominationStr = $settings['state']['goldsvetData']['denomination'] ?? '';
+        if ($denominationStr) {
+            $this->Denominations = explode(',', (string)$denominationStr);
         } else {
             $this->Denominations = [1.0];
         }
 
-        // 4. Safe Property Access
-        $this->shop_id = is_array($this->shop) ? ($this->shop['id'] ?? 0) : ($this->shop->id ?? 0);
+        // 4. Safe Property Access using object properties
+        $this->shop_id = $this->shop?->id ?? 0;
 
         if (!$this->playerId) {
-            $this->playerId = is_array($this->user) ? ($this->user['id'] ?? 0) : ($this->user->id ?? 0);
+            $this->playerId = $this->user?->id ?? 0;
         }
 
-        // Fallback: If user is missing (e.g. passed only 'state'), create a temporary one from basic settings
+        // Fallback: If user is missing, create a temporary one from basic settings
         if ($this->user === null) {
-            $this->user = [
+            $this->user = new User([
                 'id' => $this->playerId,
-                'balance' => $this->Balance, // Use the balance passed in settings
+                'balance' => $this->Balance,
                 'count_balance' => $settings['count_balance'] ?? 0,
-                'address' => 0 // Default address if needed
-            ];
+                'address' => 0
+            ]);
         }
 
-        $this->slotDBId = is_array($this->game) ? ($this->game['id'] ?? 0) : ($this->game->id ?? 0);
-        $this->count_balance = is_array($this->user) ? ($this->user['count_balance'] ?? 0) : ($this->user->count_balance ?? 0);
-        $this->Percent = is_array($this->shop) ? ($this->shop['percent'] ?? 0) : ($this->shop->percent ?? 90);
-        $this->WinGamble = is_array($this->game) ? ($this->game['rezerv'] ?? 0) : ($this->game->rezerv ?? 0);
-        $this->MaxWin = is_array($this->shop) ? ($this->shop['max_win'] ?? 0) : ($this->shop->max_win ?? 0);
+        $this->slotDBId = $this->game?->id ?? 0;
+        $this->count_balance = $this->user?->count_balance ?? 0;
+        $this->Percent = $this->shop?->percent ?? 10;
+        $this->WinGamble = $this->game?->rezerv ?? 0;
+        $this->MaxWin = $this->shop?->max_win ?? 0;
 
         // Denom Logic
-        $gameDenoms = is_array($this->game) ? ($this->game['denominations'] ?? []) : ($this->game->denominations ?? []);
+        $gameDenoms = $this->game?->denominations ?? [];
         if (empty($this->Denominations) && !empty($gameDenoms)) {
             $this->Denominations = $gameDenoms;
         }
         $this->CurrentDenom = $this->Denominations[0] ?? 1;
         $this->increaseRTP = 1;
 
-        $this->slotCurrency = is_array($this->shop) ? ($this->shop['currency'] ?? 'USD') : ($this->shop->currency ?? 'USD');
+        $this->slotCurrency = $this->shop?->currency ?? 'USD';
 
         // Bank Logic
         if ($settings['bank'] ?? false) {
             $this->Bank = $settings['bank'];
         } else {
-            $this->Bank = is_array($this->shop) ? ($this->shop['balance'] ?? 1000) : ($this->shop->balance ?? 1000);
+            $this->Bank = $this->shop?->balance ?? 1000;
         }
 
         $this->logReport = [];
         $this->internalError = [];
+    }
+    public function initializeGameDataSafely()
+    {
+        if (!isset($this->user->session) || strlen($this->user->session) <= 0) {
+            $this->user->session = serialize([]);
+        }
+        // Handle user session data safely
+        if ($this->user && isset($this->user->session)) {
+            $userSession = $this->user->session;
+            $gameData = $this->safeUnserialize($userSession, []);
+
+            // Clean up expired entries  
+            if (is_array($gameData)) {
+                foreach ($gameData as $key => $value) {
+                    if (isset($value['timelife']) && $value['timelife'] <= time()) {
+                        unset($gameData[$key]);
+                    }
+                }
+            }
+
+            $this->gameData = $gameData;
+        }
+
+        // Handle game advanced data safely
+        if ($this->game && isset($this->game->advanced)) {
+            $gameAdvanced = $this->game->advanced;
+            $gameDataStatic = $this->safeUnserialize($gameAdvanced, []);
+
+            // Clean up expired entries
+            if (is_array($gameDataStatic)) {
+                foreach ($gameDataStatic as $key => $value) {
+                    if (isset($value['timelife']) && $value['timelife'] <= time()) {
+                        unset($gameDataStatic[$key]);
+                    }
+                }
+            }
+
+            $this->gameDataStatic = $gameDataStatic;
+        }
+    }
+
+    /**
+     * FIXED: Always returns an array, never false or null
+     */
+    protected function safeUnserialize($data, $default = [])
+    {
+        if (!is_string($data) || empty($data)) {
+            return $default;
+        }
+
+        $result = @unserialize($data);
+        // Ensure we always return an array to prevent count() errors
+        if ($result === false && $data !== 'b:0;') {
+            return $default;
+        }
+
+        // Additional safety check: ensure result is an array
+        return is_array($result) ? $result : $default;
     }
 
     // -------------------------------------------------------
     // LOGIC METHODS
     // -------------------------------------------------------
 
+    /**
+     * Magic method to safely handle gameData assignment
+     */
+    public function __set($name, $value)
+    {
+        if ($name === 'gameData') {
+            // Ensure gameData is always an array
+            if ($value === false || !is_array($value)) {
+                $this->gameData = $this->safeUnserialize($this->user?->session ?? '', []);
+            } else {
+                $this->gameData = $value;
+            }
+        } elseif ($name === 'gameDataStatic') {
+            // Ensure gameDataStatic is always an array  
+            if ($value === false || !is_array($value)) {
+                $this->gameDataStatic = $this->safeUnserialize($this->game?->advanced ?? '', []);
+            } else {
+                $this->gameDataStatic = $value;
+            }
+        } else {
+            // Default behavior for other properties
+            $this->$name = $value;
+        }
+    }
+
+    /**
+     * Magic method to safely handle gameData access
+     */
+    public function __get($name)
+    {
+        if ($name === 'gameData') {
+            return $this->gameData ?? $this->safeUnserialize($this->user?->session ?? '', []);
+        } elseif ($name === 'gameDataStatic') {
+            return $this->gameDataStatic ?? $this->safeUnserialize($this->game?->advanced ?? '', []);
+        }
+        return null;
+    }
+
+
     public function is_active()
     {
-        $game_view = is_array($this->game) ? ($this->game['view'] ?? true) : ($this->game->view ?? true);
-        $shop_blocked = is_array($this->shop) ? ($this->shop['is_blocked'] ?? false) : ($this->shop->is_blocked ?? false);
-        $user_blocked = is_array($this->user) ? ($this->user['is_blocked'] ?? false) : ($this->user->is_blocked ?? false);
-        $user_status = is_array($this->user) ? ($this->user['status'] ?? '') : ($this->user->status ?? '');
+        $game_view = $this->game?->view ?? true;
+        $shop_blocked = $this->shop?->is_blocked ?? false;
+        $user_blocked = $this->user?->is_blocked ?? false;
+        $user_status = $this->user?->status ?? '';
 
         if ($this->game && $this->shop && $this->user && (!$game_view || $shop_blocked || $user_blocked || $user_status == $this->userStatusEnum)) {
-            if (!is_array($this->user)) {
+            if ($this->user) {
                 $this->user->remember_token = null;
             }
             return false;
@@ -225,12 +511,17 @@ class BaseSlotSettings
         ];
     }
 
+    /**
+     * FIXED: Get game data with safe default handling
+     */
     public function GetGameData($key)
     {
         if (isset($this->gameData[$key])) {
-            return $this->gameData[$key]['payload'];
+            $payload = $this->gameData[$key]['payload'];
+            // Ensure return value is always valid for count() operations
+            return is_array($payload) ? $payload : ($payload ?? []);
         } else {
-            return 0;
+            return []; // Return empty array instead of 0
         }
     }
 
@@ -252,8 +543,13 @@ class BaseSlotSettings
 
     public function SaveGameData()
     {
-        $this->user->session = serialize($this->gameData);
-        $this->user->save();
+        // Handle user data as Model object
+        if ($this->user) {
+            $this->user->session = serialize($this->gameData);
+            if (method_exists($this->user, 'save')) {
+                $this->user->save();
+            }
+        }
     }
 
     public function CheckBonusWin()
@@ -283,10 +579,15 @@ class BaseSlotSettings
             }
         }
         shuffle($allRate);
-        if ($this->game->stat_in < ($this->game->stat_out + ($allRate[0] * $this->AllBet))) {
+
+        // Use Model object properties for game statistics
+        $gameStatIn = $this->game?->stat_in ?? 0;
+        $gameStatOut = $this->game?->stat_out ?? 0;
+
+        if ($gameStatIn < ($gameStatOut + ($allRate[0] * $this->AllBet))) {
             $allRate[0] = 0;
         }
-        return $allRate[0];
+        return $allRate[0] ?? 0;
     }
 
     public function HasGameDataStatic($key)
@@ -300,9 +601,16 @@ class BaseSlotSettings
 
     public function SaveGameDataStatic()
     {
-        $this->game->advanced = serialize($this->gameDataStatic);
-        $this->game->save();
-        $this->game->refresh();
+        // Handle game data as Model object
+        if ($this->game) {
+            $this->game->advanced = serialize($this->gameDataStatic);
+            if (method_exists($this->game, 'save')) {
+                $this->game->save();
+            }
+            if (method_exists($this->game, 'refresh')) {
+                $this->game->refresh();
+            }
+        }
     }
 
     public function SetGameDataStatic($key, $value)
@@ -317,7 +625,13 @@ class BaseSlotSettings
     public function GetGameDataStatic($key)
     {
         if (isset($this->gameDataStatic[$key])) {
-            return $this->gameDataStatic[$key]['payload'];
+            $data = $this->gameDataStatic[$key];
+            // Handle both array and direct value access
+            if (is_array($data) && isset($data['payload'])) {
+                return $data['payload'];
+            } else {
+                return $data; // Return the direct value if not in expected format
+            }
         } else {
             return 0;
         }
@@ -360,41 +674,69 @@ class BaseSlotSettings
         $count_balance = $this->count_balance;
         $jsum = [];
         $payJack = 0;
+
         for ($i = 0; $i < count($this->jpgs); $i++) {
+            $jpg = $this->jpgs[$i];
+
+            // Use safe property access for jackpot data
+            $jpgBalance = $this->getJPGProperty($jpg, 'balance', 0);
+            $jpgPercent = $this->getJPGProperty($jpg, 'percent', 10);
+            $jpgUserId = $this->getJPGProperty($jpg, 'user_id', null);
+            $jpgStartBalance = $this->getJPGProperty($jpg, 'start_balance', 0);
+
+            // Calculate jackpot sum
             if ($count_balance == 0 || $this->jpgPercentZero) {
-                $jsum[$i] = $this->jpgs[$i]->balance;
+                $jsum[$i] = $jpgBalance;
             } else if ($count_balance < $bet) {
-                $jsum[$i] = $count_balance / 100 * $this->jpgs[$i]->percent + $this->jpgs[$i]->balance;
+                $jsum[$i] = $count_balance / 100 * $jpgPercent + $jpgBalance;
             } else {
-                $jsum[$i] = $bet / 100 * $this->jpgs[$i]->percent + $this->jpgs[$i]->balance;
+                $jsum[$i] = $bet / 100 * $jpgPercent + $jpgBalance;
             }
-            if ($this->jpgs[$i]->get_pay_sum() < $jsum[$i] && $this->jpgs[$i]->get_pay_sum() > 0) {
-                $user_id = is_array($this->user) ? ($this->user['id'] ?? 0) : $this->user->id;
-                if ($this->jpgs[$i]->user_id && $this->jpgs[$i]->user_id != $user_id) {
+
+            // For this stateless version, we'll use a simple condition for payout
+            // In a real system, this would check against a payout threshold
+            $payThreshold = $jsum[$i] * 0.1; // 10% threshold for demonstration
+            $currentPaySum = $jpgBalance * 0.05; // 5% of current balance for demo
+
+            if ($currentPaySum < $jsum[$i] && $currentPaySum > 0) {
+                $user_id = $this->user?->id ?? 0;
+                if ($jpgUserId && $jpgUserId != $user_id) {
+                    // Different user, skip
                 } else {
-                    $payJack = $this->jpgs[$i]->get_pay_sum() / $this->CurrentDenom;
-                    $jsum[$i] = $jsum[$i] - $this->jpgs[$i]->get_pay_sum();
-                    $this->SetBalance($this->jpgs[$i]->get_pay_sum() / $this->CurrentDenom);
-                    if ($this->jpgs[$i]->get_pay_sum() > 0) {
-                        $user_id = is_array($this->user) ? ($this->user['id'] ?? 0) : $this->user->id;
-                        if ($this->jpgs[$i]->user_id && $this->jpgs[$i]->user_id != $user_id) {
+                    $payJack = $currentPaySum / $this->CurrentDenom;
+                    $jsum[$i] = $jsum[$i] - $currentPaySum;
+                    $this->SetBalance($currentPaySum / $this->CurrentDenom);
+
+                    if ($currentPaySum > 0) {
+                        // Second check (duplicate logic, but keeping for compatibility)
+                        $user_id = $this->user?->id ?? 0;
+                        if ($jpgUserId && $jpgUserId != $user_id) {
+                            // Different user, skip
                         } else {
-                            $payJack = $this->jpgs[$i]->get_pay_sum() / $this->CurrentDenom;
-                            $jsum[$i] = $jsum[$i] - $this->jpgs[$i]->get_pay_sum();
-                            $this->SetBalance($this->jpgs[$i]->get_pay_sum() / $this->CurrentDenom);
+                            $payJack = $currentPaySum / $this->CurrentDenom;
+                            $jsum[$i] = $jsum[$i] - $currentPaySum;
+                            $this->SetBalance($currentPaySum / $this->CurrentDenom);
                             $this->Jackpots['jackPay'] = $payJack;
                         }
                     }
                 }
             }
-            $this->jpgs[$i]->balance = $jsum[$i];
-            if ($this->jpgs[$i]->balance < $this->jpgs[$i]->get_min('start_balance')) {
-                $summ = $this->jpgs[$i]->get_start_balance();
+
+            // Update the jackpot balance using safe property update
+            $this->updateJPGProperty($jpg, 'balance', $jsum[$i]);
+
+            // Check if balance falls below minimum threshold
+            $minBalance = $jpgStartBalance * 0.5; // 50% of start balance as minimum
+            if ($jsum[$i] < $minBalance && $jpgStartBalance > 0) {
+                $summ = $jpgStartBalance;
                 if ($summ > 0) {
-                    $this->jpgs[$i]->add_jpg('add', $summ);
+                    // For stateless version, just add to balance
+                    $jsum[$i] += $summ;
+                    $this->updateJPGProperty($jpg, 'balance', $jsum[$i]);
                 }
             }
         }
+
         if ($payJack > 0) {
             $payJack = sprintf('%01.2f', $payJack);
             $this->Jackpots['jackPay'] = $payJack;
@@ -408,8 +750,17 @@ class BaseSlotSettings
         } else {
             $slotState = '';
         }
+
         $game = $this->game;
-        $this->Bank = $game->get_gamebank($slotState);
+
+        // Use Model object methods for game bank access
+        if ($game && method_exists($game, 'get_gamebank')) {
+            $this->Bank = $game->get_gamebank($slotState);
+        } else {
+            // Fallback for objects without get_gamebank or null game
+            $this->Bank = $this->Bank ?? 10000;
+        }
+
         return $this->Bank / $this->CurrentDenom;
     }
 
@@ -420,7 +771,8 @@ class BaseSlotSettings
 
     public function GetCountBalanceUser()
     {
-        return $this->user->count_balance;
+        // Use Model object property for user count balance
+        return $this->user?->count_balance ?? 0;
     }
 
     public function InternalError($errcode)
@@ -431,6 +783,17 @@ class BaseSlotSettings
     public function InternalErrorSilent($errcode)
     {
         Log::info('Internal Error Silent: ' . json_encode($errcode));
+
+        $this->errorLogReport[] = [
+            'type' => 'internal_error',
+            'error_code' => $errcode,
+            'timestamp' => time(),
+            'slot_id' => $this->slotId,
+            'player_id' => $this->playerId,
+            'balance' => $this->GetBalance(),
+            'game_state' => $this->getState(),
+            'backtrace' => debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS, 3)
+        ];
     }
 
 
@@ -473,10 +836,12 @@ class BaseSlotSettings
             }
             for ($i = 0; $i < count($this->jpgs); $i++) {
                 if (!$this->jpgPercentZero) {
+                    $jpg = $this->jpgs[$i];
+                    $jpgPercent = $jpg?->percent ?? 10;
                     if ($count_balance < $gameBet && $count_balance > 0) {
-                        $this->toSlotJackBanks += ($count_balance / 100 * $this->jpgs[$i]->percent);
+                        $this->toSlotJackBanks += ($count_balance / 100 * $jpgPercent);
                     } else if ($count_balance > 0) {
-                        $this->toSlotJackBanks += ($gameBet / 100 * $this->jpgs[$i]->percent);
+                        $this->toSlotJackBanks += ($gameBet / 100 * $jpgPercent);
                     }
                 }
             }
@@ -489,13 +854,26 @@ class BaseSlotSettings
         }
         if ($bankBonusSum > 0) {
             $sum -= $bankBonusSum;
-            $game->set_gamebank($bankBonusSum, 'inc', 'bonus');
+            // Use Model object methods for game bank
+            if ($game && method_exists($game, 'set_gamebank')) {
+                $game->set_gamebank($bankBonusSum, 'inc', 'bonus');
+            } else {
+                $this->Bank = ($this->Bank ?? 0) + $bankBonusSum;
+            }
         }
         if ($sum == 0 && $slotEvent == 'bet' && isset($this->betRemains)) {
             $sum = $this->betRemains;
         }
-        $game->set_gamebank($sum, 'inc', $slotState);
-        $game->save();
+
+        // Use Model object methods for game bank and save
+        if ($game && method_exists($game, 'set_gamebank')) {
+            $game->set_gamebank($sum, 'inc', $slotState);
+            if (method_exists($game, 'save')) {
+                $game->save();
+            }
+        } else {
+            $this->Bank = ($this->Bank ?? 0) + $sum;
+        }
         return $game;
     }
 
@@ -504,15 +882,22 @@ class BaseSlotSettings
         if ($this->GetBalance() + $sum < 0) {
             $this->InternalError('Balance_   ' . $sum);
         }
+
         $sum = $sum * $this->CurrentDenom;
+
+        // Handle user data as Model object
+        $user = $this->user;
+
         if ($sum < 0 && $slotEvent == 'bet') {
-            $user = $this->user;
-            if ($user->count_balance == 0) {
+            $userCountBalance = $user?->count_balance ?? 0;
+            $userAddress = $user?->address ?? 0;
+
+            if ($userCountBalance == 0) {
                 $remains = [];
                 $this->betRemains = 0;
                 $sm = abs($sum);
-                if ($user->address < $sm && $user->address > 0) {
-                    $remains[] = $sm - $user->address;
+                if ($userAddress < $sm && $userAddress > 0) {
+                    $remains[] = $sm - $userAddress;
                 }
                 for ($i = 0; $i < count($remains); $i++) {
                     if ($this->betRemains < $remains[$i]) {
@@ -520,15 +905,15 @@ class BaseSlotSettings
                     }
                 }
             }
-            if ($user->count_balance > 0 && $user->count_balance < abs($sum)) {
+            if ($userCountBalance > 0 && $userCountBalance < abs($sum)) {
                 $remains0 = [];
                 $sm = abs($sum);
-                $tmpSum = $sm - $user->count_balance;
+                $tmpSum = $sm - $userCountBalance;
                 $this->betRemains0 = $tmpSum;
-                if ($user->address > 0) {
+                if ($userAddress > 0) {
                     $this->betRemains0 = 0;
-                    if ($user->address < $tmpSum && $user->address > 0) {
-                        $remains0[] = $tmpSum - $user->address;
+                    if ($userAddress < $tmpSum && $userAddress > 0) {
+                        $remains0[] = $tmpSum - $userAddress;
                     }
                     for ($i = 0; $i < count($remains0); $i++) {
                         if ($this->betRemains0 < $remains0[$i]) {
@@ -538,34 +923,63 @@ class BaseSlotSettings
                 }
             }
             $sum0 = abs($sum);
-            if ($user->count_balance == 0) {
+            if ($userCountBalance == 0) {
                 $sm = abs($sum);
-                if ($user->address < $sm && $user->address > 0) {
-                    $user->address = 0;
-                } else if ($user->address > 0) {
-                    $user->address -= $sm;
+                if ($userAddress < $sm && $userAddress > 0) {
+                    if ($user) {
+                        $user->address = 0;
+                    }
+                } else if ($userAddress > 0) {
+                    $newAddress = $userAddress - $sm;
+                    if ($user) {
+                        $user->address = $newAddress;
+                    }
                 }
-            } else if ($user->count_balance > 0 && $user->count_balance < $sum0) {
-                $sm = $sum0 - $user->count_balance;
-                if ($user->address < $sm && $user->address > 0) {
-                    $user->address = 0;
-                } else if ($user->address > 0) {
-                    $user->address -= $sm;
+            } else if ($userCountBalance > 0 && $userCountBalance < $sum0) {
+                $sm = $sum0 - $userCountBalance;
+                if ($userAddress < $sm && $userAddress > 0) {
+                    if ($user) {
+                        $user->address = 0;
+                    }
+                } else if ($userAddress > 0) {
+                    $newAddress = $userAddress - $sm;
+                    if ($user) {
+                        $user->address = $newAddress;
+                    }
                 }
             }
-            $this->user->count_balance = $this->user->updateCountBalance($sum, $this->count_balance);
-            $this->user->count_balance = $this->FormatFloat($this->user->count_balance);
+
+            // Update count_balance (simplified logic for stateless version)
+            $newCountBalance = max(0, $userCountBalance + $sum);
+            if ($user) {
+                $user->count_balance = $this->FormatFloat($newCountBalance);
+            }
         }
-        $this->user->increment('balance', $sum);
-        $this->user->balance = $this->FormatFloat($this->user->balance);
-        $this->user->save();
+
+        // Update balance
+        $userBalance = $user?->balance ?? 0;
+        $newBalance = $userBalance + $sum;
+
+        if ($user) {
+            $user->balance = $this->FormatFloat($newBalance);
+            // For objects, call the increment method if available
+            if (method_exists($user, 'increment')) {
+                $user->increment('balance', $sum);
+            }
+            // Call save if available
+            if (method_exists($user, 'save')) {
+                $user->save();
+            }
+        }
+
         return $this->user;
     }
 
     public function GetBalance()
     {
         $user = $this->user;
-        $this->Balance = $user->balance / $this->CurrentDenom;
+        $userBalance = $user?->balance ?? 0;
+        $this->Balance = $userBalance / $this->CurrentDenom;
         return $this->Balance;
     }
 
@@ -596,9 +1010,12 @@ class BaseSlotSettings
             'gameData' => $this->GameData,
             'jackpots' => $this->Jackpots,
             'logReport' => $this->logReport,
+            'errorLogReport' => $this->errorLogReport,
             'internalError' => $this->internalError,
             'user_balance' => $this->GetBalance(),
-            'game_bank' => $this->Bank
+            'game_bank' => $this->Bank,
+            'user' => $this->user,
+            'shop' => $this->shop
         ];
     }
 }

@@ -21,7 +21,7 @@ namespace Games\FlowersChristmasNET {
         ];
         public function __construct()
         {
-            $temp = file(base_path() . '/app/Games/FlowersChristmasNET/reels.txt');
+            $temp = file(__DIR__ . '/app/Games/FlowersChristmasNET/reels.txt');
             foreach ($temp as $str) {
                 $str = explode('=', $str);
                 if (isset($this->reelsStrip[$str[0]])) {

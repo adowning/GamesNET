@@ -24,11 +24,14 @@ namespace Games\FlowersNET {
 
             $this->slotFreeCount = 1;
             $this->slotFreeMpl = 1;
-            $this->slotViewState = ($this->game->slotViewState == '' ? 'Normal' : $this->game->slotViewState);
+            $gameSlotViewState = $this->game['slotViewState'] ?? '';
+            $this->slotViewState = ($gameSlotViewState == '') ? 'Normal' : $gameSlotViewState;
             $this->hideButtons = [];
 
-            $this->Bet = explode(',', $this->game->bet);
-            $this->Balance = $this->user->balance;
+            $gameBet = $this->game['bet'] ?? '1';
+            $this->Bet = explode(',', $gameBet);
+            $userBalance = $this->user['balance'] ?? 0;
+            $this->Balance = $userBalance;
             $this->SymbolGame = [
                 2,
                 3,
@@ -83,19 +86,46 @@ namespace Games\FlowersNET {
                 $pref = '';
             }
             $this->AllBet = $bet * $lines;
-            $linesPercentConfigSpin = $this->game->get_lines_percent_config('spin');
-            $linesPercentConfigBonus = $this->game->get_lines_percent_config('bonus');
-            $currentPercent = $this->shop->percent;
+
+            // Handle both array and object access for game configuration
+            if (is_array($this->game)) {
+                $jpConfig = $this->game['jp_config'] ?? [];
+                $linesPercentConfigSpin = $jpConfig['lines_percent_config']['spin'] ?? [];
+                $linesPercentConfigBonus = $jpConfig['lines_percent_config']['bonus'] ?? [];
+            } else {
+                // For objects, try to call get_lines_percent_config if available
+                if (method_exists($this->game, 'get_lines_percent_config')) {
+                    $linesPercentConfigSpin = $this->game->get_lines_percent_config('spin');
+                    $linesPercentConfigBonus = $this->game->get_lines_percent_config('bonus');
+                } else {
+                    // Fallback configuration
+                    $linesPercentConfigSpin = [
+                        'line' . $curField . $pref => [
+                            '0_100' => 30
+                        ]
+                    ];
+                    $linesPercentConfigBonus = [
+                        'line' . $curField . $pref => [
+                            '0_100' => 100
+                        ]
+                    ];
+                }
+            }
+
+            $currentPercent = $this->shop['percent'] ?? $this->shop->percent ?? 10;
             $currentSpinWinChance = 0;
             $currentBonusWinChance = 0;
-            $percentLevel = '';
-            foreach ($linesPercentConfigSpin['line' . $curField . $pref] as $k => $v) {
-                $l = explode('_', $k);
-                $l0 = $l[0];
-                $l1 = $l[1];
-                if ($l0 <= $currentPercent && $currentPercent <= $l1) {
-                    $percentLevel = $k;
-                    break;
+            $percentLevel = '0_100'; // Default value
+
+            if (isset($linesPercentConfigSpin['line' . $curField . $pref])) {
+                foreach ($linesPercentConfigSpin['line' . $curField . $pref] as $k => $v) {
+                    $l = explode('_', $k);
+                    $l0 = $l[0];
+                    $l1 = $l[1];
+                    if ($l0 <= $currentPercent && $currentPercent <= $l1) {
+                        $percentLevel = $k;
+                        break;
+                    }
                 }
             }
             $currentSpinWinChance = $linesPercentConfigSpin['line' . $curField . $pref][$percentLevel];
@@ -107,11 +137,16 @@ namespace Games\FlowersNET {
             if (!$this->HasGameDataStatic('RtpControlCount')) {
                 $this->SetGameDataStatic('RtpControlCount', $RtpControlCount);
             }
-            if ($this->game->stat_in > 0) {
-                $rtpRange = $this->game->stat_out / $this->game->stat_in * 100;
+            // Handle both array and object access for game statistics
+            $gameStatIn = $this->game['stat_in'] ?? $this->game->stat_in ?? 0;
+            $gameStatOut = $this->game['stat_out'] ?? $this->game->stat_out ?? 0;
+
+            if ($gameStatIn > 0) {
+                $rtpRange = $gameStatOut / $gameStatIn * 100;
             } else {
                 $rtpRange = 0;
             }
+
             if ($this->GetGameDataStatic('RtpControlCount') == 0) {
                 if ($currentPercent + rand(1, 2) < $rtpRange && $this->GetGameDataStatic('SpinWinLimit') <= 0) {
                     $this->SetGameDataStatic('SpinWinLimit', rand(25, 50));
@@ -158,7 +193,7 @@ namespace Games\FlowersNET {
                     'bonus',
                     $winLimit
                 ];
-                if ($this->game->stat_in < ($this->CheckBonusWin() * $bet + $this->game->stat_out) || $winLimit < ($this->CheckBonusWin() * $bet)) {
+                if ($gameStatIn < ($this->CheckBonusWin() * $bet + $gameStatOut) || $winLimit < ($this->CheckBonusWin() * $bet)) {
                     $return = [
                         'none',
                         0

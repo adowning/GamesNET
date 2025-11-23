@@ -1,7 +1,7 @@
 <?php
 namespace Models;
 
-class JPG
+class JPG implements \ArrayAccess
 {
     public int $id;
     public int $shop_id;
@@ -18,6 +18,27 @@ class JPG
         $this->percent = $data['percent'] ?? 1.0;
         $this->user_id = $data['user_id'] ?? null;
         $this->start_balance = $data['start_balance'] ?? 1000.0;
+    }
+    
+    // ArrayAccess interface implementation for backward compatibility
+    public function offsetExists($offset): bool
+    {
+        return property_exists($this, $offset);
+    }
+    
+    public function offsetGet($offset): mixed
+    {
+        return $this->$offset ?? null;
+    }
+    
+    public function offsetSet($offset, $value): void
+    {
+        $this->$offset = $value;
+    }
+    
+    public function offsetUnset($offset): void
+    {
+        unset($this->$offset);
     }
     
     public function getPaySum(): float

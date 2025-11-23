@@ -21,7 +21,7 @@ namespace Games\SpaceWarsNET {
         ];
         public function __construct()
         {
-            $temp = file(base_path() . '/app/Games/SpaceWarsNET/reels.txt');
+            $temp = file(__DIR__ . '/app/Games/SpaceWarsNET/reels.txt');
             foreach ($temp as $str) {
                 $str = explode('=', $str);
                 if (isset($this->reelsStrip[$str[0]])) {

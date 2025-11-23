@@ -22,7 +22,7 @@ namespace Games\VikingsNET {
         ];
         public function __construct()
         {
-            $temp = file(base_path() . '/app/Games/VikingsNET/reels.txt');
+            $temp = file(__DIR__ . '/app/Games/VikingsNET/reels.txt');
             foreach ($temp as $str) {
                 $str = explode('=', $str);
                 if (isset($this->reelsStrip[$str[0]])) {

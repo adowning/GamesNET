@@ -21,7 +21,7 @@ namespace Games\ReelRush2NET {
         ];
         public function __construct()
         {
-            $temp = file(base_path() . '/app/Games/ReelRush2NET/reels.txt');
+            $temp = file(__DIR__ . '/app/Games/ReelRush2NET/reels.txt');
             foreach ($temp as $str) {
                 $str = explode('=', $str);
                 if (isset($this->reelsStrip[$str[0]])) {

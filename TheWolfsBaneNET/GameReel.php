@@ -21,7 +21,7 @@ namespace Games\TheWolfsBaneNET {
         ];
         public function __construct($rtype)
         {
-            $temp = file(base_path() . '/app/Games/TheWolfsBaneNET/reels.txt');
+            $temp = file(__DIR__ . '/app/Games/TheWolfsBaneNET/reels.txt');
             foreach ($temp as $str) {
                 $str = explode('=', $str);
                 if (isset($this->reelsStrip[$str[0]])) {

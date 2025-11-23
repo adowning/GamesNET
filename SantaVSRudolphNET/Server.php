@@ -51,16 +51,16 @@ namespace Games\SantaVSRudolphNET {
                     $betline = $postData['bet_betlevel'];
                     if ($lines <= 0 || $betline <= 0.0001) {
                         $response = '{"responseEvent":"error","responseType":"' . $postData['slotEvent'] . '","serverResponse":"invalid bet state"}';
-                        exit($response);
+                        return $response;
                     }
                     if ($slotSettings->GetBalance() < ($lines * $betline)) {
                         $response = '{"responseEvent":"error","responseType":"' . $postData['slotEvent'] . '","serverResponse":"invalid balance"}';
-                        exit($response);
+                        return $response;
                     }
                 }
                 if ($slotSettings->GetGameData($slotSettings->slotId . 'FreeGames') < $slotSettings->GetGameData($slotSettings->slotId . 'CurrentFreeGame') && $postData['slotEvent'] == 'freespin') {
                     $response = '{"responseEvent":"error","responseType":"' . $postData['slotEvent'] . '","serverResponse":"invalid bonus state"}';
-                    exit($response);
+                    return $response;
                 }
                 $aid = (string)$postData['action'];
                 switch ($aid) {
@@ -431,6 +431,15 @@ namespace Games\SantaVSRudolphNET {
                             $SantaScore = $slotSettings->GetGameData($slotSettings->slotId . 'SantaScore');
                             $RudolphScore = $slotSettings->GetGameData($slotSettings->slotId . 'RudolphScore');
                             $WildsWalk = $slotSettings->GetGameData($slotSettings->slotId . 'WildsWalk');
+                            
+                            // Handle null/empty WildsWalk data - initialize with default structure
+                            if ($WildsWalk === null || !isset($WildsWalk['Santa']) || !is_array($WildsWalk['Santa']) || !isset($WildsWalk['Rudolph']) || !is_array($WildsWalk['Rudolph'])) {
+                                $WildsWalk = [
+                                    'Santa' => [],
+                                    'Rudolph' => []
+                                ];
+                            }
+                            
                             $walkingWildsStr = '';
                             foreach ($WildsWalk['Santa'] as $key => $wwalk) {
                                 $WildsWalk['Santa'][$key][0]--;
@@ -632,7 +641,7 @@ namespace Games\SantaVSRudolphNET {
                                 }
                                 if ($i > 1500) {
                                     $response = '{"responseEvent":"error","responseType":"' . $postData['slotEvent'] . '","serverResponse":"Bad Reel Strip"}';
-                                    exit($response);
+                                    return $response;
                                 }
                                 if ($slotSettings->MaxWin < ($totalWin * $slotSettings->CurrentDenom)) {
                                 } else {
@@ -732,7 +741,9 @@ namespace Games\SantaVSRudolphNET {
                             $totalWin = $slotSettings->GetGameData($slotSettings->slotId . 'BonusWin');
                             $slotSettings->SetGameData($slotSettings->slotId . 'SantaScore', $SantaScore);
                             $slotSettings->SetGameData($slotSettings->slotId . 'RudolphScore', $RudolphScore);
-                            if ($slotSettings->GetGameData($slotSettings->slotId . 'FreeGames') <= $slotSettings->GetGameData($slotSettings->slotId . 'CurrentFreeGame') && count($WildsWalk['Santa']) <= 0 && count($WildsWalk['Rudolph']) <= 0) {
+                            if ($slotSettings->GetGameData($slotSettings->slotId . 'FreeGames') <= $slotSettings->GetGameData($slotSettings->slotId . 'CurrentFreeGame') &&
+                                (!isset($WildsWalk['Santa']) || count($WildsWalk['Santa']) <= 0) &&
+                                (!isset($WildsWalk['Rudolph']) || count($WildsWalk['Rudolph']) <= 0)) {
                                 $nextaction = 'spin';
                                 $stack = 'basic';
                                 $gamestate = 'basic';
@@ -753,12 +764,12 @@ namespace Games\SantaVSRudolphNET {
                         $response = '{"responseEvent":"spin","responseType":"' . $postData['slotEvent'] . '","serverResponse":{"freeState":"' . $freeState . '","slotLines":' . $lines . ',"slotBet":' . $betline . ',"totalFreeGames":' . $slotSettings->GetGameData($slotSettings->slotId . 'FreeGames') . ',"currentFreeGames":' . $slotSettings->GetGameData($slotSettings->slotId . 'CurrentFreeGame') . ',"Balance":' . $balanceInCents . ',"afterBalance":' . $balanceInCents . ',"bonusWin":' . $slotSettings->GetGameData($slotSettings->slotId . 'BonusWin') . ',"totalWin":' . $totalWin . ',"winLines":[],"Jackpots":' . $jsJack . ',"reelsSymbols":' . $jsSpin . '}}';
                         $slotSettings->SaveLogReport($response, $allbet, $lines, $reportWin, $postData['slotEvent']);
                         $balanceInCents = round($slotSettings->GetBalance() * $slotSettings->CurrentDenom * 100);
-                        if (!$isRespin && (count($WildsWalk['Santa']) > 0 || count($WildsWalk['Rudolph']) > 0)) {
+                        if (!$isRespin && ((isset($WildsWalk['Santa']) && count($WildsWalk['Santa']) > 0) || (isset($WildsWalk['Rudolph']) && count($WildsWalk['Rudolph']) > 0))) {
                             $slotSettings->SetGameData($slotSettings->slotId . 'IsRespin', true);
                             $walkingWildsStr .= '&nextaction=respin';
-                        } else if ($isRespin && (count($WildsWalk['Santa']) > 0 || count($WildsWalk['Rudolph']) > 0)) {
+                        } else if ($isRespin && ((isset($WildsWalk['Santa']) && count($WildsWalk['Santa']) > 0) || (isset($WildsWalk['Rudolph']) && count($WildsWalk['Rudolph']) > 0))) {
                             $walkingWildsStr .= '&nextaction=respin&clientaction=respin';
-                        } else if ($isRespin && count($WildsWalk['Santa']) <= 0 && count($WildsWalk['Rudolph']) <= 0) {
+                        } else if ($isRespin && (!isset($WildsWalk['Santa']) || count($WildsWalk['Santa']) <= 0) && (!isset($WildsWalk['Rudolph']) || count($WildsWalk['Rudolph']) <= 0)) {
                             $slotSettings->SetGameData($slotSettings->slotId . 'IsRespin', false);
                         }
                         if ($isBonusStart) {
@@ -775,7 +786,7 @@ namespace Games\SantaVSRudolphNET {
                 $response = $result_tmp[0];
                 $slotSettings->SaveGameData();
                 $slotSettings->SaveGameDataStatic();
-                echo $response;
+                return json_encode(['response' => $response, 'state' => $slotSettings->getState()]);
             } catch (\Exception $e) {
                 // Handle internal errors gracefully
                 $slotSettings->InternalErrorSilent($e);

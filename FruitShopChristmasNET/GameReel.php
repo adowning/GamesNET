@@ -21,7 +21,7 @@ namespace Games\FruitShopChristmasNET {
         ];
         public function __construct()
         {
-            $temp = file(base_path() . '/app/Games/FruitShopChristmasNET/reels.txt');
+            $temp = file(__DIR__ . '/app/Games/FruitShopChristmasNET/reels.txt');
             foreach ($temp as $str) {
                 $str = explode('=', $str);
                 if (isset($this->reelsStrip[$str[0]])) {

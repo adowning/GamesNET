@@ -42,16 +42,16 @@ namespace Games\StarBurstNET {
                     $betline = $postData['bet_betlevel'];
                     if ($lines <= 0 || $betline <= 0.0001) {
                         $response = '{"responseEvent":"error","responseType":"' . $postData['slotEvent'] . '","serverResponse":"invalid bet state"}';
-                        exit($response);
+                        return $response;
                     }
                     if ($slotSettings->GetBalance() < ($lines * $betline)) {
                         $response = '{"responseEvent":"error","responseType":"' . $postData['slotEvent'] . '","serverResponse":"invalid balance"}';
-                        exit($response);
+                        return $response;
                     }
                 }
                 if ($slotSettings->GetGameData($slotSettings->slotId . 'FreeGames') < $slotSettings->GetGameData($slotSettings->slotId . 'CurrentFreeGame') && $postData['slotEvent'] == 'freespin') {
                     $response = '{"responseEvent":"error","responseType":"' . $postData['slotEvent'] . '","serverResponse":"invalid bonus state"}';
-                    exit($response);
+                    return $response;
                 }
                 $aid = (string)$postData['action'];
                 switch ($aid) {
@@ -116,6 +116,7 @@ namespace Games\StarBurstNET {
                         break;
                     case 'paytable':
                         $result_tmp[] = 'pt.i0.comp.i0.type=betline&pt.i0.comp.i19.symbol=SYM9&bl.i6.coins=1&g4mode=false&pt.i0.comp.i15.type=betline&historybutton=false&pt.i0.comp.i16.symbol=SYM8&bl.i5.id=5&pt.i0.comp.i1.multi=200&pt.i0.comp.i4.multi=60&pt.i0.comp.i15.symbol=SYM8&pt.i0.comp.i17.symbol=SYM8&pt.i0.comp.i18.symbol=SYM9&pt.i0.comp.i5.freespins=0&pt.i0.comp.i12.multi=7&bl.i3.coins=1&pt.i0.comp.i11.symbol=SYM6&pt.i0.comp.i12.symbol=SYM7&pt.i0.comp.i13.symbol=SYM7&pt.i0.comp.i14.symbol=SYM7&pt.i0.comp.i15.multi=5&pt.i0.comp.i14.type=betline&bl.i0.reelset=ALL&pt.i0.comp.i16.freespins=0&pt.i0.comp.i18.multi=5&bl.i5.line=0%2C0%2C1%2C0%2C0&pt.i0.comp.i7.multi=25&pt.i0.comp.i11.n=5&pt.i0.comp.i4.freespins=0&bl.i3.reelset=ALL&pt.i0.comp.i9.n=3&bl.i4.line=2%2C1%2C0%2C1%2C2&jackpotcurrency=%26%23x20AC%3B&bl.i7.line=1%2C2%2C2%2C2%2C1&pt.i0.comp.i19.n=4&pt.i0.id=basic&pt.i0.comp.i10.symbol=SYM6&pt.i0.comp.i1.type=betline&pt.i0.comp.i15.n=3&bl.i2.id=2&bl.i9.coins=1&bl.i7.reelset=ALL&isJackpotWin=false&pt.i0.comp.i2.symbol=SYM3&pt.i0.comp.i4.symbol=SYM4&pt.i0.comp.i20.type=betline&pt.i0.comp.i17.freespins=0&pt.i0.comp.i6.symbol=SYM5&pt.i0.comp.i8.symbol=SYM5&pt.i0.comp.i0.symbol=SYM3&pt.i0.comp.i1.n=4&pt.i0.comp.i5.n=5&pt.i0.comp.i3.type=betline&pt.i0.comp.i3.freespins=0&pt.i0.comp.i10.multi=20&pt.i0.comp.i10.freespins=0&pt.i0.comp.i20.multi=25&pt.i0.comp.i20.n=5&pt.i0.comp.i17.multi=25&bl.i3.id=3&pt.i0.comp.i9.multi=8&pt.i0.comp.i9.type=betline&bl.i8.reelset=ALL&pt.i0.comp.i14.freespins=0&clientaction=paytable&bl.i9.line=1%2C0%2C1%2C0%2C1&pt.i0.comp.i2.multi=250&pt.i0.comp.i0.freespins=0&bl.i5.coins=1&bl.i8.id=8&pt.i0.comp.i16.multi=10&pt.i0.comp.i9.symbol=SYM6&pt.i0.comp.i16.n=4&pt.i0.comp.i12.n=3&bl.i0.id=0&bl.i6.line=2%2C2%2C1%2C2%2C2&pt.i0.comp.i13.type=betline&pt.i0.comp.i16.type=betline&bl.i0.line=1%2C1%2C1%2C1%2C1&pt.i0.comp.i5.symbol=SYM4&pt.i0.comp.i19.type=betline&bl.i3.line=0%2C1%2C2%2C1%2C0&pt.i0.comp.i6.freespins=0&bl.i4.reelset=ALL&bl.i4.coins=1&pt.i0.comp.i2.n=5&pt.i0.comp.i1.symbol=SYM3&pt.i0.comp.i3.multi=25&pt.i0.comp.i6.n=3&bl.i9.id=9&pt.i0.comp.i19.freespins=0&pt.i0.comp.i6.type=betline&playercurrency=%26%23x20AC%3B&bl.i9.reelset=ALL&bl.i1.id=1&pt.i0.comp.i10.type=betline&pt.i0.comp.i9.freespins=0&credit=497800&pt.i0.comp.i5.type=betline&pt.i0.comp.i11.freespins=0&pt.i0.comp.i2.freespins=0&pt.i0.comp.i5.multi=120&pt.i0.comp.i7.n=4&pt.i0.comp.i11.multi=50&bl.i1.reelset=ALL&pt.i0.comp.i7.type=betline&pt.i0.comp.i4.type=betline&pt.i0.comp.i13.freespins=0&pt.i0.comp.i17.n=5&bl.i2.coins=1&bl.i6.id=6&bl.i1.line=0%2C0%2C0%2C0%2C0&pt.i0.comp.i13.n=4&pt.i0.comp.i8.freespins=0&pt.i0.comp.i20.freespins=0&pt.i0.comp.i8.multi=60&gamesoundurl=&pt.i0.comp.i1.freespins=0&pt.i0.comp.i12.type=betline&pt.i0.comp.i14.multi=40&pt.i0.comp.i3.n=3&bl.i5.reelset=ALL&bl.i7.id=7&pt.i0.comp.i6.multi=10&bl.i8.line=1%2C0%2C0%2C0%2C1&playercurrencyiso=' . $slotSettings->slotCurrency . '&bl.i1.coins=1&pt.i0.comp.i18.type=betline&playforfun=false&jackpotcurrencyiso=' . $slotSettings->slotCurrency . '&pt.i0.comp.i8.type=betline&pt.i0.comp.i7.freespins=0&bl.i8.coins=1&pt.i0.comp.i2.type=betline&pt.i0.comp.i13.multi=15&bl.i2.line=2%2C2%2C2%2C2%2C2&pt.i0.comp.i17.type=betline&bl.i0.coins=1&bl.i2.reelset=ALL&pt.i0.comp.i8.n=5&pt.i0.comp.i10.n=4&pt.i0.comp.i18.freespins=0&pt.i0.comp.i11.type=betline&pt.i0.comp.i18.n=3&bl.i4.id=4&bl.i7.coins=1&pt.i0.comp.i14.n=5&pt.i0.comp.i0.multi=50&pt.i0.comp.i20.symbol=SYM9&pt.i0.comp.i15.freespins=0&bl.i6.reelset=ALL&pt.i0.comp.i19.multi=10&pt.i0.comp.i3.symbol=SYM4&pt.i0.comp.i0.n=3&pt.i0.comp.i7.symbol=SYM5&pt.i0.comp.i12.freespins=0&pt.i0.comp.i4.n=4';
+                        break;
                     case 'initfreespin':
                         $result_tmp[] = 'rs.i1.r.i0.syms=SYM5%2CSYM0%2CSYM6&freespins.betlevel=1&g4mode=false&freespins.win.coins=0&playercurrency=%26%23x20AC%3B&historybutton=false&rs.i0.r.i4.hold=false&gamestate.history=basic&rs.i1.r.i2.hold=false&rs.i1.r.i3.pos=18&rs.i0.r.i1.syms=SYM5%2CSYM5%2CSYM7&game.win.cents=0&rs.i0.id=freespin&rs.i1.r.i3.hold=false&totalwin.coins=0&credit=497520&rs.i1.r.i4.pos=30&gamestate.current=freespin&freespins.initial=15&jackpotcurrency=%26%23x20AC%3B&multiplier=1&bet.betlines=0%2C1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9%2C10%2C11%2C12%2C13%2C14%2C15%2C16%2C17%2C18%2C19&rs.i0.r.i0.syms=SYM2%2CSYM7%2CSYM7&freespins.denomination=2.000&rs.i0.r.i3.syms=SYM4%2CSYM4%2CSYM4&rs.i1.r.i1.syms=SYM2%2CSYM3%2CSYM3&rs.i1.r.i1.pos=3&freespins.win.cents=0&freespins.totalwin.coins=0&freespins.total=15&isJackpotWin=false&gamestate.stack=basic%2Cfreespin&rs.i0.r.i0.pos=3&rs.i1.r.i4.syms=SYM1%2CSYM7%2CSYM7&freespins.betlines=0%2C1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9%2C10%2C11%2C12%2C13%2C14%2C15%2C16%2C17%2C18%2C19&gamesoundurl=&rs.i1.r.i2.pos=15&bet.betlevel=1&rs.i1.nearwin=4%2C3&rs.i0.r.i1.pos=18&rs.i1.r.i3.syms=SYM4%2CSYM0%2CSYM6&game.win.coins=0&playercurrencyiso=' . $slotSettings->slotCurrency . '&rs.i1.r.i0.hold=false&rs.i0.r.i1.hold=false&freespins.wavecount=1&freespins.multiplier=1&playforfun=false&jackpotcurrencyiso=' . $slotSettings->slotCurrency . "&clientaction=initfreespin&rs.i0.r.i2.hold=false&rs.i0.r.i4.syms=SYM6%2CSYM5%2CSYM5&rs.i0.r.i2.pos=0&rs.i1.r.i2.syms=SYM6%2CSYM6%2CSYM0&rs.i1.r.i0.pos=24&totalwin.cents=0&gameover=false&rs.i0.r.i0.hold=false&rs.i1.id=basic&rs.i0.r.i3.pos=3&rs.i1.r.i4.hold=false&freespins.left=15&rs.i0.r.i4.pos=20&rs.i1.r.i2.attention.i0=2&rs.i1.r.i0.attention.i0=1&rs.i1.r.i3.attention.i0=1&nextaction=freespin&wavecount=1&rs.i0.r.i2.syms=SYM3%2CSYM3%2CSYM3&rs.i1.r.i1.hold=false&rs.i0.r.i3.hold=false&game.win.amount=0.00&bet.denomination=2&freespins.totalwin.cents=0\n";
                         break;
@@ -441,7 +442,7 @@ namespace Games\StarBurstNET {
                             }
                             if ($i > 1500) {
                                 $response = '{"responseEvent":"error","responseType":"' . $postData['slotEvent'] . '","serverResponse":"Bad Reel Strip"}';
-                                exit($response);
+                                return $response;
                             }
                             if ($slotSettings->MaxWin < ($totalWin * $slotSettings->CurrentDenom)) {
                             } else {
@@ -525,9 +526,15 @@ namespace Games\StarBurstNET {
                         break;
                 }
                 $response = $result_tmp[0];
+                if (empty($result_tmp)) {
+                    // Handle unknown actions
+                    $response = '{"responseEvent":"error","responseType":"' . $aid . '","serverResponse":"invalid action"}';
+                } else {
+                    $response = $result_tmp[0];
+                }
                 $slotSettings->SaveGameData();
                 $slotSettings->SaveGameDataStatic();
-                echo $response;
+                return json_encode(['response' => $response, 'state' => $slotSettings->getState()]);
             } catch (\Exception $e) {
                 // Handle internal errors gracefully
                 $slotSettings->InternalErrorSilent($e);

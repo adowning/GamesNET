@@ -61,16 +61,16 @@ namespace Games\ReelRush2NET {
                     $betline = $postData['bet_betlevel'];
                     if ($lines <= 0 || $betline <= 0.0001) {
                         $response = '{"responseEvent":"error","responseType":"' . $postData['slotEvent'] . '","serverResponse":"invalid bet state"}';
-                        exit($response);
+                        return $response;
                     }
                     if ($slotSettings->GetBalance() < ($lines * $betline)) {
                         $response = '{"responseEvent":"error","responseType":"' . $postData['slotEvent'] . '","serverResponse":"invalid balance"}';
-                        exit($response);
+                        return $response;
                     }
                 }
                 if ($slotSettings->GetGameData($slotSettings->slotId . 'FreeGames') < $slotSettings->GetGameData($slotSettings->slotId . 'CurrentFreeGame') && $postData['slotEvent'] == 'freespin') {
                     $response = '{"responseEvent":"error","responseType":"' . $postData['slotEvent'] . '","serverResponse":"invalid bonus state"}';
-                    exit($response);
+                    return $response;
                 }
                 $aid = (string)$postData['action'];
                 switch ($aid) {
@@ -162,10 +162,11 @@ namespace Games\ReelRush2NET {
                             $slotSettings->SaveLogReport('', $starPrice, 1, 0, 'BUY');
                         } else {
                             $response = '{"responseEvent":"error","responseType":"' . $postData['slotEvent'] . '","serverResponse":"invalid balance"}';
-                            exit($response);
+                            return $response;
                         }
                         $balanceInCents = round($slotSettings->GetBalance() * $slotSettings->CurrentDenom * 100);
-                        $Stars = $slotSettings->GetGameData($slotSettings->slotId . 'Stars');
+                        $starsData = $slotSettings->GetGameData($slotSettings->slotId . 'Stars');
+                        $Stars = is_array($starsData) ? array_sum($starsData) : (int)$starsData;
                         $Stars += $starAmount;
                         if ($Stars > 2000) {
                             $Stars = 2000;
@@ -184,7 +185,8 @@ namespace Games\ReelRush2NET {
                         break;
                     case 'gamble':
                         $chanceArr = [];
-                        $Stars = $slotSettings->GetGameData($slotSettings->slotId . 'Stars');
+                        $starsData = $slotSettings->GetGameData($slotSettings->slotId . 'Stars');
+                        $Stars = is_array($starsData) ? array_sum($starsData) : (int)$starsData;
                         $GambleChance = $Stars / 20;
                         for ($i = 1; $i <= 100; $i++) {
                             if ($i < $GambleChance) {
@@ -324,7 +326,8 @@ namespace Games\ReelRush2NET {
                             $linesId0 = [];
                             $reels = $slotSettings->GetReelStrips($winType, $postData['slotEvent']);
                             $reelsTmp = $reels;
-                            $Stars = $slotSettings->GetGameData($slotSettings->slotId . 'Stars');
+                            $starsData = $slotSettings->GetGameData($slotSettings->slotId . 'Stars');
+                            $Stars = is_array($starsData) ? array_sum($starsData) : (int)$starsData;
                             $featureStr = '';
                             $featuresArr = [
                                 'BreakOpen',
@@ -710,7 +713,7 @@ namespace Games\ReelRush2NET {
                             }
                             if ($i > 1500) {
                                 $response = '{"responseEvent":"error","responseType":"' . $postData['slotEvent'] . '","serverResponse":"Bad Reel Strip"}';
-                                exit($response);
+                                return $response;
                             }
                             if ($slotSettings->MaxWin < ($totalWin * $slotSettings->CurrentDenom)) {
                             } else {
@@ -911,7 +914,7 @@ namespace Games\ReelRush2NET {
                 $response = $result_tmp[0];
                 $slotSettings->SaveGameData();
                 $slotSettings->SaveGameDataStatic();
-                echo $response;
+                return json_encode(['response' => $response, 'state' => $slotSettings->getState()]);
             } catch (\Exception $e) {
                 // Handle internal errors gracefully
                 $slotSettings->InternalErrorSilent($e);

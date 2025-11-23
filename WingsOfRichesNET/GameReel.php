@@ -21,7 +21,7 @@ namespace Games\WingsOfRichesNET {
         ];
         public function __construct()
         {
-            $temp = file(base_path() . '/app/Games/WingsOfRichesNET/reels.txt');
+            $temp = file(__DIR__ . '/app/Games/WingsOfRichesNET/reels.txt');
             foreach ($temp as $str) {
                 $str = explode('=', $str);
                 if (isset($this->reelsStrip[$str[0]])) {

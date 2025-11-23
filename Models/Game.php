@@ -1,12 +1,13 @@
 <?php
+
 namespace Models;
 
-class Game
+class Game implements \ArrayAccess
 {
     private array $originalData;
     private array $changedData = [];
     private bool $isModified = false;
-    
+
     public int $id;
     public string $name;
     public int $shop_id;
@@ -20,7 +21,7 @@ class Game
     public float $rezerv = 100;
     public bool $view = true;
     public string $advanced = '';
-    
+
     public function __construct(array $data = [])
     {
         $this->originalData = $data;
@@ -38,7 +39,31 @@ class Game
         $this->view = $data['view'] ?? true;
         $this->advanced = $data['advanced'] ?? '';
     }
-    
+
+    // ArrayAccess interface implementation for backward compatibility
+    public function offsetExists($offset): bool
+    {
+        return property_exists($this, $offset) || strpos($offset, 'jp_') === 0;
+    }
+
+    public function offsetGet($offset): mixed
+    {
+        if (strpos($offset, 'jp_') === 0) {
+            return $this->$offset ?? null;
+        }
+        return $this->$offset ?? null;
+    }
+
+    public function offsetSet($offset, $value): void
+    {
+        $this->$offset = $value;
+    }
+
+    public function offsetUnset($offset): void
+    {
+        unset($this->$offset);
+    }
+
     public function __set($name, $value)
     {
         if (strpos($name, 'jp_') === 0) {
@@ -55,7 +80,7 @@ class Game
             $this->isModified = true;
         }
     }
-    
+
     public function __get($name)
     {
         if (strpos($name, 'jp_') === 0) {
@@ -67,16 +92,16 @@ class Game
                 return $this->jp_config['jp_' . $jpNum] ?? 0;
             }
         }
-        
+
         return null;
     }
-    
-    public function getGameBank(string $slotState = ''): float
+
+    public function get_gamebank(string $slotState = ''): float
     {
         $bankKey = $slotState === 'bonus' ? 'bonus_bank' : 'main_bank';
         return $this->jp_config[$bankKey] ?? 1000.0;
     }
-    
+
     public function getLinesPercentConfig(string $type): array
     {
         return $this->jp_config['lines_percent_config'][$type] ?? [
@@ -85,31 +110,43 @@ class Game
             'line5' => ['0_100' => 30]
         ];
     }
-    
+
+    /**
+     * Snake case alias for getLinesPercentConfig
+     *
+     * @param string $type Type of lines percent config
+     * @return array
+     */
+    public function get_lines_percent_config(string $type): array
+    {
+        error_log($type);
+        return $this->getLinesPercentConfig($type);
+    }
+
     public function increment(string $field, float $amount = 1): void
     {
         if (property_exists($this, $field)) {
             $oldValue = $this->$field ?? 0;
             $this->$field += $amount;
-            
+
             if ($oldValue !== $this->$field) {
                 $this->changedData[$field] = $this->$field;
                 $this->isModified = true;
             }
         }
     }
-    
+
     public function refresh(): void
     {
         // No-op for stateless operation
     }
-    
+
     public function tournamentStat(string $slotState, int $userId, float $bet, float $win): void
     {
         if (!isset($this->tournament_stats)) {
             $this->tournament_stats = [];
         }
-        
+
         $key = $slotState . '_' . $userId;
         if (!isset($this->tournament_stats[$key])) {
             $this->tournament_stats[$key] = [
@@ -118,43 +155,43 @@ class Game
                 'count' => 0
             ];
         }
-        
+
         $this->tournament_stats[$key]['bet'] += $bet;
         $this->tournament_stats[$key]['win'] += $win;
         $this->tournament_stats[$key]['count']++;
     }
-    
+
     public function setGameBank(float $amount, string $operation, string $slotState): void
     {
         $bankKey = $slotState === 'bonus' ? 'bonus_bank' : 'main_bank';
         if (!isset($this->jp_config[$bankKey])) {
             $this->jp_config[$bankKey] = 0;
         }
-        
+
         if ($operation === 'inc') {
             $this->jp_config[$bankKey] += $amount;
         } else {
             $this->jp_config[$bankKey] -= $amount;
         }
     }
-    
+
     public function save(): void
     {
         if ($this->isModified) {
             $this->changedData['id'] = $this->id;
         }
     }
-    
+
     public function hasChanges(): bool
     {
         return $this->isModified;
     }
-    
+
     public function getChanges(): array
     {
         return $this->changedData;
     }
-    
+
     public function getState(): array
     {
         return [

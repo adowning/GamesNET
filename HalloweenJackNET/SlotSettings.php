@@ -320,26 +320,42 @@ namespace Games\HalloweenJackNET {
             if (!isset($this->user->session) || strlen($this->user->session) <= 0) {
                 $this->user->session = serialize([]);
             }
-            $this->gameData = unserialize($this->user->session);
+            
+            // Safe unserialization for gameData
+            $this->gameData = @unserialize($this->user->session);
+            if (!is_array($this->gameData)) {
+                $this->gameData = [];
+            }
+            
+            // Clean up expired gameData
             if (count($this->gameData) > 0) {
                 foreach ($this->gameData as $key => $vl) {
-                    if ($vl['timelife'] <= time()) {
+                    if (isset($vl['timelife']) && $vl['timelife'] <= time()) {
                         unset($this->gameData[$key]);
                     }
                 }
             }
+            
             if (!isset($this->game->advanced) || strlen($this->game->advanced) <= 0) {
                 $this->game->advanced = serialize([]);
             }
-            $this->gameDataStatic = unserialize($this->game->advanced);
+            
+            // Safe unserialization for gameDataStatic
+            $this->gameDataStatic = @unserialize($this->game->advanced);
+            if (!is_array($this->gameDataStatic)) {
+                $this->gameDataStatic = [];
+            }
+            
+            // Clean up expired gameDataStatic
             if (count($this->gameDataStatic) > 0) {
                 foreach ($this->gameDataStatic as $key => $vl) {
-                    if ($vl['timelife'] <= time()) {
+                    if (isset($vl['timelife']) && $vl['timelife'] <= time()) {
                         unset($this->gameDataStatic[$key]);
                     }
                 }
             }
         }
+    
 
         public function GetSpinSettings($garantType = 'bet', $bet, $lines)
         {
@@ -477,7 +493,7 @@ namespace Games\HalloweenJackNET {
             }
             return $return;
         }
-        public function getNewSpin($game, $spinWin = 0, $bonusWin = 0, $lines, $garantType = 'bet')
+        public function getNewSpin($game, $lines, $spinWin = 0, $bonusWin = 0, $garantType = 'bet')
         {
             $curField = 10;
             switch ($lines) {

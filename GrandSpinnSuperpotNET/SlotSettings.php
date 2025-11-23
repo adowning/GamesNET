@@ -46,7 +46,15 @@ namespace Games\GrandSpinnSuperpotNET {
 
         // Game-specific methods
 
-
+        public function FormatResponse($data)
+        {
+            $str = http_build_query($data);
+            $str = str_replace('%5D%5B', '.', $str);
+            $str = str_replace('%5B', '.', $str);
+            $str = str_replace('%5D', '', $str);
+            $str = str_replace('%252', '%2', $str);
+            return $str;
+        }
         public function GetSpinSettings($garantType = 'bet', $bet, $lines)
         {
             $curField = 10;
@@ -325,6 +333,25 @@ namespace Games\GrandSpinnSuperpotNET {
             return $reel;
         }
         // Game-specific methods restored from backup
-
+        public function DecodeData($astr)
+        {
+            $aJson = [];
+            $ajT0 = explode('&', $astr);
+            foreach ($ajT0 as $rootNode) {
+                $nodes = explode('=', $rootNode);
+                $nodes0 = explode('.', $nodes[0]);
+                $laJson = &$aJson;
+                for ($i = 0; $i < count($nodes0); $i++) {
+                    if (!isset($laJson[$nodes0[$i]])) {
+                        $laJson[$nodes0[$i]] = [];
+                    }
+                    if (count($nodes0) - 1 == $i) {
+                        $laJson[$nodes0[$i]] = $nodes[1];
+                    }
+                    $laJson = &$laJson[$nodes0[$i]];
+                }
+            }
+            return $aJson;
+        }
     }
 }

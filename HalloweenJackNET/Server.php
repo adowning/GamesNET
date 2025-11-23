@@ -51,16 +51,16 @@ namespace Games\HalloweenJackNET {
                     $betline = $postData['bet_betlevel'];
                     if ($lines <= 0 || $betline <= 0.0001) {
                         $response = '{"responseEvent":"error","responseType":"' . $postData['slotEvent'] . '","serverResponse":"invalid bet state"}';
-                        exit($response);
+                        return $response;
                     }
                     if ($slotSettings->GetBalance() < ($lines * $betline)) {
                         $response = '{"responseEvent":"error","responseType":"' . $postData['slotEvent'] . '","serverResponse":"invalid balance"}';
-                        exit($response);
+                        return $response;
                     }
                 }
                 if ($slotSettings->GetGameData($slotSettings->slotId . 'FreeGames') < $slotSettings->GetGameData($slotSettings->slotId . 'CurrentFreeGame') && $postData['slotEvent'] == 'freespin') {
                     $response = '{"responseEvent":"error","responseType":"' . $postData['slotEvent'] . '","serverResponse":"invalid bonus state"}';
-                    exit($response);
+                    return $response;
                 }
                 $aid = (string)$postData['action'];
                 switch ($aid) {
@@ -422,6 +422,12 @@ namespace Games\HalloweenJackNET {
                             $reels = $slotSettings->GetReelStrips($winType, $postData['slotEvent']);
                             $walkingWildsStr = '';
                             $WildsWalk = $slotSettings->GetGameData($slotSettings->slotId . 'WildsWalk');
+                            
+                            // Handle null/empty WildsWalk data - initialize with default structure
+                            if ($WildsWalk === null || !isset($WildsWalk['Pumpkin']) || !is_array($WildsWalk['Pumpkin'])) {
+                                $WildsWalk = ['Pumpkin' => []];
+                            }
+                            
                             $wwcnt = 0;
                             foreach ($WildsWalk['Pumpkin'] as $key => $wwalk) {
                                 $WildsWalk['Pumpkin'][$key][0]--;
@@ -534,7 +540,7 @@ namespace Games\HalloweenJackNET {
                                 }
                                 if ($i > 1500) {
                                     $response = '{"responseEvent":"error","responseType":"' . $postData['slotEvent'] . '","serverResponse":"Bad Reel Strip"}';
-                                    exit($response);
+                                    return $response;
                                 }
                                 if ($slotSettings->MaxWin < ($totalWin * $slotSettings->CurrentDenom)) {
                                 } else {
@@ -643,12 +649,12 @@ namespace Games\HalloweenJackNET {
                         $response = '{"responseEvent":"spin","responseType":"' . $postData['slotEvent'] . '","serverResponse":{"freeState":"' . $freeState . '","slotLines":' . $lines . ',"slotBet":' . $betline . ',"totalFreeGames":' . $slotSettings->GetGameData('HalloweenJackNETFreeGames') . ',"currentFreeGames":' . $slotSettings->GetGameData('HalloweenJackNETCurrentFreeGame') . ',"Balance":' . $balanceInCents . ',"afterBalance":' . $balanceInCents . ',"bonusWin":' . $slotSettings->GetGameData('HalloweenJackNETBonusWin') . ',"totalWin":' . $totalWin . ',"winLines":[],"Jackpots":' . $jsJack . ',"reelsSymbols":' . $jsSpin . '}}';
                         $slotSettings->SaveLogReport($response, $allbet, $lines, $reportWin, $postData['slotEvent']);
                         $balanceInCents = round($slotSettings->GetBalance() * $slotSettings->CurrentDenom * 100);
-                        if (!$isRespin && count($WildsWalk['Pumpkin']) > 0) {
+                        if (!$isRespin && isset($WildsWalk['Pumpkin']) && count($WildsWalk['Pumpkin']) > 0) {
                             $slotSettings->SetGameData('HalloweenJackNETIsRespin', true);
                             $walkingWildsStr .= '&nextaction=respin';
-                        } else if ($isRespin && count($WildsWalk['Pumpkin']) > 0) {
+                        } else if ($isRespin && isset($WildsWalk['Pumpkin']) && count($WildsWalk['Pumpkin']) > 0) {
                             $walkingWildsStr .= '&nextaction=respin&clientaction=respin';
-                        } else if ($isRespin && count($WildsWalk['Pumpkin']) <= 0) {
+                        } else if ($isRespin && isset($WildsWalk['Pumpkin']) && count($WildsWalk['Pumpkin']) <= 0) {
                             $slotSettings->SetGameData('HalloweenJackNETIsRespin', false);
                         }
                         if ($scattersCount >= 3) {
@@ -661,7 +667,7 @@ namespace Games\HalloweenJackNET {
                 $response = $result_tmp[0];
                 $slotSettings->SaveGameData();
                 $slotSettings->SaveGameDataStatic();
-                echo $response;
+                return json_encode(['response' => $response, 'state' => $slotSettings->getState()]);
             } catch (\Exception $e) {
                 // Handle internal errors gracefully
                 $slotSettings->InternalErrorSilent($e);

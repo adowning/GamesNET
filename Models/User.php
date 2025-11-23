@@ -1,7 +1,7 @@
 <?php
 namespace Models;
 
-class User
+class User implements \ArrayAccess
 {
     private array $originalData;
     private array $changedData = [];
@@ -31,6 +31,27 @@ class User
         $this->status = $data['status'] ?? 'active';
         $this->remember_token = $data['remember_token'] ?? null;
         $this->last_bid = $data['last_bid'] ?? null;
+    }
+    
+    // ArrayAccess interface implementation for backward compatibility
+    public function offsetExists($offset): bool
+    {
+        return property_exists($this, $offset);
+    }
+    
+    public function offsetGet($offset): mixed
+    {
+        return $this->$offset ?? null;
+    }
+    
+    public function offsetSet($offset, $value): void
+    {
+        $this->$offset = $value;
+    }
+    
+    public function offsetUnset($offset): void
+    {
+        unset($this->$offset);
     }
     
     public function __set($name, $value): void

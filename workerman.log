@@ -1,63 +1,166 @@
-2025-11-22 08:01:43 pid:930530 Workerman[start.php] start in DEBUG mode
-2025-11-22 08:01:43 pid:930530 RuntimeException: stream_socket_server(): Unable to connect to tcp://127.0.0.1:8787 (Address in use) in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/vendor/workerman/workerman/src/Worker.php:2534
-Stack trace:
-#0 [internal function]: Workerman\Worker::Workerman\{closure}(2, 'stream_socket_s...', '/home/ash/Docum...', 2536)
-#1 /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/vendor/workerman/workerman/src/Worker.php(2536): stream_socket_server('tcp://127.0.0.1...', 0, '')
-#2 /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/vendor/workerman/workerman/src/Worker.php(593): Workerman\Worker::checkPortAvailable()
-#3 /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/start.php(43): Workerman\Worker::runAll()
-#4 {main}
-2025-11-22 08:02:30 pid:870586 Workerman[workerman_server_example.php] received signal SIGINT
-2025-11-22 08:02:30 pid:870586 Workerman[workerman_server_example.php] stopping
-2025-11-22 08:02:31 pid:870586 Workerman[workerman_server_example.php] received signal SIGINT
-2025-11-22 08:02:31 pid:870586 Workerman[workerman_server_example.php] stopping
-2025-11-22 08:02:32 pid:870586 Workerman[workerman_server_example.php] received signal SIGINT
-2025-11-22 08:02:32 pid:870586 Workerman[workerman_server_example.php] stopping
-2025-11-22 08:02:32 pid:870586 worker[none:870587] exit with status 9
-2025-11-22 08:02:32 pid:870586 Workerman[workerman_server_example.php] has been stopped
-2025-11-22 08:02:39 pid:931053 Workerman[start.php] start in DEBUG mode
-2025-11-22 08:02:42 pid:931053 Workerman[start.php] received signal SIGINT
-2025-11-22 08:02:42 pid:931053 Workerman[start.php] stopping
-2025-11-22 08:02:42 pid:931053 Workerman[start.php] has been stopped
-2025-11-22 08:02:45 pid:931228 Workerman[start.php] start in DEBUG mode
-2025-11-22 08:02:48 pid:931229 Error: Class "VanguardLTE\Stateless\TheWolfsBaneNET\SlotSettings" not found in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/start.php:33
-Stack trace:
-#0 /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/vendor/workerman/workerman/src/Connection/TcpConnection.php(753): {closure}(Object(Workerman\Connection\TcpConnection), '{"gameId":"TheW...')
-#1 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #23, true, NULL)
-#2 /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/vendor/workerman/workerman/src/Events/Event.php(250): EventBase->loop()
-#3 /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/vendor/workerman/workerman/src/Worker.php(1756): Workerman\Events\Event->run()
-#4 /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/vendor/workerman/workerman/src/Worker.php(1552): Workerman\Worker::forkOneWorkerForLinux(Object(Workerman\Worker))
-#5 /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/vendor/workerman/workerman/src/Worker.php(1532): Workerman\Worker::forkWorkersForLinux()
-#6 /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/vendor/workerman/workerman/src/Worker.php(601): Workerman\Worker::forkWorkers()
-#7 /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/start.php(43): Workerman\Worker::runAll()
-#8 {main}
-2025-11-22 08:02:48 pid:931228 worker[none:931229] exit with status 64000
-2025-11-22 08:07:46 pid:931232 Error: Class "VanguardLTE\Stateless\TheWolfsBaneNET\SlotSettings" not found in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/start.php:33
-Stack trace:
-#0 /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/vendor/workerman/workerman/src/Connection/TcpConnection.php(753): {closure}(Object(Workerman\Connection\TcpConnection), '{"gameId":"TheW...')
-#1 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #21, true, NULL)
-#2 /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/vendor/workerman/workerman/src/Events/Event.php(250): EventBase->loop()
-#3 /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/vendor/workerman/workerman/src/Worker.php(1756): Workerman\Events\Event->run()
-#4 /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/vendor/workerman/workerman/src/Worker.php(1552): Workerman\Worker::forkOneWorkerForLinux(Object(Workerman\Worker))
-#5 /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/vendor/workerman/workerman/src/Worker.php(1532): Workerman\Worker::forkWorkersForLinux()
-#6 /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/vendor/workerman/workerman/src/Worker.php(601): Workerman\Worker::forkWorkers()
-#7 /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/start.php(43): Workerman\Worker::runAll()
-#8 {main}
-2025-11-22 08:07:46 pid:931228 worker[none:931232] exit with status 64000
-2025-11-22 08:07:57 pid:932693 Error: Class "VanguardLTE\Stateless\TheWolfsBaneNET\SlotSettings" not found in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/start.php:33
-Stack trace:
-#0 /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/vendor/workerman/workerman/src/Connection/TcpConnection.php(753): {closure}(Object(Workerman\Connection\TcpConnection), '{"gameId":"TheW...')
-#1 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #23, true, NULL)
-#2 /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/vendor/workerman/workerman/src/Events/Event.php(250): EventBase->loop()
-#3 /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/vendor/workerman/workerman/src/Worker.php(1756): Workerman\Events\Event->run()
-#4 /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/vendor/workerman/workerman/src/Worker.php(1552): Workerman\Worker::forkOneWorkerForLinux(Object(Workerman\Worker))
-#5 /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/vendor/workerman/workerman/src/Worker.php(1532): Workerman\Worker::forkWorkersForLinux()
-#6 /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/vendor/workerman/workerman/src/Worker.php(1901): Workerman\Worker::forkWorkers()
-#7 /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/vendor/workerman/workerman/src/Worker.php(1836): Workerman\Worker::monitorWorkersForLinux()
-#8 /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/vendor/workerman/workerman/src/Worker.php(603): Workerman\Worker::monitorWorkers()
-#9 /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/start.php(43): Workerman\Worker::runAll()
-#10 {main}
-2025-11-22 08:07:57 pid:931228 worker[none:932693] exit with status 64000
-2025-11-22 08:08:28 pid:931228 Workerman[start.php] received signal SIGINT
-2025-11-22 08:08:28 pid:931228 Workerman[start.php] stopping
-2025-11-22 08:08:28 pid:931228 Workerman[start.php] has been stopped
-2025-11-22 08:08:36 pid:933461 Workerman[start.php] start in DEBUG mode
+2025-11-22 18:59:45 pid:1059989 Workerman[start.php] received signal SIGINT
+2025-11-22 18:59:45 pid:1059989 Workerman[start.php] stopping
+2025-11-22 18:59:45 pid:1059989 Workerman[start.php] has been stopped
+2025-11-22 18:59:46 pid:1063683 Workerman[start.php] start in DEBUG mode
+2025-11-22 19:30:26 pid:1063683 Workerman[start.php] received signal SIGINT
+2025-11-22 19:30:26 pid:1063683 Workerman[start.php] stopping
+2025-11-22 19:30:26 pid:1063683 Workerman[start.php] has been stopped
+2025-11-22 19:30:35 pid:1071683 Workerman[start.php] start in DEBUG mode
+2025-11-22 19:41:15 pid:1071683 Workerman[start.php] received signal SIGINT
+2025-11-22 19:41:15 pid:1071683 Workerman[start.php] stopping
+2025-11-22 19:41:15 pid:1071683 Workerman[start.php] has been stopped
+2025-11-22 19:57:01 pid:1078970 Workerman[start.php] start in DEBUG mode
+2025-11-22 21:40:51 pid:1078970 Workerman[start.php] received signal SIGINT
+2025-11-22 21:40:51 pid:1078970 Workerman[start.php] stopping
+2025-11-22 21:40:51 pid:1078970 Workerman[start.php] has been stopped
+2025-11-22 21:40:53 pid:1101306 Workerman[start.php] start in DEBUG mode
+2025-11-22 23:40:37 pid:1101306 Workerman[start.php] received signal SIGINT
+2025-11-22 23:40:37 pid:1101306 Workerman[start.php] stopping
+2025-11-22 23:40:37 pid:1101306 Workerman[start.php] has been stopped
+2025-11-23 00:02:07 pid:1136950 Workerman[start.php] start in DEBUG mode
+2025-11-23 00:02:30 pid:1136965 Worker[1136965] process terminated with ERROR: E_ERROR "Cannot redeclare Games\GoBananasNET\get_() (previously declared in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/GoBananasNET/Server.php:13) in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/GoBananasNET/Server.php on line 13"
+2025-11-23 00:02:30 pid:1136950 worker[none:1136965] exit with status 65280
+2025-11-23 00:08:27 pid:1136966 Worker[1136966] process terminated with ERROR: E_ERROR "Cannot redeclare Games\GoBananasNET\get_() (previously declared in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/GoBananasNET/Server.php:13) in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/GoBananasNET/Server.php on line 13"
+2025-11-23 00:08:27 pid:1136950 worker[none:1136966] exit with status 65280
+2025-11-23 00:09:53 pid:1138587 Workerman[start.php] start in DEBUG mode
+2025-11-23 00:09:53 pid:1138587 Workerman[start.php] already running
+2025-11-23 00:15:20 pid:1136964 Worker[1136964] process terminated with ERROR: E_ERROR "Cannot redeclare Games\GoBananasNET\get_() (previously declared in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/GoBananasNET/Server.php:13) in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/GoBananasNET/Server.php on line 13"
+2025-11-23 00:15:20 pid:1136950 worker[none:1136964] exit with status 65280
+2025-11-23 00:15:56 pid:1137035 Worker[1137035] process terminated with ERROR: E_ERROR "Cannot redeclare Games\GoBananasNET\get_() (previously declared in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/GoBananasNET/Server.php:13) in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/GoBananasNET/Server.php on line 13"
+2025-11-23 00:15:56 pid:1136950 worker[none:1137035] exit with status 65280
+2025-11-23 00:16:18 pid:1140127 Worker[1140127] process terminated with ERROR: E_ERROR "Cannot redeclare Games\GoBananasNET\get_() (previously declared in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/GoBananasNET/Server.php:13) in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/GoBananasNET/Server.php on line 13"
+2025-11-23 00:16:18 pid:1136950 worker[none:1140127] exit with status 65280
+2025-11-23 00:17:04 pid:1140692 Workerman[start.php] stop
+2025-11-23 00:17:04 pid:1140692 Workerman[start.php] is stopping ...
+2025-11-23 00:17:04 pid:1136950 Workerman[start.php] received signal SIGINT
+2025-11-23 00:17:04 pid:1136950 Workerman[start.php] stopping
+2025-11-23 00:17:05 pid:1136950 Workerman[start.php] has been stopped
+2025-11-23 00:17:05 pid:1140692 Workerman[start.php] stop success
+2025-11-23 00:18:27 pid:1142286 Workerman[start.php] start in DAEMON mode
+2025-11-23 00:23:53 pid:1143575 Workerman[start.php] stop
+2025-11-23 00:23:53 pid:1143575 Workerman[start.php] is stopping ...
+2025-11-23 00:23:53 pid:1142299 Workerman[start.php] received signal SIGINT
+2025-11-23 00:23:53 pid:1142299 Workerman[start.php] stopping
+2025-11-23 00:23:53 pid:1142299 Workerman[start.php] has been stopped
+2025-11-23 00:23:53 pid:1143575 Workerman[start.php] stop success
+2025-11-23 00:24:12 pid:1143849 Workerman[start.php] start in DEBUG mode
+2025-11-23 00:29:52 pid:1143849 Workerman[start.php] received signal SIGINT
+2025-11-23 00:29:52 pid:1143849 Workerman[start.php] stopping
+2025-11-23 00:29:52 pid:1143849 Workerman[start.php] has been stopped
+2025-11-23 00:29:53 pid:1145783 Workerman[start.php] start in DEBUG mode
+2025-11-23 00:33:08 pid:1145783 Workerman[start.php] received signal SIGINT
+2025-11-23 00:33:08 pid:1145783 Workerman[start.php] stopping
+2025-11-23 00:33:08 pid:1145783 Workerman[start.php] has been stopped
+2025-11-23 00:33:09 pid:1147209 Workerman[start.php] start in DEBUG mode
+2025-11-23 00:33:16 pid:1147209 Workerman[start.php] received signal SIGINT
+2025-11-23 00:33:16 pid:1147209 Workerman[start.php] stopping
+2025-11-23 00:33:16 pid:1147209 Workerman[start.php] has been stopped
+2025-11-23 00:33:30 pid:1147439 Workerman[start.php] start in DEBUG mode
+2025-11-23 00:37:39 pid:1147439 Workerman[start.php] received signal SIGINT
+2025-11-23 00:37:39 pid:1147439 Workerman[start.php] stopping
+2025-11-23 00:37:39 pid:1147439 Workerman[start.php] has been stopped
+2025-11-23 00:37:40 pid:1148749 Workerman[start.php] start in DEBUG mode
+2025-11-23 00:57:52 pid:1148749 Workerman[start.php] received signal SIGINT
+2025-11-23 00:57:52 pid:1148749 Workerman[start.php] stopping
+2025-11-23 00:57:52 pid:1148749 Workerman[start.php] has been stopped
+2025-11-23 00:57:53 pid:1152632 Workerman[start.php] start in DEBUG mode
+2025-11-23 01:02:33 pid:1152632 Workerman[start.php] received signal SIGINT
+2025-11-23 01:02:33 pid:1152632 Workerman[start.php] stopping
+2025-11-23 01:02:33 pid:1152632 Workerman[start.php] has been stopped
+2025-11-23 01:02:34 pid:1153942 Workerman[start.php] start in DEBUG mode
+2025-11-23 01:04:54 pid:1153942 Workerman[start.php] received signal SIGINT
+2025-11-23 01:04:54 pid:1153942 Workerman[start.php] stopping
+2025-11-23 01:04:54 pid:1153942 Workerman[start.php] has been stopped
+2025-11-23 01:05:03 pid:1154911 Workerman[start.php] start in DEBUG mode
+2025-11-23 01:21:17 pid:1154911 Workerman[start.php] received signal SIGINT
+2025-11-23 01:21:17 pid:1154911 Workerman[start.php] stopping
+2025-11-23 01:21:17 pid:1154911 Workerman[start.php] has been stopped
+2025-11-23 01:21:18 pid:1158634 Workerman[start.php] start in DEBUG mode
+2025-11-23 01:22:54 pid:1158634 Workerman[start.php] received signal SIGINT
+2025-11-23 01:22:54 pid:1158634 Workerman[start.php] stopping
+2025-11-23 01:22:55 pid:1158634 Workerman[start.php] has been stopped
+2025-11-23 01:23:00 pid:1159211 Workerman[start.php] start in DEBUG mode
+2025-11-23 01:34:30 pid:1159211 Workerman[start.php] received signal SIGINT
+2025-11-23 01:34:30 pid:1159211 Workerman[start.php] stopping
+2025-11-23 01:34:30 pid:1159211 Workerman[start.php] has been stopped
+2025-11-23 04:47:01 pid:1193633 Workerman[start.php] start in DEBUG mode
+2025-11-23 04:48:58 pid:1193633 Workerman[start.php] received signal SIGINT
+2025-11-23 04:48:58 pid:1193633 Workerman[start.php] stopping
+2025-11-23 04:48:58 pid:1193633 Workerman[start.php] has been stopped
+2025-11-23 04:48:59 pid:1194791 Workerman[start.php] start in DEBUG mode
+2025-11-23 04:53:05 pid:1194791 Workerman[start.php] received signal SIGINT
+2025-11-23 04:53:05 pid:1194791 Workerman[start.php] stopping
+2025-11-23 04:53:05 pid:1194791 Workerman[start.php] has been stopped
+2025-11-23 04:53:06 pid:1196811 Workerman[start.php] start in DEBUG mode
+2025-11-23 04:53:38 pid:1196811 Workerman[start.php] received signal SIGINT
+2025-11-23 04:53:38 pid:1196811 Workerman[start.php] stopping
+2025-11-23 04:53:38 pid:1196811 Workerman[start.php] has been stopped
+2025-11-23 04:53:39 pid:1197341 Workerman[start.php] start in DEBUG mode
+2025-11-23 04:54:50 pid:1197341 Workerman[start.php] received signal SIGINT
+2025-11-23 04:54:50 pid:1197341 Workerman[start.php] stopping
+2025-11-23 04:54:50 pid:1197341 Workerman[start.php] has been stopped
+2025-11-23 04:54:50 pid:1198108 Workerman[start.php] start in DEBUG mode
+2025-11-23 05:02:15 pid:1198108 Workerman[start.php] received signal SIGINT
+2025-11-23 05:02:15 pid:1198108 Workerman[start.php] stopping
+2025-11-23 05:02:15 pid:1198108 Workerman[start.php] has been stopped
+2025-11-23 05:02:16 pid:1199986 Workerman[start.php] start in DEBUG mode
+2025-11-23 05:03:31 pid:1199986 Workerman[start.php] received signal SIGINT
+2025-11-23 05:03:31 pid:1199986 Workerman[start.php] stopping
+2025-11-23 05:03:32 pid:1199986 Workerman[start.php] has been stopped
+2025-11-23 05:03:35 pid:1200893 Workerman[start.php] start in DEBUG mode
+2025-11-23 05:15:23 pid:1200893 Workerman[start.php] received signal SIGINT
+2025-11-23 05:15:23 pid:1200893 Workerman[start.php] stopping
+2025-11-23 05:15:23 pid:1200893 Workerman[start.php] has been stopped
+2025-11-23 05:16:36 pid:1205874 Workerman[start.php] start in DEBUG mode
+2025-11-23 05:23:50 pid:1205874 Workerman[start.php] received signal SIGINT
+2025-11-23 05:23:50 pid:1205874 Workerman[start.php] stopping
+2025-11-23 05:23:50 pid:1205874 Workerman[start.php] has been stopped
+2025-11-23 05:23:53 pid:1207881 Workerman[start.php] start in DEBUG mode
+2025-11-23 05:25:29 pid:1207881 Workerman[start.php] received signal SIGINT
+2025-11-23 05:25:29 pid:1207881 Workerman[start.php] stopping
+2025-11-23 05:25:29 pid:1207881 Workerman[start.php] has been stopped
+2025-11-23 05:25:30 pid:1208633 Workerman[start.php] start in DEBUG mode
+2025-11-23 05:29:49 pid:1208633 Workerman[start.php] received signal SIGINT
+2025-11-23 05:29:49 pid:1208633 Workerman[start.php] stopping
+2025-11-23 05:29:49 pid:1208633 Workerman[start.php] has been stopped
+2025-11-23 05:29:50 pid:1209998 Workerman[start.php] start in DEBUG mode
+2025-11-23 05:33:09 pid:1209998 Workerman[start.php] received signal SIGINT
+2025-11-23 05:33:09 pid:1209998 Workerman[start.php] stopping
+2025-11-23 05:33:09 pid:1209998 Workerman[start.php] has been stopped
+2025-11-23 05:40:20 pid:1212291 Workerman[start.php] start in DEBUG mode
+2025-11-23 05:48:30 pid:1214027 Workerman[start.php] start in DEBUG mode
+2025-11-23 05:48:30 pid:1214027 Workerman[start.php] already running
+2025-11-23 05:48:35 pid:1214238 Workerman[start.php] start in DEBUG mode
+2025-11-23 05:48:35 pid:1214238 Master pid:1212291 is not alive
+2025-11-23 05:51:18 pid:1214238 Workerman[start.php] received signal SIGINT
+2025-11-23 05:51:18 pid:1214238 Workerman[start.php] stopping
+2025-11-23 05:51:18 pid:1214238 Workerman[start.php] has been stopped
+2025-11-23 05:51:22 pid:1215499 Workerman[start.php] start in DEBUG mode
+2025-11-23 05:56:19 pid:1215499 Workerman[start.php] received signal SIGINT
+2025-11-23 05:56:19 pid:1215499 Workerman[start.php] stopping
+2025-11-23 05:56:19 pid:1215499 Workerman[start.php] has been stopped
+2025-11-23 05:57:01 pid:1216826 Workerman[start.php] start in DEBUG mode
+2025-11-23 06:03:38 pid:1216826 Workerman[start.php] received signal SIGINT
+2025-11-23 06:03:38 pid:1216826 Workerman[start.php] stopping
+2025-11-23 06:03:38 pid:1216826 Workerman[start.php] has been stopped
+2025-11-23 06:04:57 pid:1218780 Workerman[start.php] start in DEBUG mode
+2025-11-23 06:38:33 pid:1218780 Workerman[start.php] received signal SIGINT
+2025-11-23 06:38:33 pid:1218780 Workerman[start.php] stopping
+2025-11-23 06:38:33 pid:1218780 Workerman[start.php] has been stopped
+2025-11-23 06:38:35 pid:1227615 Workerman[start.php] start in DEBUG mode
+2025-11-23 06:50:16 pid:1227615 Workerman[start.php] received signal SIGINT
+2025-11-23 06:50:16 pid:1227615 Workerman[start.php] stopping
+2025-11-23 06:50:16 pid:1227615 Workerman[start.php] has been stopped
+2025-11-23 06:50:20 pid:1230356 Workerman[start.php] start in DEBUG mode
+2025-11-23 07:20:48 pid:1230356 Workerman[start.php] received signal SIGINT
+2025-11-23 07:20:48 pid:1230356 Workerman[start.php] stopping
+2025-11-23 07:20:48 pid:1230356 Workerman[start.php] has been stopped
+2025-11-23 07:20:49 pid:1236349 Workerman[start.php] start in DEBUG mode
+2025-11-23 07:51:28 pid:1236349 Workerman[start.php] received signal SIGINT
+2025-11-23 07:51:28 pid:1236349 Workerman[start.php] stopping
+2025-11-23 07:51:28 pid:1236349 Workerman[start.php] has been stopped
+2025-11-23 08:09:20 pid:1247651 Workerman[start.php] start in DEBUG mode
+2025-11-23 09:30:02 pid:1247651 Workerman[start.php] received signal SIGINT
+2025-11-23 09:30:02 pid:1247651 Workerman[start.php] stopping
+2025-11-23 09:30:02 pid:1247651 Workerman[start.php] has been stopped
+2025-11-23 09:30:03 pid:1271918 Workerman[start.php] start in DEBUG mode

@@ -318,6 +318,420 @@ namespace Games\ReelRush2NET {
             return $reel;
         }
         // Game-specific methods restored from backup
-
+        public function RandomWilds(&$reels, $fCnt)
+        {
+            $RespinId = $this->GetGameData($this->slotId . 'RespinId');
+            if ($RespinId > 5) {
+                $RespinId = 5;
+            }
+            $waysLimit = [];
+            $waysLimit[0] = [
+                [2],
+                [
+                    1,
+                    2,
+                    3
+                ],
+                [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4
+                ],
+                [
+                    1,
+                    2,
+                    3
+                ],
+                [2]
+            ];
+            $waysLimit[1] = [
+                [
+                    1,
+                    2,
+                    3
+                ],
+                [
+                    1,
+                    2,
+                    3
+                ],
+                [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4
+                ],
+                [
+                    1,
+                    2,
+                    3
+                ],
+                [2]
+            ];
+            $waysLimit[2] = [
+                [
+                    1,
+                    2,
+                    3
+                ],
+                [
+                    1,
+                    2,
+                    3
+                ],
+                [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4
+                ],
+                [
+                    1,
+                    2,
+                    3
+                ],
+                [
+                    1,
+                    2,
+                    3
+                ]
+            ];
+            $waysLimit[3] = [
+                [
+                    1,
+                    2,
+                    3
+                ],
+                [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4
+                ],
+                [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4
+                ],
+                [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4
+                ],
+                [
+                    1,
+                    2,
+                    3
+                ]
+            ];
+            $waysLimit[4] = [
+                [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4
+                ],
+                [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4
+                ],
+                [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4
+                ],
+                [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4
+                ],
+                [
+                    1,
+                    2,
+                    3
+                ]
+            ];
+            $waysLimit[5] = [
+                [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4
+                ],
+                [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4
+                ],
+                [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4
+                ],
+                [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4
+                ],
+                [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4
+                ]
+            ];
+            $featureStr = '';
+            $randomwildspArr = [];
+            $wcnt = 0;
+            for ($rr = 1; $rr <= 50; $rr++) {
+                for ($r = 2; $r <= 5; $r++) {
+                    $curWays = $waysLimit[$RespinId][$r - 1];
+                    $pws = 0;
+                    foreach ($curWays as $pw => $p) {
+                        if (rand(1, 5) == 1 && $wcnt < 3) {
+                            $reels['reel' . $r][$p] = '1';
+                            $randomwildspArr[] = '%28' . ($r - 1) . '%2C' . $pw . '%29';
+                            $pws++;
+                            $wcnt++;
+                        }
+                    }
+                }
+                $featureStr .= ('&features.i' . $fCnt . '.type=RandomWilds&features.i' . $fCnt . '.data.positions=' . implode('%2C', $randomwildspArr));
+                if (count($randomwildspArr) > 0) {
+                    break;
+                }
+            }
+            return $featureStr;
+        }
+        public function SymbolUpgrade(&$reels, $fCnt)
+        {
+            $RespinId = $this->GetGameData($this->slotId . 'RespinId');
+            if ($RespinId > 5) {
+                $RespinId = 5;
+            }
+            $waysLimit = [];
+            $waysLimit[0] = [
+                [2],
+                [
+                    1,
+                    2,
+                    3
+                ],
+                [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4
+                ],
+                [
+                    1,
+                    2,
+                    3
+                ],
+                [2]
+            ];
+            $waysLimit[1] = [
+                [
+                    1,
+                    2,
+                    3
+                ],
+                [
+                    1,
+                    2,
+                    3
+                ],
+                [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4
+                ],
+                [
+                    1,
+                    2,
+                    3
+                ],
+                [2]
+            ];
+            $waysLimit[2] = [
+                [
+                    1,
+                    2,
+                    3
+                ],
+                [
+                    1,
+                    2,
+                    3
+                ],
+                [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4
+                ],
+                [
+                    1,
+                    2,
+                    3
+                ],
+                [
+                    1,
+                    2,
+                    3
+                ]
+            ];
+            $waysLimit[3] = [
+                [
+                    1,
+                    2,
+                    3
+                ],
+                [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4
+                ],
+                [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4
+                ],
+                [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4
+                ],
+                [
+                    1,
+                    2,
+                    3
+                ]
+            ];
+            $waysLimit[4] = [
+                [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4
+                ],
+                [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4
+                ],
+                [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4
+                ],
+                [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4
+                ],
+                [
+                    1,
+                    2,
+                    3
+                ]
+            ];
+            $waysLimit[5] = [
+                [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4
+                ],
+                [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4
+                ],
+                [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4
+                ],
+                [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4
+                ],
+                [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4
+                ]
+            ];
+            $pws = 0;
+            $featureStr = '';
+            $randomwildspArr = [];
+            $cSym0 = rand(4, 13);
+            $cSym1 = $cSym0 - 1;
+            for ($r = 1; $r <= 5; $r++) {
+                $curWays = $waysLimit[$RespinId][$r - 1];
+                foreach ($curWays as $pw => $p) {
+                    if ($reels['reel' . $r][$p] == $cSym0) {
+                        $reels['reel' . $r][$p] = $cSym1;
+                        $randomwildspArr[] = '%28' . ($r - 1) . '%2C' . $pw . '%29';
+                        $pws++;
+                    }
+                }
+            }
+            $featureStr .= ('&features.i' . $fCnt . '.data.to=SYM' . $cSym1 . '&features.i' . $fCnt . '.type=SymbolUpgrade&features.i' . $fCnt . '.data.positions=' . implode('%2C', $randomwildspArr) . '&features.i' . $fCnt . '.data.from=SYM' . $cSym0 . '');
+            return $featureStr;
+        }
     }
 }

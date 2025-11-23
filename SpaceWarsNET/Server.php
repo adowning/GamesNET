@@ -1,8 +1,13 @@
 <?php
 
 namespace Games\SpaceWarsNET {
+
+    use Games\Log;
+
     class Server
+
     {
+
         public function get($postData, &$slotSettings)
         {
             try {
@@ -39,16 +44,16 @@ namespace Games\SpaceWarsNET {
                     $betline = $postData['bet_betlevel'];
                     if ($lines <= 0 || $betline <= 0.0001) {
                         $response = '{"responseEvent":"error","responseType":"' . $postData['slotEvent'] . '","serverResponse":"invalid bet state"}';
-                        exit($response);
+                        return $response;
                     }
                     if ($slotSettings->GetBalance() < ($lines * $betline)) {
                         $response = '{"responseEvent":"error","responseType":"' . $postData['slotEvent'] . '","serverResponse":"invalid balance"}';
-                        exit($response);
+                        return $response;
                     }
                 }
                 if ($slotSettings->GetGameData($slotSettings->slotId . 'FreeGames') < $slotSettings->GetGameData($slotSettings->slotId . 'CurrentFreeGame') && $postData['slotEvent'] == 'freespin') {
                     $response = '{"responseEvent":"error","responseType":"' . $postData['slotEvent'] . '","serverResponse":"invalid bonus state"}';
-                    exit($response);
+                    return $response;
                 }
                 $aid = (string)$postData['action'];
                 switch ($aid) {
@@ -580,9 +585,10 @@ namespace Games\SpaceWarsNET {
                             }
                             if ($i > 1500) {
                                 $response = '{"responseEvent":"error","responseType":"' . $postData['slotEvent'] . '","serverResponse":"Bad Reel Strip"}';
-                                exit($response);
+                                return $response;
                             }
                             if ($slotSettings->MaxWin < ($totalWin * $slotSettings->CurrentDenom)) {
+                                //TODO we need to put something here to handle too big of wins
                             } else {
                                 $minWin = $slotSettings->GetRandomPay();
                                 if ($i > 700) {
@@ -635,7 +641,8 @@ namespace Games\SpaceWarsNET {
                         $jsSpin = '' . json_encode($reels) . '';
                         $jsJack = '' . json_encode($slotSettings->Jackpots) . '';
                         $response = '{"responseEvent":"spin","responseType":"' . $postData['slotEvent'] . '","serverResponse":{"slotLines":' . $lines . ',"slotBet":' . $betline . ',"totalFreeGames":' . $slotSettings->GetGameData('SpaceWarsNETFreeGames') . ',"currentFreeGames":' . $slotSettings->GetGameData('SpaceWarsNETCurrentFreeGame') . ',"Balance":' . $balanceInCents . ',"afterBalance":' . $balanceInCents . ',"bonusWin":' . $slotSettings->GetGameData('SpaceWarsNETBonusWin') . ',"totalWin":' . $totalWin . ',"winLines":[],"Jackpots":' . $jsJack . ',"reelsSymbols":' . $jsSpin . '}}';
-                        $slotSettings->SaveLogReport($response, $allbet, $lines, $reportWin, $postData['slotEvent']);
+                        // Log::info('SaveLogReport: ' . json_encode([$response, $allbet, $lines, $reportWin, $postData['slotEvent']]));
+                        // $slotSettings->SaveLogReport($response, $allbet, $lines, $reportWin, $postData['slotEvent']);
                         $winstring = '';
                         $slotSettings->SetGameData('SpaceWarsNETGambleStep', 5);
                         $hist = $slotSettings->GetGameData('SpaceWarsNETCards');
@@ -679,7 +686,7 @@ namespace Games\SpaceWarsNET {
                 $response = $result_tmp[0];
                 $slotSettings->SaveGameData();
                 $slotSettings->SaveGameDataStatic();
-                echo $response;
+                return json_encode(['response' => $response, 'state' => $slotSettings->getState()]);
             } catch (\Exception $e) {
                 // Handle internal errors gracefully
                 $slotSettings->InternalErrorSilent($e);

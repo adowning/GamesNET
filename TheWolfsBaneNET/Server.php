@@ -49,22 +49,22 @@ namespace Games\TheWolfsBaneNET {
                 if ($postData['slotEvent'] == 'bet') {
                     if (!isset($postData['bet_betlevel'])) {
                         $response = '{"responseEvent":"error","responseType":"bet","serverResponse":"invalid bet request"}';
-                        exit($response);
+                        return $response;
                     }
                     $lines = 20;
                     $betline = $postData['bet_betlevel'];
                     if ($lines <= 0 || $betline <= 0.0001) {
                         $response = '{"responseEvent":"error","responseType":"' . $postData['slotEvent'] . '","serverResponse":"invalid bet state"}';
-                        exit($response);
+                        return $response;
                     }
                     if ($slotSettings->GetBalance() < ($lines * $betline)) {
                         $response = '{"responseEvent":"error","responseType":"' . $postData['slotEvent'] . '","serverResponse":"invalid balance"}';
-                        exit($response);
+                        return $response;
                     }
                 }
                 if ($slotSettings->GetGameData($slotSettings->slotId . 'FreeGames') < $slotSettings->GetGameData($slotSettings->slotId . 'CurrentFreeGame') && $postData['slotEvent'] == 'freespin') {
                     $response = '{"responseEvent":"error","responseType":"' . $postData['slotEvent'] . '","serverResponse":"invalid bonus state"}';
-                    exit($response);
+                    return $response;
                 }
                 $aid = (string)$postData['action'];
                 switch ($aid) {
@@ -819,7 +819,7 @@ namespace Games\TheWolfsBaneNET {
                             }
                             if ($i > 1500) {
                                 $response = '{"responseEvent":"error","responseType":"' . $postData['slotEvent'] . '","serverResponse":"Bad Reel Strip"}';
-                                exit($response);
+                                return $response;
                             }
                             if ($slotSettings->MaxWin < ($totalWin * $slotSettings->CurrentDenom)) {
                             } else {
@@ -947,7 +947,7 @@ namespace Games\TheWolfsBaneNET {
                 $response = $result_tmp[0];
                 $slotSettings->SaveGameData();
                 $slotSettings->SaveGameDataStatic();
-                echo $response;
+                return json_encode(['response' => $response, 'state' => $slotSettings->getState()]);
             } catch (\Exception $e) {
                 // Handle internal errors gracefully
                 $slotSettings->InternalErrorSilent($e);

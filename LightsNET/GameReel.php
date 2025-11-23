@@ -21,7 +21,7 @@ namespace Games\LightsNET {
         ];
         public function __construct()
         {
-            $temp = file(base_path() . '/app/Games/LightsNET/reels.txt');
+            $temp = file(__DIR__ . '/app/Games/LightsNET/reels.txt');
             foreach ($temp as $str) {
                 $str = explode('=', $str);
                 if (isset($this->reelsStrip[$str[0]])) {

@@ -54,6 +54,7 @@ namespace Games\StarBurstNET {
         public $slotFastStop;
         public function __construct($settings)
         {
+            parent::__construct($settings);
             $game = $this->game;
             $user = $this->user;
             $shop = $this->shop;
@@ -282,24 +283,25 @@ namespace Games\StarBurstNET {
                 $this->user->session = serialize([]);
             }
             $this->gameData = unserialize($this->user->session);
-            if (count($this->gameData) > 0) {
-                foreach ($this->gameData as $key => $vl) {
-                    if ($vl['timelife'] <= time()) {
-                        unset($this->gameData[$key]);
-                    }
-                }
-            }
-            if (!isset($this->game->advanced) || strlen($this->game->advanced) <= 0) {
-                $this->game->advanced = serialize([]);
-            }
-            $this->gameDataStatic = unserialize($this->game->advanced);
-            if (count($this->gameDataStatic) > 0) {
-                foreach ($this->gameDataStatic as $key => $vl) {
-                    if ($vl['timelife'] <= time()) {
-                        unset($this->gameDataStatic[$key]);
-                    }
-                }
-            }
+            error_log($this->user->session);
+            // if (isset($this->gameData) && count($this->gameData) > 0) {
+            //     foreach ($this->gameData as $key => $vl) {
+            //         if ($vl['timelife'] <= time()) {
+            //             unset($this->gameData[$key]);
+            //         }
+            //     }
+            // }
+            // if (!isset($this->game->advanced) || strlen($this->game->advanced) <= 0) {
+            //     $this->game->advanced = serialize([]);
+            // }
+            // $this->gameDataStatic = unserialize($this->game->advanced);
+            // if (count($this->gameDataStatic) > 0) {
+            //     foreach ($this->gameDataStatic as $key => $vl) {
+            //         if ($vl['timelife'] <= time()) {
+            //             unset($this->gameDataStatic[$key]);
+            //         }
+            //     }
+            // }
         }
 
         public function GetSpinSettings($garantType = 'bet', $bet, $lines)

@@ -21,7 +21,7 @@ namespace Games\GoBananasNET {
         ];
         public function __construct()
         {
-            $temp = file(base_path() . '/app/Games/GoBananasNET/reels.txt');
+            $temp = file(__DIR__ . '/reels.txt');
             foreach ($temp as $str) {
                 $str = explode('=', $str);
                 if (isset($this->reelsStrip[$str[0]])) {
