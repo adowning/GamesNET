@@ -1,6 +1,7 @@
 <?php
 
 use Workerman\Worker;
+use Games\Log;
 
 error_reporting(E_ALL & ~E_DEPRECATED & ~E_USER_DEPRECATED);
 // error_reporting(E_ALL & ~E_WARNING & ~E_NOTICE & ~E_DEPRECATED);
@@ -97,6 +98,7 @@ $worker->onMessage = function ($connection, $data) {
 
         // Convert array data to Model objects using ModelFactory
         // This enables games to use object methods like get_lines_percent_config()
+        Log::info('Array data user: ' . json_encode($payload['user'], JSON_PRETTY_PRINT));
         $settingsData = [
             'user' => \Models\ModelFactory::createUser($payload['user'] ?? []),
             'game' => \Models\ModelFactory::createGame($payload['game'] ?? []),

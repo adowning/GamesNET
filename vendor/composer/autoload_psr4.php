@@ -10,5 +10,5 @@ return array(
     'Workerman\\' => array($vendorDir . '/workerman/workerman/src', $vendorDir . '/workerman/coroutine/src'),
     'Services\\' => array($baseDir . '/Models/Services'),
     'Models\\' => array($baseDir . '/Models'),
-    'Games\\' => array($baseDir . '/'),
+    'Games\\' => array($baseDir . '/Games'),
 );

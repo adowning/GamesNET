@@ -22,6 +22,9 @@ class Game implements \ArrayAccess
     public bool $view = true;
     public string $advanced = '';
 
+    // Lines percent config storage
+    private array $linesPercentConfigs = [];
+
     public function __construct(array $data = [])
     {
         $this->originalData = $data;
@@ -38,6 +41,37 @@ class Game implements \ArrayAccess
         $this->rezerv = $data['rezerv'] ?? 100;
         $this->view = $data['view'] ?? true;
         $this->advanced = $data['advanced'] ?? '';
+        
+        // Parse and store lines percent config data from netenet_games.json fields
+        $this->parseLinesPercentConfigs($data);
+    }
+    
+    /**
+     * Parse lines percent config JSON strings from incoming data
+     */
+    private function parseLinesPercentConfigs(array $data): void
+    {
+        // Map configuration types to database field names
+        $configFields = [
+            'spin' => 'lines_percent_config_spin',
+            'spin_bonus' => 'lines_percent_config_spin_bonus',
+            'bonus' => 'lines_percent_config_bonus',
+            'bonus_bonus' => 'lines_percent_config_bonus_bonus'
+        ];
+        
+        foreach ($configFields as $type => $fieldName) {
+            if (isset($data[$fieldName]) && is_string($data[$fieldName])) {
+                $parsedConfig = json_decode($data[$fieldName], true);
+                if (json_last_error() === JSON_ERROR_NONE && is_array($parsedConfig)) {
+                    $this->linesPercentConfigs[$type] = $parsedConfig;
+                }
+            }
+        }
+        
+        // Store in jp_config for backward compatibility with existing code
+        if (!empty($this->linesPercentConfigs)) {
+            $this->jp_config['lines_percent_config'] = $this->linesPercentConfigs;
+        }
     }
 
     // ArrayAccess interface implementation for backward compatibility
@@ -104,10 +138,24 @@ class Game implements \ArrayAccess
 
     public function getLinesPercentConfig(string $type): array
     {
-        return $this->jp_config['lines_percent_config'][$type] ?? [
-            'line10' => ['0_100' => 20],
-            'line9' => ['0_100' => 25],
-            'line5' => ['0_100' => 30]
+        // Return real parsed configuration data if available
+        if (isset($this->linesPercentConfigs[$type])) {
+            return $this->linesPercentConfigs[$type];
+        }
+        
+        // Fallback to jp_config for backward compatibility
+        if (isset($this->jp_config['lines_percent_config'][$type])) {
+            return $this->jp_config['lines_percent_config'][$type];
+        }
+        
+        // Return default structure with proper RTP ranges if no data available
+        return [
+            'line1' => ['74_80' => 15, '82_88' => 9, '90_96' => 7],
+            'line3' => ['74_80' => 15, '82_88' => 9, '90_96' => 7],
+            'line5' => ['74_80' => 12, '82_88' => 8, '90_96' => 6],
+            'line7' => ['74_80' => 12, '82_88' => 8, '90_96' => 6],
+            'line9' => ['74_80' => 10, '82_88' => 7, '90_96' => 5],
+            'line10' => ['74_80' => 10, '82_88' => 7, '90_96' => 5]
         ];
     }
 
@@ -119,7 +167,6 @@ class Game implements \ArrayAccess
      */
     public function get_lines_percent_config(string $type): array
     {
-        error_log($type);
         return $this->getLinesPercentConfig($type);
     }
 

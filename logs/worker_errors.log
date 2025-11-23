@@ -1,0 +1,78 @@
+[2025-11-23 15:01:36] Worker Fatal Error: Unsupported operand types: string * int in /home/ash/Documents/GamesNET/Games/FlowersNET/SlotSettings.php:325
+Stack trace:
+#0 /home/ash/Documents/GamesNET/Games/FlowersNET/Server.php(374): Games\FlowersNET\SlotSettings->GetSpinSettings('bet', 30, 30)
+#1 /home/ash/Documents/GamesNET/start.php(124): Games\FlowersNET\Server->get(Array, Object(Games\FlowersNET\SlotSettings))
+#2 /home/ash/Documents/GamesNET/vendor/workerman/workerman/src/Connection/TcpConnection.php(753): {closure}(Object(Workerman\Connection\TcpConnection), '{"gameId":"Flow...')
+#3 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #59, true, NULL)
+#4 /home/ash/Documents/GamesNET/vendor/workerman/workerman/src/Events/Event.php(250): EventBase->loop()
+#5 /home/ash/Documents/GamesNET/vendor/workerman/workerman/src/Worker.php(1756): Workerman\Events\Event->run()
+#6 /home/ash/Documents/GamesNET/vendor/workerman/workerman/src/Worker.php(1552): Workerman\Worker::forkOneWorkerForLinux(Object(Workerman\Worker))
+#7 /home/ash/Documents/GamesNET/vendor/workerman/workerman/src/Worker.php(1532): Workerman\Worker::forkWorkersForLinux()
+#8 /home/ash/Documents/GamesNET/vendor/workerman/workerman/src/Worker.php(601): Workerman\Worker::forkWorkers()
+#9 /home/ash/Documents/GamesNET/start.php(183): Workerman\Worker::runAll()
+#10 {main}
+[2025-11-23 15:01:36] Worker Fatal Error: Unsupported operand types: string * int in /home/ash/Documents/GamesNET/Games/GrandSpinnSuperpotNET/SlotSettings.php:207
+Stack trace:
+#0 /home/ash/Documents/GamesNET/Games/GrandSpinnSuperpotNET/Server.php(176): Games\GrandSpinnSuperpotNET\SlotSettings->GetSpinSettings('bet', 2, 1)
+#1 /home/ash/Documents/GamesNET/start.php(124): Games\GrandSpinnSuperpotNET\Server->get(Array, Object(Games\GrandSpinnSuperpotNET\SlotSettings))
+#2 /home/ash/Documents/GamesNET/vendor/workerman/workerman/src/Connection/TcpConnection.php(753): {closure}(Object(Workerman\Connection\TcpConnection), '{"gameId":"Gran...')
+#3 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #91, true, NULL)
+#4 /home/ash/Documents/GamesNET/vendor/workerman/workerman/src/Events/Event.php(250): EventBase->loop()
+#5 /home/ash/Documents/GamesNET/vendor/workerman/workerman/src/Worker.php(1756): Workerman\Events\Event->run()
+#6 /home/ash/Documents/GamesNET/vendor/workerman/workerman/src/Worker.php(1552): Workerman\Worker::forkOneWorkerForLinux(Object(Workerman\Worker))
+#7 /home/ash/Documents/GamesNET/vendor/workerman/workerman/src/Worker.php(1532): Workerman\Worker::forkWorkersForLinux()
+#8 /home/ash/Documents/GamesNET/vendor/workerman/workerman/src/Worker.php(601): Workerman\Worker::forkWorkers()
+#9 /home/ash/Documents/GamesNET/start.php(183): Workerman\Worker::runAll()
+#10 {main}
+[2025-11-23 15:01:36] Worker Fatal Error: Unsupported operand types: string * int in /home/ash/Documents/GamesNET/Games/HalloweenJackNET/SlotSettings.php:395
+Stack trace:
+#0 /home/ash/Documents/GamesNET/Games/HalloweenJackNET/Server.php(321): Games\HalloweenJackNET\SlotSettings->GetSpinSettings('bet', 20, 20)
+#1 /home/ash/Documents/GamesNET/start.php(124): Games\HalloweenJackNET\Server->get(Array, Object(Games\HalloweenJackNET\SlotSettings))
+#2 /home/ash/Documents/GamesNET/vendor/workerman/workerman/src/Connection/TcpConnection.php(753): {closure}(Object(Workerman\Connection\TcpConnection), '{"gameId":"Hall...')
+#3 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #105, true, NULL)
+#4 /home/ash/Documents/GamesNET/vendor/workerman/workerman/src/Events/Event.php(250): EventBase->loop()
+#5 /home/ash/Documents/GamesNET/vendor/workerman/workerman/src/Worker.php(1756): Workerman\Events\Event->run()
+#6 /home/ash/Documents/GamesNET/vendor/workerman/workerman/src/Worker.php(1552): Workerman\Worker::forkOneWorkerForLinux(Object(Workerman\Worker))
+#7 /home/ash/Documents/GamesNET/vendor/workerman/workerman/src/Worker.php(1532): Workerman\Worker::forkWorkersForLinux()
+#8 /home/ash/Documents/GamesNET/vendor/workerman/workerman/src/Worker.php(601): Workerman\Worker::forkWorkers()
+#9 /home/ash/Documents/GamesNET/start.php(183): Workerman\Worker::runAll()
+#10 {main}
+[2025-11-23 15:01:36] Worker Fatal Error: Unsupported operand types: string * int in /home/ash/Documents/GamesNET/Games/StarBurstNET/SlotSettings.php:366
+Stack trace:
+#0 /home/ash/Documents/GamesNET/Games/StarBurstNET/Server.php(233): Games\StarBurstNET\SlotSettings->GetSpinSettings('bet', 10, 10)
+#1 /home/ash/Documents/GamesNET/start.php(124): Games\StarBurstNET\Server->get(Array, Object(Games\StarBurstNET\SlotSettings))
+#2 /home/ash/Documents/GamesNET/vendor/workerman/workerman/src/Connection/TcpConnection.php(753): {closure}(Object(Workerman\Connection\TcpConnection), '{"gameId":"Star...')
+#3 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #46, true, NULL)
+#4 /home/ash/Documents/GamesNET/vendor/workerman/workerman/src/Events/Event.php(250): EventBase->loop()
+#5 /home/ash/Documents/GamesNET/vendor/workerman/workerman/src/Worker.php(1756): Workerman\Events\Event->run()
+#6 /home/ash/Documents/GamesNET/vendor/workerman/workerman/src/Worker.php(1552): Workerman\Worker::forkOneWorkerForLinux(Object(Workerman\Worker))
+#7 /home/ash/Documents/GamesNET/vendor/workerman/workerman/src/Worker.php(1532): Workerman\Worker::forkWorkersForLinux()
+#8 /home/ash/Documents/GamesNET/vendor/workerman/workerman/src/Worker.php(601): Workerman\Worker::forkWorkers()
+#9 /home/ash/Documents/GamesNET/start.php(183): Workerman\Worker::runAll()
+#10 {main}
+[2025-11-23 15:01:36] Worker Fatal Error: Unsupported operand types: string * int in /home/ash/Documents/GamesNET/Games/TheWolfsBaneNET/SlotSettings.php:178
+Stack trace:
+#0 /home/ash/Documents/GamesNET/Games/TheWolfsBaneNET/Server.php(300): Games\TheWolfsBaneNET\SlotSettings->GetSpinSettings('bet', 10, 10)
+#1 /home/ash/Documents/GamesNET/start.php(124): Games\TheWolfsBaneNET\Server->get(Array, Object(Games\TheWolfsBaneNET\SlotSettings))
+#2 /home/ash/Documents/GamesNET/vendor/workerman/workerman/src/Connection/TcpConnection.php(753): {closure}(Object(Workerman\Connection\TcpConnection), '{"gameId":"TheW...')
+#3 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #57, true, NULL)
+#4 /home/ash/Documents/GamesNET/vendor/workerman/workerman/src/Events/Event.php(250): EventBase->loop()
+#5 /home/ash/Documents/GamesNET/vendor/workerman/workerman/src/Worker.php(1756): Workerman\Events\Event->run()
+#6 /home/ash/Documents/GamesNET/vendor/workerman/workerman/src/Worker.php(1552): Workerman\Worker::forkOneWorkerForLinux(Object(Workerman\Worker))
+#7 /home/ash/Documents/GamesNET/vendor/workerman/workerman/src/Worker.php(1532): Workerman\Worker::forkWorkersForLinux()
+#8 /home/ash/Documents/GamesNET/vendor/workerman/workerman/src/Worker.php(601): Workerman\Worker::forkWorkers()
+#9 /home/ash/Documents/GamesNET/start.php(183): Workerman\Worker::runAll()
+#10 {main}
+[2025-11-23 15:01:36] Worker Fatal Error: Unsupported operand types: string * int in /home/ash/Documents/GamesNET/Games/WingsOfRichesNET/SlotSettings.php:189
+Stack trace:
+#0 /home/ash/Documents/GamesNET/Games/WingsOfRichesNET/Server.php(300): Games\WingsOfRichesNET\SlotSettings->GetSpinSettings('bet', 20, 20)
+#1 /home/ash/Documents/GamesNET/start.php(124): Games\WingsOfRichesNET\Server->get(Array, Object(Games\WingsOfRichesNET\SlotSettings))
+#2 /home/ash/Documents/GamesNET/vendor/workerman/workerman/src/Connection/TcpConnection.php(753): {closure}(Object(Workerman\Connection\TcpConnection), '{"gameId":"Wing...')
+#3 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #159, true, NULL)
+#4 /home/ash/Documents/GamesNET/vendor/workerman/workerman/src/Events/Event.php(250): EventBase->loop()
+#5 /home/ash/Documents/GamesNET/vendor/workerman/workerman/src/Worker.php(1756): Workerman\Events\Event->run()
+#6 /home/ash/Documents/GamesNET/vendor/workerman/workerman/src/Worker.php(1552): Workerman\Worker::forkOneWorkerForLinux(Object(Workerman\Worker))
+#7 /home/ash/Documents/GamesNET/vendor/workerman/workerman/src/Worker.php(1532): Workerman\Worker::forkWorkersForLinux()
+#8 /home/ash/Documents/GamesNET/vendor/workerman/workerman/src/Worker.php(601): Workerman\Worker::forkWorkers()
+#9 /home/ash/Documents/GamesNET/start.php(183): Workerman\Worker::runAll()
+#10 {main}

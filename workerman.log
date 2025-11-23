@@ -1,166 +1,132 @@
-2025-11-22 18:59:45 pid:1059989 Workerman[start.php] received signal SIGINT
-2025-11-22 18:59:45 pid:1059989 Workerman[start.php] stopping
-2025-11-22 18:59:45 pid:1059989 Workerman[start.php] has been stopped
-2025-11-22 18:59:46 pid:1063683 Workerman[start.php] start in DEBUG mode
-2025-11-22 19:30:26 pid:1063683 Workerman[start.php] received signal SIGINT
-2025-11-22 19:30:26 pid:1063683 Workerman[start.php] stopping
-2025-11-22 19:30:26 pid:1063683 Workerman[start.php] has been stopped
-2025-11-22 19:30:35 pid:1071683 Workerman[start.php] start in DEBUG mode
-2025-11-22 19:41:15 pid:1071683 Workerman[start.php] received signal SIGINT
-2025-11-22 19:41:15 pid:1071683 Workerman[start.php] stopping
-2025-11-22 19:41:15 pid:1071683 Workerman[start.php] has been stopped
-2025-11-22 19:57:01 pid:1078970 Workerman[start.php] start in DEBUG mode
-2025-11-22 21:40:51 pid:1078970 Workerman[start.php] received signal SIGINT
-2025-11-22 21:40:51 pid:1078970 Workerman[start.php] stopping
-2025-11-22 21:40:51 pid:1078970 Workerman[start.php] has been stopped
-2025-11-22 21:40:53 pid:1101306 Workerman[start.php] start in DEBUG mode
-2025-11-22 23:40:37 pid:1101306 Workerman[start.php] received signal SIGINT
-2025-11-22 23:40:37 pid:1101306 Workerman[start.php] stopping
-2025-11-22 23:40:37 pid:1101306 Workerman[start.php] has been stopped
-2025-11-23 00:02:07 pid:1136950 Workerman[start.php] start in DEBUG mode
-2025-11-23 00:02:30 pid:1136965 Worker[1136965] process terminated with ERROR: E_ERROR "Cannot redeclare Games\GoBananasNET\get_() (previously declared in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/GoBananasNET/Server.php:13) in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/GoBananasNET/Server.php on line 13"
-2025-11-23 00:02:30 pid:1136950 worker[none:1136965] exit with status 65280
-2025-11-23 00:08:27 pid:1136966 Worker[1136966] process terminated with ERROR: E_ERROR "Cannot redeclare Games\GoBananasNET\get_() (previously declared in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/GoBananasNET/Server.php:13) in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/GoBananasNET/Server.php on line 13"
-2025-11-23 00:08:27 pid:1136950 worker[none:1136966] exit with status 65280
-2025-11-23 00:09:53 pid:1138587 Workerman[start.php] start in DEBUG mode
-2025-11-23 00:09:53 pid:1138587 Workerman[start.php] already running
-2025-11-23 00:15:20 pid:1136964 Worker[1136964] process terminated with ERROR: E_ERROR "Cannot redeclare Games\GoBananasNET\get_() (previously declared in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/GoBananasNET/Server.php:13) in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/GoBananasNET/Server.php on line 13"
-2025-11-23 00:15:20 pid:1136950 worker[none:1136964] exit with status 65280
-2025-11-23 00:15:56 pid:1137035 Worker[1137035] process terminated with ERROR: E_ERROR "Cannot redeclare Games\GoBananasNET\get_() (previously declared in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/GoBananasNET/Server.php:13) in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/GoBananasNET/Server.php on line 13"
-2025-11-23 00:15:56 pid:1136950 worker[none:1137035] exit with status 65280
-2025-11-23 00:16:18 pid:1140127 Worker[1140127] process terminated with ERROR: E_ERROR "Cannot redeclare Games\GoBananasNET\get_() (previously declared in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/GoBananasNET/Server.php:13) in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/GoBananasNET/Server.php on line 13"
-2025-11-23 00:16:18 pid:1136950 worker[none:1140127] exit with status 65280
-2025-11-23 00:17:04 pid:1140692 Workerman[start.php] stop
-2025-11-23 00:17:04 pid:1140692 Workerman[start.php] is stopping ...
-2025-11-23 00:17:04 pid:1136950 Workerman[start.php] received signal SIGINT
-2025-11-23 00:17:04 pid:1136950 Workerman[start.php] stopping
-2025-11-23 00:17:05 pid:1136950 Workerman[start.php] has been stopped
-2025-11-23 00:17:05 pid:1140692 Workerman[start.php] stop success
-2025-11-23 00:18:27 pid:1142286 Workerman[start.php] start in DAEMON mode
-2025-11-23 00:23:53 pid:1143575 Workerman[start.php] stop
-2025-11-23 00:23:53 pid:1143575 Workerman[start.php] is stopping ...
-2025-11-23 00:23:53 pid:1142299 Workerman[start.php] received signal SIGINT
-2025-11-23 00:23:53 pid:1142299 Workerman[start.php] stopping
-2025-11-23 00:23:53 pid:1142299 Workerman[start.php] has been stopped
-2025-11-23 00:23:53 pid:1143575 Workerman[start.php] stop success
-2025-11-23 00:24:12 pid:1143849 Workerman[start.php] start in DEBUG mode
-2025-11-23 00:29:52 pid:1143849 Workerman[start.php] received signal SIGINT
-2025-11-23 00:29:52 pid:1143849 Workerman[start.php] stopping
-2025-11-23 00:29:52 pid:1143849 Workerman[start.php] has been stopped
-2025-11-23 00:29:53 pid:1145783 Workerman[start.php] start in DEBUG mode
-2025-11-23 00:33:08 pid:1145783 Workerman[start.php] received signal SIGINT
-2025-11-23 00:33:08 pid:1145783 Workerman[start.php] stopping
-2025-11-23 00:33:08 pid:1145783 Workerman[start.php] has been stopped
-2025-11-23 00:33:09 pid:1147209 Workerman[start.php] start in DEBUG mode
-2025-11-23 00:33:16 pid:1147209 Workerman[start.php] received signal SIGINT
-2025-11-23 00:33:16 pid:1147209 Workerman[start.php] stopping
-2025-11-23 00:33:16 pid:1147209 Workerman[start.php] has been stopped
-2025-11-23 00:33:30 pid:1147439 Workerman[start.php] start in DEBUG mode
-2025-11-23 00:37:39 pid:1147439 Workerman[start.php] received signal SIGINT
-2025-11-23 00:37:39 pid:1147439 Workerman[start.php] stopping
-2025-11-23 00:37:39 pid:1147439 Workerman[start.php] has been stopped
-2025-11-23 00:37:40 pid:1148749 Workerman[start.php] start in DEBUG mode
-2025-11-23 00:57:52 pid:1148749 Workerman[start.php] received signal SIGINT
-2025-11-23 00:57:52 pid:1148749 Workerman[start.php] stopping
-2025-11-23 00:57:52 pid:1148749 Workerman[start.php] has been stopped
-2025-11-23 00:57:53 pid:1152632 Workerman[start.php] start in DEBUG mode
-2025-11-23 01:02:33 pid:1152632 Workerman[start.php] received signal SIGINT
-2025-11-23 01:02:33 pid:1152632 Workerman[start.php] stopping
-2025-11-23 01:02:33 pid:1152632 Workerman[start.php] has been stopped
-2025-11-23 01:02:34 pid:1153942 Workerman[start.php] start in DEBUG mode
-2025-11-23 01:04:54 pid:1153942 Workerman[start.php] received signal SIGINT
-2025-11-23 01:04:54 pid:1153942 Workerman[start.php] stopping
-2025-11-23 01:04:54 pid:1153942 Workerman[start.php] has been stopped
-2025-11-23 01:05:03 pid:1154911 Workerman[start.php] start in DEBUG mode
-2025-11-23 01:21:17 pid:1154911 Workerman[start.php] received signal SIGINT
-2025-11-23 01:21:17 pid:1154911 Workerman[start.php] stopping
-2025-11-23 01:21:17 pid:1154911 Workerman[start.php] has been stopped
-2025-11-23 01:21:18 pid:1158634 Workerman[start.php] start in DEBUG mode
-2025-11-23 01:22:54 pid:1158634 Workerman[start.php] received signal SIGINT
-2025-11-23 01:22:54 pid:1158634 Workerman[start.php] stopping
-2025-11-23 01:22:55 pid:1158634 Workerman[start.php] has been stopped
-2025-11-23 01:23:00 pid:1159211 Workerman[start.php] start in DEBUG mode
-2025-11-23 01:34:30 pid:1159211 Workerman[start.php] received signal SIGINT
-2025-11-23 01:34:30 pid:1159211 Workerman[start.php] stopping
-2025-11-23 01:34:30 pid:1159211 Workerman[start.php] has been stopped
-2025-11-23 04:47:01 pid:1193633 Workerman[start.php] start in DEBUG mode
-2025-11-23 04:48:58 pid:1193633 Workerman[start.php] received signal SIGINT
-2025-11-23 04:48:58 pid:1193633 Workerman[start.php] stopping
-2025-11-23 04:48:58 pid:1193633 Workerman[start.php] has been stopped
-2025-11-23 04:48:59 pid:1194791 Workerman[start.php] start in DEBUG mode
-2025-11-23 04:53:05 pid:1194791 Workerman[start.php] received signal SIGINT
-2025-11-23 04:53:05 pid:1194791 Workerman[start.php] stopping
-2025-11-23 04:53:05 pid:1194791 Workerman[start.php] has been stopped
-2025-11-23 04:53:06 pid:1196811 Workerman[start.php] start in DEBUG mode
-2025-11-23 04:53:38 pid:1196811 Workerman[start.php] received signal SIGINT
-2025-11-23 04:53:38 pid:1196811 Workerman[start.php] stopping
-2025-11-23 04:53:38 pid:1196811 Workerman[start.php] has been stopped
-2025-11-23 04:53:39 pid:1197341 Workerman[start.php] start in DEBUG mode
-2025-11-23 04:54:50 pid:1197341 Workerman[start.php] received signal SIGINT
-2025-11-23 04:54:50 pid:1197341 Workerman[start.php] stopping
-2025-11-23 04:54:50 pid:1197341 Workerman[start.php] has been stopped
-2025-11-23 04:54:50 pid:1198108 Workerman[start.php] start in DEBUG mode
-2025-11-23 05:02:15 pid:1198108 Workerman[start.php] received signal SIGINT
-2025-11-23 05:02:15 pid:1198108 Workerman[start.php] stopping
-2025-11-23 05:02:15 pid:1198108 Workerman[start.php] has been stopped
-2025-11-23 05:02:16 pid:1199986 Workerman[start.php] start in DEBUG mode
-2025-11-23 05:03:31 pid:1199986 Workerman[start.php] received signal SIGINT
-2025-11-23 05:03:31 pid:1199986 Workerman[start.php] stopping
-2025-11-23 05:03:32 pid:1199986 Workerman[start.php] has been stopped
-2025-11-23 05:03:35 pid:1200893 Workerman[start.php] start in DEBUG mode
-2025-11-23 05:15:23 pid:1200893 Workerman[start.php] received signal SIGINT
-2025-11-23 05:15:23 pid:1200893 Workerman[start.php] stopping
-2025-11-23 05:15:23 pid:1200893 Workerman[start.php] has been stopped
-2025-11-23 05:16:36 pid:1205874 Workerman[start.php] start in DEBUG mode
-2025-11-23 05:23:50 pid:1205874 Workerman[start.php] received signal SIGINT
-2025-11-23 05:23:50 pid:1205874 Workerman[start.php] stopping
-2025-11-23 05:23:50 pid:1205874 Workerman[start.php] has been stopped
-2025-11-23 05:23:53 pid:1207881 Workerman[start.php] start in DEBUG mode
-2025-11-23 05:25:29 pid:1207881 Workerman[start.php] received signal SIGINT
-2025-11-23 05:25:29 pid:1207881 Workerman[start.php] stopping
-2025-11-23 05:25:29 pid:1207881 Workerman[start.php] has been stopped
-2025-11-23 05:25:30 pid:1208633 Workerman[start.php] start in DEBUG mode
-2025-11-23 05:29:49 pid:1208633 Workerman[start.php] received signal SIGINT
-2025-11-23 05:29:49 pid:1208633 Workerman[start.php] stopping
-2025-11-23 05:29:49 pid:1208633 Workerman[start.php] has been stopped
-2025-11-23 05:29:50 pid:1209998 Workerman[start.php] start in DEBUG mode
-2025-11-23 05:33:09 pid:1209998 Workerman[start.php] received signal SIGINT
-2025-11-23 05:33:09 pid:1209998 Workerman[start.php] stopping
-2025-11-23 05:33:09 pid:1209998 Workerman[start.php] has been stopped
-2025-11-23 05:40:20 pid:1212291 Workerman[start.php] start in DEBUG mode
-2025-11-23 05:48:30 pid:1214027 Workerman[start.php] start in DEBUG mode
-2025-11-23 05:48:30 pid:1214027 Workerman[start.php] already running
-2025-11-23 05:48:35 pid:1214238 Workerman[start.php] start in DEBUG mode
-2025-11-23 05:48:35 pid:1214238 Master pid:1212291 is not alive
-2025-11-23 05:51:18 pid:1214238 Workerman[start.php] received signal SIGINT
-2025-11-23 05:51:18 pid:1214238 Workerman[start.php] stopping
-2025-11-23 05:51:18 pid:1214238 Workerman[start.php] has been stopped
-2025-11-23 05:51:22 pid:1215499 Workerman[start.php] start in DEBUG mode
-2025-11-23 05:56:19 pid:1215499 Workerman[start.php] received signal SIGINT
-2025-11-23 05:56:19 pid:1215499 Workerman[start.php] stopping
-2025-11-23 05:56:19 pid:1215499 Workerman[start.php] has been stopped
-2025-11-23 05:57:01 pid:1216826 Workerman[start.php] start in DEBUG mode
-2025-11-23 06:03:38 pid:1216826 Workerman[start.php] received signal SIGINT
-2025-11-23 06:03:38 pid:1216826 Workerman[start.php] stopping
-2025-11-23 06:03:38 pid:1216826 Workerman[start.php] has been stopped
-2025-11-23 06:04:57 pid:1218780 Workerman[start.php] start in DEBUG mode
-2025-11-23 06:38:33 pid:1218780 Workerman[start.php] received signal SIGINT
-2025-11-23 06:38:33 pid:1218780 Workerman[start.php] stopping
-2025-11-23 06:38:33 pid:1218780 Workerman[start.php] has been stopped
-2025-11-23 06:38:35 pid:1227615 Workerman[start.php] start in DEBUG mode
-2025-11-23 06:50:16 pid:1227615 Workerman[start.php] received signal SIGINT
-2025-11-23 06:50:16 pid:1227615 Workerman[start.php] stopping
-2025-11-23 06:50:16 pid:1227615 Workerman[start.php] has been stopped
-2025-11-23 06:50:20 pid:1230356 Workerman[start.php] start in DEBUG mode
-2025-11-23 07:20:48 pid:1230356 Workerman[start.php] received signal SIGINT
-2025-11-23 07:20:48 pid:1230356 Workerman[start.php] stopping
-2025-11-23 07:20:48 pid:1230356 Workerman[start.php] has been stopped
-2025-11-23 07:20:49 pid:1236349 Workerman[start.php] start in DEBUG mode
-2025-11-23 07:51:28 pid:1236349 Workerman[start.php] received signal SIGINT
-2025-11-23 07:51:28 pid:1236349 Workerman[start.php] stopping
-2025-11-23 07:51:28 pid:1236349 Workerman[start.php] has been stopped
-2025-11-23 08:09:20 pid:1247651 Workerman[start.php] start in DEBUG mode
-2025-11-23 09:30:02 pid:1247651 Workerman[start.php] received signal SIGINT
-2025-11-23 09:30:02 pid:1247651 Workerman[start.php] stopping
-2025-11-23 09:30:02 pid:1247651 Workerman[start.php] has been stopped
-2025-11-23 09:30:03 pid:1271918 Workerman[start.php] start in DEBUG mode
+2025-11-23 12:07:45 pid:1317980 Workerman[start.php] start in DEBUG mode
+2025-11-23 12:12:06 pid:1317980 Workerman[start.php] received signal SIGINT
+2025-11-23 12:12:06 pid:1317980 Workerman[start.php] stopping
+2025-11-23 12:12:06 pid:1317980 Workerman[start.php] has been stopped
+2025-11-23 12:12:08 pid:1319585 Workerman[start.php] start in DEBUG mode
+2025-11-23 12:12:35 pid:1319585 Workerman[start.php] received signal SIGINT
+2025-11-23 12:12:35 pid:1319585 Workerman[start.php] stopping
+2025-11-23 12:12:35 pid:1319585 Workerman[start.php] has been stopped
+2025-11-23 12:12:39 pid:1320091 Workerman[start.php] start in DEBUG mode
+2025-11-23 12:17:58 pid:1320091 Workerman[start.php] received signal SIGINT
+2025-11-23 12:17:58 pid:1320091 Workerman[start.php] stopping
+2025-11-23 12:17:58 pid:1320091 Workerman[start.php] has been stopped
+2025-11-23 12:17:59 pid:1322146 Workerman[start.php] start in DEBUG mode
+2025-11-23 12:18:16 pid:1322146 Workerman[start.php] received signal SIGINT
+2025-11-23 12:18:16 pid:1322146 Workerman[start.php] stopping
+2025-11-23 12:18:16 pid:1322146 Workerman[start.php] has been stopped
+2025-11-23 12:18:17 pid:1322462 Workerman[start.php] start in DEBUG mode
+2025-11-23 12:18:39 pid:1322462 Workerman[start.php] received signal SIGINT
+2025-11-23 12:18:39 pid:1322462 Workerman[start.php] stopping
+2025-11-23 12:18:40 pid:1322462 Workerman[start.php] received signal SIGINT
+2025-11-23 12:18:40 pid:1322462 Workerman[start.php] stopping
+2025-11-23 12:18:40 pid:1322462 Workerman[start.php] received signal SIGINT
+2025-11-23 12:18:40 pid:1322462 Workerman[start.php] stopping
+2025-11-23 12:18:41 pid:1322462 Workerman[start.php] received signal SIGTSTP
+2025-11-23 12:18:41 pid:1322462 Workerman[start.php] stopping
+2025-11-23 12:18:41 pid:1322462 Workerman[start.php] received signal SIGINT
+2025-11-23 12:18:41 pid:1322462 Workerman[start.php] stopping
+2025-11-23 12:18:42 pid:1322462 worker[none:1322467] exit with status 9
+2025-11-23 12:18:42 pid:1322462 Workerman[start.php] has been stopped
+2025-11-23 12:21:37 pid:1325597 Workerman[start.php] start in DEBUG mode
+2025-11-23 12:22:03 pid:1325597 Workerman[start.php] received signal SIGINT
+2025-11-23 12:22:03 pid:1325597 Workerman[start.php] stopping
+2025-11-23 12:22:04 pid:1325597 Workerman[start.php] received signal SIGINT
+2025-11-23 12:22:04 pid:1325597 Workerman[start.php] stopping
+2025-11-23 12:22:05 pid:1325597 worker[none:1325601] exit with status 9
+2025-11-23 12:22:05 pid:1325597 Workerman[start.php] has been stopped
+2025-11-23 12:41:02 pid:1333090 Workerman[start.php] start in DEBUG mode
+2025-11-23 13:10:08 pid:1340375 Workerman[start.php] start in DEBUG mode
+2025-11-23 13:10:08 pid:1340375 Workerman[start.php] already running
+2025-11-23 13:17:57 pid:1342371 Workerman[start.php] start in DEBUG mode
+2025-11-23 13:17:57 pid:1342371 Workerman[start.php] already running
+2025-11-23 13:22:42 pid:1343284 Workerman[start.php] start in DEBUG mode
+2025-11-23 13:22:42 pid:1343284 Workerman[start.php] already running
+2025-11-23 13:23:49 pid:1343563 Workerman[start.php] start in DEBUG mode
+2025-11-23 13:23:49 pid:1343563 Workerman[start.php] already running
+2025-11-23 13:24:24 pid:1333090 Workerman[start.php] received signal SIGINT
+2025-11-23 13:24:24 pid:1333090 Workerman[start.php] stopping
+2025-11-23 13:24:24 pid:1333090 Workerman[start.php] has been stopped
+2025-11-23 13:24:38 pid:1343911 Workerman[start.php] start in DEBUG mode
+2025-11-23 13:26:34 pid:1344325 Workerman[start.php] start in DEBUG mode
+2025-11-23 13:26:34 pid:1344325 Workerman[start.php] already running
+2025-11-23 13:26:46 pid:1344526 Workerman[start.php] start in DEBUG mode
+2025-11-23 13:26:46 pid:1344526 Master pid:1343911 is not alive
+2025-11-23 13:27:11 pid:1344526 Workerman[start.php] received signal SIGINT
+2025-11-23 13:27:11 pid:1344526 Workerman[start.php] stopping
+2025-11-23 13:27:11 pid:1344526 Workerman[start.php] has been stopped
+2025-11-23 13:27:12 pid:1344948 Workerman[start.php] start in DEBUG mode
+2025-11-23 13:27:26 pid:1344948 Workerman[start.php] received signal SIGINT
+2025-11-23 13:27:26 pid:1344948 Workerman[start.php] stopping
+2025-11-23 13:27:26 pid:1344948 Workerman[start.php] has been stopped
+2025-11-23 13:28:16 pid:1345884 Workerman[start.php] start in DEBUG mode
+2025-11-23 13:28:44 pid:1345884 Workerman[start.php] received signal SIGINT
+2025-11-23 13:28:44 pid:1345884 Workerman[start.php] stopping
+2025-11-23 13:28:44 pid:1345884 Workerman[start.php] has been stopped
+2025-11-23 13:28:53 pid:1346286 Workerman[start.php] start in DEBUG mode
+2025-11-23 13:29:27 pid:1346286 Workerman[start.php] received signal SIGINT
+2025-11-23 13:29:27 pid:1346286 Workerman[start.php] stopping
+2025-11-23 13:29:27 pid:1346286 Workerman[start.php] has been stopped
+2025-11-23 13:29:29 pid:1346651 Workerman[start.php] start in DEBUG mode
+2025-11-23 13:29:50 pid:1346651 Workerman[start.php] received signal SIGINT
+2025-11-23 13:29:50 pid:1346651 Workerman[start.php] stopping
+2025-11-23 13:29:51 pid:1346651 Workerman[start.php] has been stopped
+2025-11-23 13:29:52 pid:1346929 Workerman[start.php] start in DEBUG mode
+2025-11-23 13:32:16 pid:1346929 Workerman[start.php] received signal SIGINT
+2025-11-23 13:32:16 pid:1346929 Workerman[start.php] stopping
+2025-11-23 13:32:16 pid:1346929 Workerman[start.php] has been stopped
+2025-11-23 13:32:26 pid:1347957 Workerman[start.php] start in DEBUG mode
+2025-11-23 13:38:25 pid:1347957 Workerman[start.php] received signal SIGINT
+2025-11-23 13:38:25 pid:1347957 Workerman[start.php] stopping
+2025-11-23 13:38:25 pid:1347957 Workerman[start.php] has been stopped
+2025-11-23 13:38:26 pid:1349538 Workerman[start.php] start in DEBUG mode
+2025-11-23 13:46:37 pid:1349538 Workerman[start.php] received signal SIGINT
+2025-11-23 13:46:37 pid:1349538 Workerman[start.php] stopping
+2025-11-23 13:46:37 pid:1349538 Workerman[start.php] has been stopped
+2025-11-23 13:46:38 pid:1352729 Workerman[start.php] start in DEBUG mode
+2025-11-23 13:49:29 pid:1352729 Workerman[start.php] received signal SIGINT
+2025-11-23 13:49:29 pid:1352729 Workerman[start.php] stopping
+2025-11-23 13:49:29 pid:1352729 Workerman[start.php] has been stopped
+2025-11-23 13:49:31 pid:1353808 Workerman[start.php] start in DEBUG mode
+2025-11-23 13:52:01 pid:1353808 Workerman[start.php] received signal SIGINT
+2025-11-23 13:52:01 pid:1353808 Workerman[start.php] stopping
+2025-11-23 13:52:01 pid:1353808 Workerman[start.php] has been stopped
+2025-11-23 13:52:02 pid:1355116 Workerman[start.php] start in DEBUG mode
+2025-11-23 14:01:34 pid:1355116 Workerman[start.php] received signal SIGINT
+2025-11-23 14:01:34 pid:1355116 Workerman[start.php] stopping
+2025-11-23 14:01:34 pid:1355116 Workerman[start.php] has been stopped
+2025-11-23 14:01:35 pid:1358612 Workerman[start.php] start in DEBUG mode
+2025-11-23 14:03:16 pid:1358612 Workerman[start.php] received signal SIGINT
+2025-11-23 14:03:16 pid:1358612 Workerman[start.php] stopping
+2025-11-23 14:03:16 pid:1358612 Workerman[start.php] has been stopped
+2025-11-23 14:03:16 pid:1359367 Workerman[start.php] start in DEBUG mode
+2025-11-23 14:06:21 pid:1359367 Workerman[start.php] received signal SIGINT
+2025-11-23 14:06:21 pid:1359367 Workerman[start.php] stopping
+2025-11-23 14:06:21 pid:1359367 Workerman[start.php] has been stopped
+2025-11-23 14:06:22 pid:1360407 Workerman[start.php] start in DEBUG mode
+2025-11-23 14:07:17 pid:1360407 Workerman[start.php] received signal SIGINT
+2025-11-23 14:07:17 pid:1360407 Workerman[start.php] stopping
+2025-11-23 14:07:17 pid:1360407 Workerman[start.php] has been stopped
+2025-11-23 14:11:44 pid:1361896 Workerman[start.php] start in DEBUG mode
+2025-11-23 14:37:18 pid:1370190 Workerman[start.php] start in DEBUG mode
+2025-11-23 14:37:18 pid:1370190 Workerman[start.php] already running
+2025-11-23 14:39:09 pid:1370814 Workerman[start.php] stop
+2025-11-23 14:39:09 pid:1370814 Workerman[start.php] is stopping ...
+2025-11-23 14:39:09 pid:1361896 Workerman[start.php] received signal SIGINT
+2025-11-23 14:39:09 pid:1361896 Workerman[start.php] stopping
+2025-11-23 14:39:10 pid:1361896 Workerman[start.php] has been stopped
+2025-11-23 14:39:10 pid:1370814 Workerman[start.php] stop success
+2025-11-23 14:39:23 pid:1370906 Workerman[start.php] start in DEBUG mode
+2025-11-23 14:43:53 pid:1371940 Workerman[start.php] restart
+2025-11-23 14:43:53 pid:1371940 Workerman[start.php] is stopping ...
+2025-11-23 14:43:53 pid:1370906 Workerman[start.php] received signal SIGINT
+2025-11-23 14:43:53 pid:1370906 Workerman[start.php] stopping
+2025-11-23 14:43:54 pid:1370906 Workerman[start.php] has been stopped
+2025-11-23 14:43:54 pid:1371940 Workerman[start.php] stop success
+2025-11-23 14:56:38 pid:1374594 Workerman[start.php] start in DEBUG mode
+2025-11-23 14:56:38 pid:1374594 Workerman[start.php] already running
+2025-11-23 14:56:43 pid:1374746 Workerman[start.php] start in DEBUG mode
+2025-11-23 14:56:43 pid:1374746 Master pid:1371940 is not alive
+2025-11-23 14:58:46 pid:1374746 Workerman[start.php] received signal SIGINT
+2025-11-23 14:58:46 pid:1374746 Workerman[start.php] stopping
+2025-11-23 14:58:46 pid:1374746 Workerman[start.php] has been stopped
+2025-11-23 15:01:04 pid:1376378 Workerman[start.php] start in DEBUG mode

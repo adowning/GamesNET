@@ -4,11 +4,10 @@
 // MAIN PAYLOAD STRUCTURE (from start.php)
 // ============================================================================
 import { readdir, writeFile } from 'fs/promises';
-import getPhpRequest, { getUserBalance } from './payloads'
+import getPhpRequest, { getShopPercentage, getUserBalance } from './payloads'
 import * as net from 'net';
-import parseSlotString from './netent_parser';
 
-const SPIN_COUNT = 5
+const SPIN_COUNT = 1
 interface ServerPayload {
     gameId: string;                           // Game identifier (e.g., "TheWolfsBaneNET")
     postData: PostData;                       // Data passed to Server::get()
@@ -360,7 +359,7 @@ async function sleep(seconds: number): Promise<void> {
 }
 
 const getDirs = async (): Promise<string[]> => {
-    let items = await readdir(process.cwd(), {});
+    let items = await readdir(process.cwd() + '/Games', {});
     items = items
         .filter((item) => item.includes('NET'))
         .sort();
@@ -370,20 +369,24 @@ async function main() {
     await writeFile('./logs/worker_errors.log', '');
     await writeFile('./logs/server.log', '');
     await writeFile('./logs/run.log', '');
+    await writeFile('./logs/fatal_errors.log', '');
     // Hardcoded array of game names to test
     // const games = ['','','','','GoBananasNET', 'SpaceWarsNET', 'StarBurstNET']
-    const games = await getDirs()
+    let games = await getDirs()
     // Initialize  global totals across all games
     let globalWinTotal = 0
     let globalSpentTotal = 0
+    let startingBalance = getUserBalance()
     let globalUserBalance = getUserBalance()
+    let shopPercentage = getShopPercentage()
 
     console.log('=== MULTI-GAME TEST EXECUTION STARTED ===')
     console.log('Starting global user balance:', globalUserBalance)
     console.log('Games to test:', games.join(', '))
     console.log('Spins per game:', SPIN_COUNT)
     console.log('=====================================')
-
+    // games = ['FlowersNET']
+    // games = ['DazzleMeNET']
     // Outer loop: iterate through each game
     for (const currentGame of games) {
         console.log(`\n--- Processing Game: ${currentGame} ---`)
@@ -425,7 +428,7 @@ async function main() {
                 return phpResponse; // Return the error string to client
             }
 
-            // console.log(JSON.stringify(parseSlotString(phpResponse.response), null, 2));
+            // console.log(JSON.stringify(phpResponse.response.substring(0, 10), null, 2));
             let reportWin
             if (phpResponse.state) {
                 if (phpResponse.state.logReport[0]) {
@@ -473,12 +476,15 @@ async function main() {
         console.log(`  ------------------------`)
     }
 
+
     // Final summary across all games
     console.log('\n=== FINAL MULTI-GAME RESULTS ===')
     console.log('Total spent across all games:', globalSpentTotal)
     console.log('Total winnings across all games:', globalWinTotal)
     console.log('Net result across all games:', globalWinTotal - globalSpentTotal)
+    console.log(`Starting Balance: `, startingBalance)
     console.log('Final global balance:', globalUserBalance)
+    console.log('Shop Percentage:', shopPercentage)
     console.log('===============================')
     process.exit()
 

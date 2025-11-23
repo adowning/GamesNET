@@ -1,415 +1,144 @@
-[23-Nov-2025 09:30:05 UTC] PHP Deprecated:  Optional parameter $garantType declared before required parameter $lines is implicitly treated as a required parameter in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/CreatureFromTheBlackLagoonNET/SlotSettings.php on line 50
-[23-Nov-2025 09:30:05 UTC] PHP Deprecated:  Optional parameter $spinWin declared before required parameter $lines is implicitly treated as a required parameter in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/CreatureFromTheBlackLagoonNET/SlotSettings.php on line 187
-[23-Nov-2025 09:30:05 UTC] PHP Deprecated:  Optional parameter $bonusWin declared before required parameter $lines is implicitly treated as a required parameter in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/CreatureFromTheBlackLagoonNET/SlotSettings.php on line 187
-[23-Nov-2025 09:30:05 UTC] PHP Deprecated:  Optional parameter $slotState declared before required parameter $sum is implicitly treated as a required parameter in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/BaseSlotSettings.php on line 800
-[23-Nov-2025 09:30:05 UTC] spin
-[23-Nov-2025 09:30:05 UTC] bonus
-[23-Nov-2025 09:30:05 UTC] PHP Warning:  Array to string conversion in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/CreatureFromTheBlackLagoonNET/Server.php on line 673
-[23-Nov-2025 09:30:05 UTC] PHP Warning:  Array to string conversion in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/CreatureFromTheBlackLagoonNET/Server.php on line 673
-[23-Nov-2025 09:30:05 UTC] spin
-[23-Nov-2025 09:30:05 UTC] bonus
-[23-Nov-2025 09:30:05 UTC] PHP Warning:  Array to string conversion in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/CreatureFromTheBlackLagoonNET/Server.php on line 673
-[23-Nov-2025 09:30:05 UTC] PHP Warning:  Array to string conversion in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/CreatureFromTheBlackLagoonNET/Server.php on line 673
-[23-Nov-2025 09:30:05 UTC] spin
-[23-Nov-2025 09:30:05 UTC] bonus
-[23-Nov-2025 09:30:05 UTC] PHP Warning:  Array to string conversion in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/CreatureFromTheBlackLagoonNET/Server.php on line 673
-[23-Nov-2025 09:30:05 UTC] PHP Warning:  Array to string conversion in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/CreatureFromTheBlackLagoonNET/Server.php on line 673
-[23-Nov-2025 09:30:05 UTC] spin
-[23-Nov-2025 09:30:05 UTC] bonus
-[23-Nov-2025 09:30:05 UTC] PHP Warning:  Array to string conversion in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/CreatureFromTheBlackLagoonNET/Server.php on line 673
-[23-Nov-2025 09:30:05 UTC] PHP Warning:  Array to string conversion in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/CreatureFromTheBlackLagoonNET/Server.php on line 673
-[23-Nov-2025 09:30:05 UTC] spin
-[23-Nov-2025 09:30:05 UTC] bonus
-[23-Nov-2025 09:30:05 UTC] PHP Warning:  Array to string conversion in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/CreatureFromTheBlackLagoonNET/Server.php on line 673
-[23-Nov-2025 09:30:05 UTC] PHP Warning:  Array to string conversion in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/CreatureFromTheBlackLagoonNET/Server.php on line 673
-[23-Nov-2025 09:30:05 UTC] PHP Deprecated:  Optional parameter $garantType declared before required parameter $lines is implicitly treated as a required parameter in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/DazzleMeNET/SlotSettings.php on line 50
-[23-Nov-2025 09:30:05 UTC] PHP Deprecated:  Optional parameter $spinWin declared before required parameter $lines is implicitly treated as a required parameter in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/DazzleMeNET/SlotSettings.php on line 187
-[23-Nov-2025 09:30:05 UTC] PHP Deprecated:  Optional parameter $bonusWin declared before required parameter $lines is implicitly treated as a required parameter in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/DazzleMeNET/SlotSettings.php on line 187
-[23-Nov-2025 09:30:05 UTC] spin
-[23-Nov-2025 09:30:05 UTC] bonus
-[23-Nov-2025 09:30:05 UTC] spin
-[23-Nov-2025 09:30:05 UTC] bonus
-[23-Nov-2025 09:30:05 UTC] spin
-[23-Nov-2025 09:30:05 UTC] bonus
-[23-Nov-2025 09:30:05 UTC] spin
-[23-Nov-2025 09:30:05 UTC] bonus
-[23-Nov-2025 09:30:05 UTC] spin
-[23-Nov-2025 09:30:05 UTC] bonus
-[23-Nov-2025 09:30:05 UTC] PHP Deprecated:  Optional parameter $garantType declared before required parameter $lines is implicitly treated as a required parameter in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/FlowersChristmasNET/SlotSettings.php on line 50
-[23-Nov-2025 09:30:05 UTC] PHP Deprecated:  Optional parameter $spinWin declared before required parameter $lines is implicitly treated as a required parameter in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/FlowersChristmasNET/SlotSettings.php on line 187
-[23-Nov-2025 09:30:05 UTC] PHP Deprecated:  Optional parameter $bonusWin declared before required parameter $lines is implicitly treated as a required parameter in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/FlowersChristmasNET/SlotSettings.php on line 187
-[23-Nov-2025 09:30:05 UTC] spin
-[23-Nov-2025 09:30:05 UTC] bonus
-[23-Nov-2025 09:30:05 UTC] spin
-[23-Nov-2025 09:30:05 UTC] bonus
-[23-Nov-2025 09:30:05 UTC] spin
-[23-Nov-2025 09:30:05 UTC] bonus
-[23-Nov-2025 09:30:05 UTC] spin
-[23-Nov-2025 09:30:05 UTC] bonus
-[23-Nov-2025 09:30:05 UTC] spin
-[23-Nov-2025 09:30:05 UTC] bonus
-[23-Nov-2025 09:30:05 UTC] PHP Deprecated:  Optional parameter $garantType declared before required parameter $lines is implicitly treated as a required parameter in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/FlowersNET/SlotSettings.php on line 53
-[23-Nov-2025 09:30:05 UTC] PHP Deprecated:  Optional parameter $spinWin declared before required parameter $lines is implicitly treated as a required parameter in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/FlowersNET/SlotSettings.php on line 222
-[23-Nov-2025 09:30:05 UTC] PHP Deprecated:  Optional parameter $bonusWin declared before required parameter $lines is implicitly treated as a required parameter in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/FlowersNET/SlotSettings.php on line 222
-[23-Nov-2025 09:30:05 UTC] spin
-[23-Nov-2025 09:30:05 UTC] bonus
-[23-Nov-2025 09:30:05 UTC] spin
-[23-Nov-2025 09:30:05 UTC] bonus
-[23-Nov-2025 09:30:05 UTC] spin
-[23-Nov-2025 09:30:05 UTC] bonus
-[23-Nov-2025 09:30:05 UTC] spin
-[23-Nov-2025 09:30:05 UTC] bonus
-[23-Nov-2025 09:30:05 UTC] spin
-[23-Nov-2025 09:30:05 UTC] bonus
-[23-Nov-2025 09:30:05 UTC] PHP Deprecated:  Optional parameter $garantType declared before required parameter $lines is implicitly treated as a required parameter in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/FortuneRangersNET/SlotSettings.php on line 50
-[23-Nov-2025 09:30:05 UTC] PHP Deprecated:  Optional parameter $spinWin declared before required parameter $lines is implicitly treated as a required parameter in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/FortuneRangersNET/SlotSettings.php on line 187
-[23-Nov-2025 09:30:05 UTC] PHP Deprecated:  Optional parameter $bonusWin declared before required parameter $lines is implicitly treated as a required parameter in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/FortuneRangersNET/SlotSettings.php on line 187
-[23-Nov-2025 09:30:05 UTC] spin
-[23-Nov-2025 09:30:05 UTC] bonus
-[23-Nov-2025 09:30:05 UTC] spin
-[23-Nov-2025 09:30:05 UTC] bonus
-[23-Nov-2025 09:30:05 UTC] spin
-[23-Nov-2025 09:30:05 UTC] bonus
-[23-Nov-2025 09:30:05 UTC] spin
-[23-Nov-2025 09:30:05 UTC] bonus
-[23-Nov-2025 09:30:05 UTC] spin
-[23-Nov-2025 09:30:05 UTC] bonus
-[23-Nov-2025 09:30:05 UTC] PHP Deprecated:  Optional parameter $garantType declared before required parameter $lines is implicitly treated as a required parameter in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/FruitShopChristmasNET/SlotSettings.php on line 50
-[23-Nov-2025 09:30:05 UTC] PHP Deprecated:  Optional parameter $spinWin declared before required parameter $lines is implicitly treated as a required parameter in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/FruitShopChristmasNET/SlotSettings.php on line 187
-[23-Nov-2025 09:30:05 UTC] PHP Deprecated:  Optional parameter $bonusWin declared before required parameter $lines is implicitly treated as a required parameter in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/FruitShopChristmasNET/SlotSettings.php on line 187
-[23-Nov-2025 09:30:05 UTC] spin
-[23-Nov-2025 09:30:05 UTC] bonus
-[23-Nov-2025 09:30:05 UTC] spin
-[23-Nov-2025 09:30:05 UTC] bonus
-[23-Nov-2025 09:30:05 UTC] spin
-[23-Nov-2025 09:30:05 UTC] bonus
-[23-Nov-2025 09:30:05 UTC] spin
-[23-Nov-2025 09:30:05 UTC] bonus
-[23-Nov-2025 09:30:05 UTC] spin
-[23-Nov-2025 09:30:05 UTC] bonus
-[23-Nov-2025 09:30:05 UTC] PHP Deprecated:  Optional parameter $garantType declared before required parameter $lines is implicitly treated as a required parameter in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/FruitShopNET/SlotSettings.php on line 50
-[23-Nov-2025 09:30:05 UTC] PHP Deprecated:  Optional parameter $spinWin declared before required parameter $lines is implicitly treated as a required parameter in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/FruitShopNET/SlotSettings.php on line 187
-[23-Nov-2025 09:30:05 UTC] PHP Deprecated:  Optional parameter $bonusWin declared before required parameter $lines is implicitly treated as a required parameter in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/FruitShopNET/SlotSettings.php on line 187
-[23-Nov-2025 09:30:05 UTC] spin
-[23-Nov-2025 09:30:05 UTC] bonus
-[23-Nov-2025 09:30:05 UTC] spin
-[23-Nov-2025 09:30:05 UTC] bonus
-[23-Nov-2025 09:30:05 UTC] spin
-[23-Nov-2025 09:30:05 UTC] bonus
-[23-Nov-2025 09:30:05 UTC] spin
-[23-Nov-2025 09:30:05 UTC] bonus
-[23-Nov-2025 09:30:05 UTC] spin
-[23-Nov-2025 09:30:05 UTC] bonus
-[23-Nov-2025 09:30:05 UTC] PHP Deprecated:  Optional parameter $garantType declared before required parameter $lines is implicitly treated as a required parameter in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/GoBananasNET/SlotSettings.php on line 50
-[23-Nov-2025 09:30:05 UTC] PHP Deprecated:  Optional parameter $spinWin declared before required parameter $lines is implicitly treated as a required parameter in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/GoBananasNET/SlotSettings.php on line 187
-[23-Nov-2025 09:30:05 UTC] PHP Deprecated:  Optional parameter $bonusWin declared before required parameter $lines is implicitly treated as a required parameter in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/GoBananasNET/SlotSettings.php on line 187
-[23-Nov-2025 09:30:05 UTC] spin
-[23-Nov-2025 09:30:05 UTC] bonus
-[23-Nov-2025 09:30:05 UTC] spin
-[23-Nov-2025 09:30:05 UTC] bonus
-[23-Nov-2025 09:30:05 UTC] spin
-[23-Nov-2025 09:30:05 UTC] bonus
-[23-Nov-2025 09:30:05 UTC] spin
-[23-Nov-2025 09:30:05 UTC] bonus
-[23-Nov-2025 09:30:05 UTC] spin
-[23-Nov-2025 09:30:05 UTC] bonus
-[23-Nov-2025 09:30:05 UTC] PHP Deprecated:  Optional parameter $garantType declared before required parameter $lines is implicitly treated as a required parameter in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/GoldenGrimoireNET/SlotSettings.php on line 50
-[23-Nov-2025 09:30:05 UTC] PHP Deprecated:  Optional parameter $spinWin declared before required parameter $lines is implicitly treated as a required parameter in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/GoldenGrimoireNET/SlotSettings.php on line 187
-[23-Nov-2025 09:30:05 UTC] PHP Deprecated:  Optional parameter $bonusWin declared before required parameter $lines is implicitly treated as a required parameter in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/GoldenGrimoireNET/SlotSettings.php on line 187
-[23-Nov-2025 09:30:05 UTC] spin
-[23-Nov-2025 09:30:05 UTC] bonus
-[23-Nov-2025 09:30:05 UTC] spin
-[23-Nov-2025 09:30:05 UTC] bonus
-[23-Nov-2025 09:30:05 UTC] spin
-[23-Nov-2025 09:30:05 UTC] bonus
-[23-Nov-2025 09:30:05 UTC] spin
-[23-Nov-2025 09:30:05 UTC] bonus
-[23-Nov-2025 09:30:05 UTC] spin
-[23-Nov-2025 09:30:05 UTC] bonus
-[23-Nov-2025 09:30:05 UTC] PHP Deprecated:  Optional parameter $garantType declared before required parameter $lines is implicitly treated as a required parameter in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/GrandSpinnSuperpotNET/SlotSettings.php on line 58
-[23-Nov-2025 09:30:05 UTC] PHP Deprecated:  Optional parameter $spinWin declared before required parameter $lines is implicitly treated as a required parameter in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/GrandSpinnSuperpotNET/SlotSettings.php on line 195
-[23-Nov-2025 09:30:05 UTC] PHP Deprecated:  Optional parameter $bonusWin declared before required parameter $lines is implicitly treated as a required parameter in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/GrandSpinnSuperpotNET/SlotSettings.php on line 195
-[23-Nov-2025 09:30:05 UTC] PHP Warning:  Undefined array key 0 in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/GrandSpinnSuperpotNET/Server.php on line 123
-[23-Nov-2025 09:30:05 UTC] PHP Warning:  Undefined array key 0 in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/GrandSpinnSuperpotNET/Server.php on line 123
-[23-Nov-2025 09:30:05 UTC] PHP Warning:  Undefined array key 0 in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/GrandSpinnSuperpotNET/Server.php on line 126
-[23-Nov-2025 09:30:05 UTC] PHP Warning:  Undefined array key 0 in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/GrandSpinnSuperpotNET/Server.php on line 126
-[23-Nov-2025 09:30:05 UTC] spin
-[23-Nov-2025 09:30:05 UTC] bonus
-[23-Nov-2025 09:30:05 UTC] PHP Warning:  Undefined array key "line1" in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/GrandSpinnSuperpotNET/SlotSettings.php on line 100
-[23-Nov-2025 09:30:05 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/GrandSpinnSuperpotNET/SlotSettings.php on line 100
-[23-Nov-2025 09:30:05 UTC] PHP Warning:  Undefined array key "line1" in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/GrandSpinnSuperpotNET/SlotSettings.php on line 109
-[23-Nov-2025 09:30:05 UTC] PHP Warning:  Trying to access array offset on value of type null in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/GrandSpinnSuperpotNET/SlotSettings.php on line 109
-[23-Nov-2025 09:30:05 UTC] PHP Warning:  Undefined array key "line1" in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/GrandSpinnSuperpotNET/SlotSettings.php on line 110
-[23-Nov-2025 09:30:05 UTC] PHP Warning:  Trying to access array offset on value of type null in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/GrandSpinnSuperpotNET/SlotSettings.php on line 110
-[23-Nov-2025 09:30:05 UTC] PHP Deprecated:  rand(): Passing null to parameter #2 ($max) of type int is deprecated in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/GrandSpinnSuperpotNET/SlotSettings.php on line 155
-[23-Nov-2025 09:30:05 UTC] PHP Deprecated:  rand(): Passing null to parameter #2 ($max) of type int is deprecated in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/GrandSpinnSuperpotNET/SlotSettings.php on line 156
-[23-Nov-2025 09:30:05 UTC] PHP Warning:  Undefined array key 0 in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/GrandSpinnSuperpotNET/Server.php on line 479
-[23-Nov-2025 09:30:05 UTC] PHP Warning:  Undefined array key 0 in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/GrandSpinnSuperpotNET/Server.php on line 480
-[23-Nov-2025 09:30:05 UTC] spin
-[23-Nov-2025 09:30:05 UTC] bonus
-[23-Nov-2025 09:30:05 UTC] PHP Warning:  Undefined array key "line1" in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/GrandSpinnSuperpotNET/SlotSettings.php on line 100
-[23-Nov-2025 09:30:05 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/GrandSpinnSuperpotNET/SlotSettings.php on line 100
-[23-Nov-2025 09:30:05 UTC] PHP Warning:  Undefined array key "line1" in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/GrandSpinnSuperpotNET/SlotSettings.php on line 109
-[23-Nov-2025 09:30:05 UTC] PHP Warning:  Trying to access array offset on value of type null in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/GrandSpinnSuperpotNET/SlotSettings.php on line 109
-[23-Nov-2025 09:30:05 UTC] PHP Warning:  Undefined array key "line1" in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/GrandSpinnSuperpotNET/SlotSettings.php on line 110
-[23-Nov-2025 09:30:05 UTC] PHP Warning:  Trying to access array offset on value of type null in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/GrandSpinnSuperpotNET/SlotSettings.php on line 110
-[23-Nov-2025 09:30:05 UTC] PHP Deprecated:  rand(): Passing null to parameter #2 ($max) of type int is deprecated in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/GrandSpinnSuperpotNET/SlotSettings.php on line 155
-[23-Nov-2025 09:30:05 UTC] PHP Deprecated:  rand(): Passing null to parameter #2 ($max) of type int is deprecated in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/GrandSpinnSuperpotNET/SlotSettings.php on line 156
-[23-Nov-2025 09:30:05 UTC] PHP Warning:  Undefined array key 0 in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/GrandSpinnSuperpotNET/Server.php on line 479
-[23-Nov-2025 09:30:05 UTC] PHP Warning:  Undefined array key 0 in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/GrandSpinnSuperpotNET/Server.php on line 480
-[23-Nov-2025 09:30:05 UTC] spin
-[23-Nov-2025 09:30:05 UTC] bonus
-[23-Nov-2025 09:30:05 UTC] PHP Warning:  Undefined array key "line1" in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/GrandSpinnSuperpotNET/SlotSettings.php on line 100
-[23-Nov-2025 09:30:05 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/GrandSpinnSuperpotNET/SlotSettings.php on line 100
-[23-Nov-2025 09:30:05 UTC] PHP Warning:  Undefined array key "line1" in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/GrandSpinnSuperpotNET/SlotSettings.php on line 109
-[23-Nov-2025 09:30:05 UTC] PHP Warning:  Trying to access array offset on value of type null in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/GrandSpinnSuperpotNET/SlotSettings.php on line 109
-[23-Nov-2025 09:30:05 UTC] PHP Warning:  Undefined array key "line1" in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/GrandSpinnSuperpotNET/SlotSettings.php on line 110
-[23-Nov-2025 09:30:05 UTC] PHP Warning:  Trying to access array offset on value of type null in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/GrandSpinnSuperpotNET/SlotSettings.php on line 110
-[23-Nov-2025 09:30:05 UTC] PHP Deprecated:  rand(): Passing null to parameter #2 ($max) of type int is deprecated in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/GrandSpinnSuperpotNET/SlotSettings.php on line 155
-[23-Nov-2025 09:30:05 UTC] PHP Deprecated:  rand(): Passing null to parameter #2 ($max) of type int is deprecated in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/GrandSpinnSuperpotNET/SlotSettings.php on line 156
-[23-Nov-2025 09:30:05 UTC] PHP Warning:  Undefined array key 0 in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/GrandSpinnSuperpotNET/Server.php on line 479
-[23-Nov-2025 09:30:05 UTC] PHP Warning:  Undefined array key 0 in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/GrandSpinnSuperpotNET/Server.php on line 480
-[23-Nov-2025 09:30:05 UTC] spin
-[23-Nov-2025 09:30:05 UTC] bonus
-[23-Nov-2025 09:30:05 UTC] PHP Warning:  Undefined array key "line1" in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/GrandSpinnSuperpotNET/SlotSettings.php on line 100
-[23-Nov-2025 09:30:05 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/GrandSpinnSuperpotNET/SlotSettings.php on line 100
-[23-Nov-2025 09:30:05 UTC] PHP Warning:  Undefined array key "line1" in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/GrandSpinnSuperpotNET/SlotSettings.php on line 109
-[23-Nov-2025 09:30:05 UTC] PHP Warning:  Trying to access array offset on value of type null in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/GrandSpinnSuperpotNET/SlotSettings.php on line 109
-[23-Nov-2025 09:30:05 UTC] PHP Warning:  Undefined array key "line1" in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/GrandSpinnSuperpotNET/SlotSettings.php on line 110
-[23-Nov-2025 09:30:05 UTC] PHP Warning:  Trying to access array offset on value of type null in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/GrandSpinnSuperpotNET/SlotSettings.php on line 110
-[23-Nov-2025 09:30:05 UTC] PHP Deprecated:  rand(): Passing null to parameter #2 ($max) of type int is deprecated in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/GrandSpinnSuperpotNET/SlotSettings.php on line 155
-[23-Nov-2025 09:30:05 UTC] PHP Deprecated:  rand(): Passing null to parameter #2 ($max) of type int is deprecated in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/GrandSpinnSuperpotNET/SlotSettings.php on line 156
-[23-Nov-2025 09:30:05 UTC] PHP Warning:  Undefined array key 0 in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/GrandSpinnSuperpotNET/Server.php on line 479
-[23-Nov-2025 09:30:05 UTC] PHP Warning:  Undefined array key 0 in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/GrandSpinnSuperpotNET/Server.php on line 480
-[23-Nov-2025 09:30:05 UTC] spin
-[23-Nov-2025 09:30:05 UTC] bonus
-[23-Nov-2025 09:30:05 UTC] PHP Warning:  Undefined array key "line1" in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/GrandSpinnSuperpotNET/SlotSettings.php on line 100
-[23-Nov-2025 09:30:05 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/GrandSpinnSuperpotNET/SlotSettings.php on line 100
-[23-Nov-2025 09:30:05 UTC] PHP Warning:  Undefined array key "line1" in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/GrandSpinnSuperpotNET/SlotSettings.php on line 109
-[23-Nov-2025 09:30:05 UTC] PHP Warning:  Trying to access array offset on value of type null in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/GrandSpinnSuperpotNET/SlotSettings.php on line 109
-[23-Nov-2025 09:30:05 UTC] PHP Warning:  Undefined array key "line1" in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/GrandSpinnSuperpotNET/SlotSettings.php on line 110
-[23-Nov-2025 09:30:05 UTC] PHP Warning:  Trying to access array offset on value of type null in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/GrandSpinnSuperpotNET/SlotSettings.php on line 110
-[23-Nov-2025 09:30:05 UTC] PHP Deprecated:  rand(): Passing null to parameter #2 ($max) of type int is deprecated in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/GrandSpinnSuperpotNET/SlotSettings.php on line 155
-[23-Nov-2025 09:30:05 UTC] PHP Deprecated:  rand(): Passing null to parameter #2 ($max) of type int is deprecated in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/GrandSpinnSuperpotNET/SlotSettings.php on line 156
-[23-Nov-2025 09:30:05 UTC] PHP Warning:  Undefined array key 0 in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/GrandSpinnSuperpotNET/Server.php on line 479
-[23-Nov-2025 09:30:05 UTC] PHP Warning:  Undefined array key 0 in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/GrandSpinnSuperpotNET/Server.php on line 480
-[23-Nov-2025 09:30:05 UTC] PHP Deprecated:  Optional parameter $garantType declared before required parameter $lines is implicitly treated as a required parameter in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/HalloweenJackNET/SlotSettings.php on line 360
-[23-Nov-2025 09:30:05 UTC] PHP Warning:  file(/home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/HalloweenJackNET/app/Games/HalloweenJackNET/reels.txt): Failed to open stream: No such file or directory in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/HalloweenJackNET/GameReel.php on line 24
-[23-Nov-2025 09:30:05 UTC] PHP Warning:  foreach() argument must be of type array|object, bool given in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/HalloweenJackNET/GameReel.php on line 25
-[23-Nov-2025 09:30:05 UTC] PHP Warning:  Undefined property: Models\User::$shop in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/HalloweenJackNET/SlotSettings.php on line 312
-[23-Nov-2025 09:30:05 UTC] PHP Warning:  Attempt to read property "currency" on null in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/HalloweenJackNET/SlotSettings.php on line 312
-[23-Nov-2025 09:30:05 UTC] PHP Warning:  file(/home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/HalloweenJackNET/app/Games/HalloweenJackNET/reels.txt): Failed to open stream: No such file or directory in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/HalloweenJackNET/GameReel.php on line 24
-[23-Nov-2025 09:30:05 UTC] PHP Warning:  foreach() argument must be of type array|object, bool given in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/HalloweenJackNET/GameReel.php on line 25
-[23-Nov-2025 09:30:05 UTC] PHP Warning:  Undefined property: Models\User::$shop in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/HalloweenJackNET/SlotSettings.php on line 312
-[23-Nov-2025 09:30:05 UTC] PHP Warning:  Attempt to read property "currency" on null in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/HalloweenJackNET/SlotSettings.php on line 312
-[23-Nov-2025 09:30:05 UTC] PHP Warning:  file(/home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/HalloweenJackNET/app/Games/HalloweenJackNET/reels.txt): Failed to open stream: No such file or directory in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/HalloweenJackNET/GameReel.php on line 24
-[23-Nov-2025 09:30:05 UTC] PHP Warning:  foreach() argument must be of type array|object, bool given in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/HalloweenJackNET/GameReel.php on line 25
-[23-Nov-2025 09:30:05 UTC] PHP Warning:  Undefined property: Models\User::$shop in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/HalloweenJackNET/SlotSettings.php on line 312
-[23-Nov-2025 09:30:05 UTC] PHP Warning:  Attempt to read property "currency" on null in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/HalloweenJackNET/SlotSettings.php on line 312
-[23-Nov-2025 09:30:05 UTC] spin
-[23-Nov-2025 09:30:05 UTC] bonus
-[23-Nov-2025 09:30:05 UTC] PHP Warning:  file(/home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/HalloweenJackNET/app/Games/HalloweenJackNET/reels.txt): Failed to open stream: No such file or directory in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/HalloweenJackNET/GameReel.php on line 24
-[23-Nov-2025 09:30:05 UTC] PHP Warning:  foreach() argument must be of type array|object, bool given in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/HalloweenJackNET/GameReel.php on line 25
-[23-Nov-2025 09:30:05 UTC] PHP Warning:  Undefined property: Models\User::$shop in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/HalloweenJackNET/SlotSettings.php on line 312
-[23-Nov-2025 09:30:05 UTC] PHP Warning:  Attempt to read property "currency" on null in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/HalloweenJackNET/SlotSettings.php on line 312
-[23-Nov-2025 09:30:05 UTC] spin
-[23-Nov-2025 09:30:05 UTC] bonus
-[23-Nov-2025 09:30:05 UTC] PHP Warning:  file(/home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/HalloweenJackNET/app/Games/HalloweenJackNET/reels.txt): Failed to open stream: No such file or directory in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/HalloweenJackNET/GameReel.php on line 24
-[23-Nov-2025 09:30:05 UTC] PHP Warning:  foreach() argument must be of type array|object, bool given in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/HalloweenJackNET/GameReel.php on line 25
-[23-Nov-2025 09:30:05 UTC] PHP Warning:  Undefined property: Models\User::$shop in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/HalloweenJackNET/SlotSettings.php on line 312
-[23-Nov-2025 09:30:05 UTC] PHP Warning:  Attempt to read property "currency" on null in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/HalloweenJackNET/SlotSettings.php on line 312
-[23-Nov-2025 09:30:05 UTC] spin
-[23-Nov-2025 09:30:05 UTC] bonus
-[23-Nov-2025 09:30:05 UTC] PHP Warning:  file(/home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/HalloweenJackNET/app/Games/HalloweenJackNET/reels.txt): Failed to open stream: No such file or directory in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/HalloweenJackNET/GameReel.php on line 24
-[23-Nov-2025 09:30:05 UTC] PHP Warning:  foreach() argument must be of type array|object, bool given in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/HalloweenJackNET/GameReel.php on line 25
-[23-Nov-2025 09:30:05 UTC] PHP Warning:  Undefined property: Models\User::$shop in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/HalloweenJackNET/SlotSettings.php on line 312
-[23-Nov-2025 09:30:05 UTC] PHP Warning:  Attempt to read property "currency" on null in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/HalloweenJackNET/SlotSettings.php on line 312
-[23-Nov-2025 09:30:05 UTC] spin
-[23-Nov-2025 09:30:05 UTC] bonus
-[23-Nov-2025 09:30:05 UTC] PHP Warning:  file(/home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/HalloweenJackNET/app/Games/HalloweenJackNET/reels.txt): Failed to open stream: No such file or directory in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/HalloweenJackNET/GameReel.php on line 24
-[23-Nov-2025 09:30:05 UTC] PHP Warning:  foreach() argument must be of type array|object, bool given in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/HalloweenJackNET/GameReel.php on line 25
-[23-Nov-2025 09:30:05 UTC] PHP Warning:  Undefined property: Models\User::$shop in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/HalloweenJackNET/SlotSettings.php on line 312
-[23-Nov-2025 09:30:05 UTC] PHP Warning:  Attempt to read property "currency" on null in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/HalloweenJackNET/SlotSettings.php on line 312
-[23-Nov-2025 09:30:05 UTC] spin
-[23-Nov-2025 09:30:05 UTC] bonus
-[23-Nov-2025 09:30:05 UTC] PHP Deprecated:  Optional parameter $garantType declared before required parameter $lines is implicitly treated as a required parameter in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/JumanjiNET/SlotSettings.php on line 50
-[23-Nov-2025 09:30:05 UTC] PHP Deprecated:  Optional parameter $spinWin declared before required parameter $lines is implicitly treated as a required parameter in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/JumanjiNET/SlotSettings.php on line 187
-[23-Nov-2025 09:30:05 UTC] PHP Deprecated:  Optional parameter $bonusWin declared before required parameter $lines is implicitly treated as a required parameter in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/JumanjiNET/SlotSettings.php on line 187
-[23-Nov-2025 09:30:05 UTC] spin
-[23-Nov-2025 09:30:05 UTC] bonus
-[23-Nov-2025 09:30:05 UTC] spin
-[23-Nov-2025 09:30:05 UTC] bonus
-[23-Nov-2025 09:30:05 UTC] spin
-[23-Nov-2025 09:30:05 UTC] bonus
-[23-Nov-2025 09:30:05 UTC] spin
-[23-Nov-2025 09:30:05 UTC] bonus
-[23-Nov-2025 09:30:05 UTC] spin
-[23-Nov-2025 09:30:05 UTC] bonus
-[23-Nov-2025 09:30:05 UTC] PHP Deprecated:  Optional parameter $garantType declared before required parameter $lines is implicitly treated as a required parameter in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/LightsNET/SlotSettings.php on line 50
-[23-Nov-2025 09:30:05 UTC] PHP Deprecated:  Optional parameter $spinWin declared before required parameter $lines is implicitly treated as a required parameter in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/LightsNET/SlotSettings.php on line 187
-[23-Nov-2025 09:30:05 UTC] PHP Deprecated:  Optional parameter $bonusWin declared before required parameter $lines is implicitly treated as a required parameter in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/LightsNET/SlotSettings.php on line 187
-[23-Nov-2025 09:30:05 UTC] spin
-[23-Nov-2025 09:30:05 UTC] bonus
-[23-Nov-2025 09:30:05 UTC] spin
-[23-Nov-2025 09:30:05 UTC] bonus
-[23-Nov-2025 09:30:05 UTC] spin
-[23-Nov-2025 09:30:05 UTC] bonus
-[23-Nov-2025 09:30:05 UTC] spin
-[23-Nov-2025 09:30:05 UTC] bonus
-[23-Nov-2025 09:30:05 UTC] spin
-[23-Nov-2025 09:30:05 UTC] bonus
-[23-Nov-2025 09:30:05 UTC] PHP Deprecated:  Optional parameter $garantType declared before required parameter $lines is implicitly treated as a required parameter in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/ReelRush2NET/SlotSettings.php on line 50
-[23-Nov-2025 09:30:05 UTC] PHP Deprecated:  Optional parameter $spinWin declared before required parameter $lines is implicitly treated as a required parameter in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/ReelRush2NET/SlotSettings.php on line 187
-[23-Nov-2025 09:30:05 UTC] PHP Deprecated:  Optional parameter $bonusWin declared before required parameter $lines is implicitly treated as a required parameter in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/ReelRush2NET/SlotSettings.php on line 187
-[23-Nov-2025 09:30:05 UTC] spin
-[23-Nov-2025 09:30:05 UTC] bonus
-[23-Nov-2025 09:30:05 UTC] spin
-[23-Nov-2025 09:30:05 UTC] bonus
-[23-Nov-2025 09:30:05 UTC] spin
-[23-Nov-2025 09:30:05 UTC] bonus
-[23-Nov-2025 09:30:05 UTC] spin
-[23-Nov-2025 09:30:05 UTC] bonus
-[23-Nov-2025 09:30:05 UTC] spin
-[23-Nov-2025 09:30:05 UTC] bonus
-[23-Nov-2025 09:30:05 UTC] PHP Deprecated:  Optional parameter $garantType declared before required parameter $lines is implicitly treated as a required parameter in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/SantaVSRudolphNET/SlotSettings.php on line 50
-[23-Nov-2025 09:30:05 UTC] PHP Deprecated:  Optional parameter $spinWin declared before required parameter $lines is implicitly treated as a required parameter in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/SantaVSRudolphNET/SlotSettings.php on line 187
-[23-Nov-2025 09:30:05 UTC] PHP Deprecated:  Optional parameter $bonusWin declared before required parameter $lines is implicitly treated as a required parameter in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/SantaVSRudolphNET/SlotSettings.php on line 187
-[23-Nov-2025 09:30:05 UTC] spin
-[23-Nov-2025 09:30:05 UTC] bonus
-[23-Nov-2025 09:30:05 UTC] spin
-[23-Nov-2025 09:30:05 UTC] bonus
-[23-Nov-2025 09:30:05 UTC] spin
-[23-Nov-2025 09:30:05 UTC] bonus
-[23-Nov-2025 09:30:05 UTC] spin
-[23-Nov-2025 09:30:05 UTC] bonus
-[23-Nov-2025 09:30:05 UTC] spin
-[23-Nov-2025 09:30:05 UTC] bonus
-[23-Nov-2025 09:30:05 UTC] PHP Deprecated:  Optional parameter $garantType declared before required parameter $lines is implicitly treated as a required parameter in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/SpaceWarsNET/SlotSettings.php on line 223
-[23-Nov-2025 09:30:05 UTC] PHP Deprecated:  Optional parameter $spinWin declared before required parameter $lines is implicitly treated as a required parameter in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/SpaceWarsNET/SlotSettings.php on line 360
-[23-Nov-2025 09:30:05 UTC] PHP Deprecated:  Optional parameter $bonusWin declared before required parameter $lines is implicitly treated as a required parameter in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/SpaceWarsNET/SlotSettings.php on line 360
-[23-Nov-2025 09:30:05 UTC] spin
-[23-Nov-2025 09:30:05 UTC] bonus
-[23-Nov-2025 09:30:05 UTC] spin
-[23-Nov-2025 09:30:05 UTC] bonus
-[23-Nov-2025 09:30:05 UTC] spin
-[23-Nov-2025 09:30:05 UTC] bonus
-[23-Nov-2025 09:30:05 UTC] spin
-[23-Nov-2025 09:30:05 UTC] bonus
-[23-Nov-2025 09:30:05 UTC] spin
-[23-Nov-2025 09:30:05 UTC] bonus
-[23-Nov-2025 09:30:05 UTC] PHP Deprecated:  Optional parameter $garantType declared before required parameter $lines is implicitly treated as a required parameter in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/StarBurstNET/SlotSettings.php on line 307
-[23-Nov-2025 09:30:05 UTC] PHP Deprecated:  Optional parameter $spinWin declared before required parameter $lines is implicitly treated as a required parameter in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/StarBurstNET/SlotSettings.php on line 443
-[23-Nov-2025 09:30:05 UTC] PHP Deprecated:  Optional parameter $bonusWin declared before required parameter $lines is implicitly treated as a required parameter in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/StarBurstNET/SlotSettings.php on line 443
-[23-Nov-2025 09:30:05 UTC] PHP Warning:  Undefined property: Models\User::$shop in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/StarBurstNET/SlotSettings.php on line 274
-[23-Nov-2025 09:30:05 UTC] PHP Warning:  Attempt to read property "currency" on null in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/StarBurstNET/SlotSettings.php on line 274
-[23-Nov-2025 09:30:05 UTC] PHP Notice:  unserialize(): Error at offset 0 of 2 bytes in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/StarBurstNET/SlotSettings.php on line 285
-[23-Nov-2025 09:30:05 UTC] []
-[23-Nov-2025 09:30:05 UTC] PHP Deprecated:  Automatic conversion of false to array is deprecated in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/BaseSlotSettings.php on line 508
-[23-Nov-2025 09:30:05 UTC] PHP Warning:  Undefined property: Models\User::$shop in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/StarBurstNET/SlotSettings.php on line 274
-[23-Nov-2025 09:30:05 UTC] PHP Warning:  Attempt to read property "currency" on null in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/StarBurstNET/SlotSettings.php on line 274
-[23-Nov-2025 09:30:05 UTC] PHP Notice:  unserialize(): Error at offset 0 of 2 bytes in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/StarBurstNET/SlotSettings.php on line 285
-[23-Nov-2025 09:30:05 UTC] []
-[23-Nov-2025 09:30:05 UTC] PHP Warning:  Undefined property: Models\User::$shop in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/StarBurstNET/SlotSettings.php on line 274
-[23-Nov-2025 09:30:05 UTC] PHP Warning:  Attempt to read property "currency" on null in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/StarBurstNET/SlotSettings.php on line 274
-[23-Nov-2025 09:30:05 UTC] PHP Notice:  unserialize(): Error at offset 0 of 2 bytes in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/StarBurstNET/SlotSettings.php on line 285
-[23-Nov-2025 09:30:05 UTC] []
-[23-Nov-2025 09:30:05 UTC] PHP Deprecated:  Automatic conversion of false to array is deprecated in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/BaseSlotSettings.php on line 508
-[23-Nov-2025 09:30:05 UTC] spin
-[23-Nov-2025 09:30:05 UTC] bonus
-[23-Nov-2025 09:30:05 UTC] PHP Warning:  Undefined property: Models\User::$shop in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/StarBurstNET/SlotSettings.php on line 274
-[23-Nov-2025 09:30:05 UTC] PHP Warning:  Attempt to read property "currency" on null in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/StarBurstNET/SlotSettings.php on line 274
-[23-Nov-2025 09:30:05 UTC] PHP Notice:  unserialize(): Error at offset 0 of 2 bytes in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/StarBurstNET/SlotSettings.php on line 285
-[23-Nov-2025 09:30:05 UTC] []
-[23-Nov-2025 09:30:05 UTC] PHP Deprecated:  Automatic conversion of false to array is deprecated in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/BaseSlotSettings.php on line 508
-[23-Nov-2025 09:30:05 UTC] spin
-[23-Nov-2025 09:30:05 UTC] bonus
-[23-Nov-2025 09:30:05 UTC] PHP Warning:  Undefined property: Models\User::$shop in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/StarBurstNET/SlotSettings.php on line 274
-[23-Nov-2025 09:30:05 UTC] PHP Warning:  Attempt to read property "currency" on null in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/StarBurstNET/SlotSettings.php on line 274
-[23-Nov-2025 09:30:05 UTC] PHP Notice:  unserialize(): Error at offset 0 of 2 bytes in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/StarBurstNET/SlotSettings.php on line 285
-[23-Nov-2025 09:30:05 UTC] []
-[23-Nov-2025 09:30:05 UTC] PHP Deprecated:  Automatic conversion of false to array is deprecated in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/BaseSlotSettings.php on line 508
-[23-Nov-2025 09:30:05 UTC] spin
-[23-Nov-2025 09:30:05 UTC] bonus
-[23-Nov-2025 09:30:05 UTC] PHP Warning:  Undefined property: Models\User::$shop in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/StarBurstNET/SlotSettings.php on line 274
-[23-Nov-2025 09:30:05 UTC] PHP Warning:  Attempt to read property "currency" on null in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/StarBurstNET/SlotSettings.php on line 274
-[23-Nov-2025 09:30:05 UTC] PHP Notice:  unserialize(): Error at offset 0 of 2 bytes in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/StarBurstNET/SlotSettings.php on line 285
-[23-Nov-2025 09:30:05 UTC] []
-[23-Nov-2025 09:30:05 UTC] PHP Deprecated:  Automatic conversion of false to array is deprecated in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/BaseSlotSettings.php on line 508
-[23-Nov-2025 09:30:05 UTC] spin
-[23-Nov-2025 09:30:05 UTC] bonus
-[23-Nov-2025 09:30:05 UTC] PHP Warning:  Undefined property: Models\User::$shop in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/StarBurstNET/SlotSettings.php on line 274
-[23-Nov-2025 09:30:05 UTC] PHP Warning:  Attempt to read property "currency" on null in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/StarBurstNET/SlotSettings.php on line 274
-[23-Nov-2025 09:30:05 UTC] PHP Notice:  unserialize(): Error at offset 0 of 2 bytes in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/StarBurstNET/SlotSettings.php on line 285
-[23-Nov-2025 09:30:05 UTC] []
-[23-Nov-2025 09:30:05 UTC] PHP Deprecated:  Automatic conversion of false to array is deprecated in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/BaseSlotSettings.php on line 508
-[23-Nov-2025 09:30:05 UTC] spin
-[23-Nov-2025 09:30:05 UTC] bonus
-[23-Nov-2025 09:30:05 UTC] PHP Deprecated:  Optional parameter $garantType declared before required parameter $lines is implicitly treated as a required parameter in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/TheWolfsBaneNET/SlotSettings.php on line 53
-[23-Nov-2025 09:30:05 UTC] PHP Deprecated:  Optional parameter $spinWin declared before required parameter $lines is implicitly treated as a required parameter in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/TheWolfsBaneNET/SlotSettings.php on line 190
-[23-Nov-2025 09:30:05 UTC] PHP Deprecated:  Optional parameter $bonusWin declared before required parameter $lines is implicitly treated as a required parameter in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/TheWolfsBaneNET/SlotSettings.php on line 190
-[23-Nov-2025 09:30:05 UTC] PHP Warning:  Array to string conversion in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/TheWolfsBaneNET/Server.php on line 138
-[23-Nov-2025 09:30:05 UTC] PHP Warning:  Array to string conversion in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/TheWolfsBaneNET/Server.php on line 138
-[23-Nov-2025 09:30:05 UTC] PHP Warning:  Array to string conversion in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/TheWolfsBaneNET/Server.php on line 138
-[23-Nov-2025 09:30:05 UTC] spin
-[23-Nov-2025 09:30:05 UTC] bonus
-[23-Nov-2025 09:30:05 UTC] spin
-[23-Nov-2025 09:30:05 UTC] bonus
-[23-Nov-2025 09:30:05 UTC] PHP Warning:  Undefined array key 5 in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/TheWolfsBaneNET/Server.php on line 759
-[23-Nov-2025 09:30:05 UTC] spin
-[23-Nov-2025 09:30:05 UTC] bonus
-[23-Nov-2025 09:30:05 UTC] spin
-[23-Nov-2025 09:30:05 UTC] bonus
-[23-Nov-2025 09:30:05 UTC] spin
-[23-Nov-2025 09:30:05 UTC] bonus
-[23-Nov-2025 09:30:05 UTC] PHP Deprecated:  Optional parameter $garantType declared before required parameter $lines is implicitly treated as a required parameter in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/TurnYourFortuneNET/SlotSettings.php on line 50
-[23-Nov-2025 09:30:05 UTC] PHP Deprecated:  Optional parameter $spinWin declared before required parameter $lines is implicitly treated as a required parameter in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/TurnYourFortuneNET/SlotSettings.php on line 187
-[23-Nov-2025 09:30:05 UTC] PHP Deprecated:  Optional parameter $bonusWin declared before required parameter $lines is implicitly treated as a required parameter in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/TurnYourFortuneNET/SlotSettings.php on line 187
-[23-Nov-2025 09:30:05 UTC] spin
-[23-Nov-2025 09:30:05 UTC] bonus
-[23-Nov-2025 09:30:05 UTC] spin
-[23-Nov-2025 09:30:05 UTC] bonus
-[23-Nov-2025 09:30:05 UTC] spin
-[23-Nov-2025 09:30:05 UTC] bonus
-[23-Nov-2025 09:30:05 UTC] spin
-[23-Nov-2025 09:30:05 UTC] bonus
-[23-Nov-2025 09:30:05 UTC] spin
-[23-Nov-2025 09:30:05 UTC] bonus
-[23-Nov-2025 09:30:05 UTC] PHP Deprecated:  Optional parameter $garantType declared before required parameter $lines is implicitly treated as a required parameter in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/VikingsNET/SlotSettings.php on line 50
-[23-Nov-2025 09:30:05 UTC] PHP Deprecated:  Optional parameter $spinWin declared before required parameter $lines is implicitly treated as a required parameter in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/VikingsNET/SlotSettings.php on line 187
-[23-Nov-2025 09:30:05 UTC] PHP Deprecated:  Optional parameter $bonusWin declared before required parameter $lines is implicitly treated as a required parameter in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/VikingsNET/SlotSettings.php on line 187
-[23-Nov-2025 09:30:05 UTC] spin
-[23-Nov-2025 09:30:05 UTC] bonus
-[23-Nov-2025 09:30:05 UTC] spin
-[23-Nov-2025 09:30:05 UTC] bonus
-[23-Nov-2025 09:30:05 UTC] spin
-[23-Nov-2025 09:30:05 UTC] bonus
-[23-Nov-2025 09:30:05 UTC] spin
-[23-Nov-2025 09:30:05 UTC] bonus
-[23-Nov-2025 09:30:05 UTC] spin
-[23-Nov-2025 09:30:05 UTC] bonus
-[23-Nov-2025 09:30:05 UTC] PHP Deprecated:  Optional parameter $garantType declared before required parameter $lines is implicitly treated as a required parameter in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/WildWaterNET/SlotSettings.php on line 50
-[23-Nov-2025 09:30:05 UTC] PHP Deprecated:  Optional parameter $spinWin declared before required parameter $lines is implicitly treated as a required parameter in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/WildWaterNET/SlotSettings.php on line 187
-[23-Nov-2025 09:30:05 UTC] PHP Deprecated:  Optional parameter $bonusWin declared before required parameter $lines is implicitly treated as a required parameter in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/WildWaterNET/SlotSettings.php on line 187
-[23-Nov-2025 09:30:05 UTC] spin
-[23-Nov-2025 09:30:05 UTC] bonus
-[23-Nov-2025 09:30:05 UTC] spin
-[23-Nov-2025 09:30:05 UTC] bonus
-[23-Nov-2025 09:30:05 UTC] spin
-[23-Nov-2025 09:30:05 UTC] bonus
-[23-Nov-2025 09:30:05 UTC] spin
-[23-Nov-2025 09:30:05 UTC] bonus
-[23-Nov-2025 09:30:05 UTC] spin
-[23-Nov-2025 09:30:05 UTC] bonus
-[23-Nov-2025 09:30:05 UTC] PHP Deprecated:  Optional parameter $garantType declared before required parameter $lines is implicitly treated as a required parameter in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/WingsOfRichesNET/SlotSettings.php on line 50
-[23-Nov-2025 09:30:05 UTC] PHP Deprecated:  Optional parameter $spinWin declared before required parameter $lines is implicitly treated as a required parameter in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/WingsOfRichesNET/SlotSettings.php on line 187
-[23-Nov-2025 09:30:05 UTC] PHP Deprecated:  Optional parameter $bonusWin declared before required parameter $lines is implicitly treated as a required parameter in /home/ash/Documents/misc/opensource-casino-v10/app/GamesNET/WingsOfRichesNET/SlotSettings.php on line 187
-[23-Nov-2025 09:30:05 UTC] spin
-[23-Nov-2025 09:30:05 UTC] bonus
-[23-Nov-2025 09:30:05 UTC] spin
-[23-Nov-2025 09:30:05 UTC] bonus
-[23-Nov-2025 09:30:05 UTC] spin
-[23-Nov-2025 09:30:05 UTC] bonus
-[23-Nov-2025 09:30:05 UTC] spin
-[23-Nov-2025 09:30:05 UTC] bonus
-[23-Nov-2025 09:30:05 UTC] spin
-[23-Nov-2025 09:30:05 UTC] bonus
+[23-Nov-2025 15:01:36 UTC] PHP Deprecated:  Optional parameter $slotState declared before required parameter $sum is implicitly treated as a required parameter in /home/ash/Documents/GamesNET/Games/BaseSlotSettings.php on line 851
+[23-Nov-2025 15:01:36 UTC] PHP Warning:  Array to string conversion in /home/ash/Documents/GamesNET/Games/CreatureFromTheBlackLagoonNET/Server.php on line 673
+[23-Nov-2025 15:01:36 UTC] PHP Warning:  Array to string conversion in /home/ash/Documents/GamesNET/Games/CreatureFromTheBlackLagoonNET/Server.php on line 673
+[23-Nov-2025 15:01:36 UTC] PHP Deprecated:  Optional parameter $garantType declared before required parameter $lines is implicitly treated as a required parameter in /home/ash/Documents/GamesNET/Games/DazzleMeNET/SlotSettings.php on line 124
+[23-Nov-2025 15:01:36 UTC] PHP Deprecated:  Optional parameter $spinWin declared before required parameter $lines is implicitly treated as a required parameter in /home/ash/Documents/GamesNET/Games/DazzleMeNET/SlotSettings.php on line 288
+[23-Nov-2025 15:01:36 UTC] PHP Deprecated:  Optional parameter $bonusWin declared before required parameter $lines is implicitly treated as a required parameter in /home/ash/Documents/GamesNET/Games/DazzleMeNET/SlotSettings.php on line 288
+[23-Nov-2025 15:01:36 UTC] PHP Deprecated:  Optional parameter $garantType declared before required parameter $lines is implicitly treated as a required parameter in /home/ash/Documents/GamesNET/Games/FlowersChristmasNET/SlotSettings.php on line 284
+[23-Nov-2025 15:01:36 UTC] PHP Deprecated:  Optional parameter $spinWin declared before required parameter $lines is implicitly treated as a required parameter in /home/ash/Documents/GamesNET/Games/FlowersChristmasNET/SlotSettings.php on line 448
+[23-Nov-2025 15:01:36 UTC] PHP Deprecated:  Optional parameter $bonusWin declared before required parameter $lines is implicitly treated as a required parameter in /home/ash/Documents/GamesNET/Games/FlowersChristmasNET/SlotSettings.php on line 448
+[2025-11-23 15:01:36] Worker Fatal Error: Unsupported operand types: string * int in /home/ash/Documents/GamesNET/Games/FlowersNET/SlotSettings.php:325
+Stack trace:
+#0 /home/ash/Documents/GamesNET/Games/FlowersNET/Server.php(374): Games\FlowersNET\SlotSettings->GetSpinSettings('bet', 30, 30)
+#1 /home/ash/Documents/GamesNET/start.php(124): Games\FlowersNET\Server->get(Array, Object(Games\FlowersNET\SlotSettings))
+#2 /home/ash/Documents/GamesNET/vendor/workerman/workerman/src/Connection/TcpConnection.php(753): {closure}(Object(Workerman\Connection\TcpConnection), '{"gameId":"Flow...')
+#3 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #59, true, NULL)
+#4 /home/ash/Documents/GamesNET/vendor/workerman/workerman/src/Events/Event.php(250): EventBase->loop()
+#5 /home/ash/Documents/GamesNET/vendor/workerman/workerman/src/Worker.php(1756): Workerman\Events\Event->run()
+#6 /home/ash/Documents/GamesNET/vendor/workerman/workerman/src/Worker.php(1552): Workerman\Worker::forkOneWorkerForLinux(Object(Workerman\Worker))
+#7 /home/ash/Documents/GamesNET/vendor/workerman/workerman/src/Worker.php(1532): Workerman\Worker::forkWorkersForLinux()
+#8 /home/ash/Documents/GamesNET/vendor/workerman/workerman/src/Worker.php(601): Workerman\Worker::forkWorkers()
+#9 /home/ash/Documents/GamesNET/start.php(183): Workerman\Worker::runAll()
+#10 {main}
+[23-Nov-2025 15:01:36 UTC] PHP Deprecated:  Optional parameter $garantType declared before required parameter $lines is implicitly treated as a required parameter in /home/ash/Documents/GamesNET/Games/FortuneRangersNET/SlotSettings.php on line 124
+[23-Nov-2025 15:01:36 UTC] PHP Deprecated:  Optional parameter $spinWin declared before required parameter $lines is implicitly treated as a required parameter in /home/ash/Documents/GamesNET/Games/FortuneRangersNET/SlotSettings.php on line 288
+[23-Nov-2025 15:01:36 UTC] PHP Deprecated:  Optional parameter $bonusWin declared before required parameter $lines is implicitly treated as a required parameter in /home/ash/Documents/GamesNET/Games/FortuneRangersNET/SlotSettings.php on line 288
+[23-Nov-2025 15:01:36 UTC] PHP Deprecated:  Optional parameter $garantType declared before required parameter $lines is implicitly treated as a required parameter in /home/ash/Documents/GamesNET/Games/FruitShopChristmasNET/SlotSettings.php on line 148
+[23-Nov-2025 15:01:36 UTC] PHP Deprecated:  Optional parameter $spinWin declared before required parameter $lines is implicitly treated as a required parameter in /home/ash/Documents/GamesNET/Games/FruitShopChristmasNET/SlotSettings.php on line 312
+[23-Nov-2025 15:01:36 UTC] PHP Deprecated:  Optional parameter $bonusWin declared before required parameter $lines is implicitly treated as a required parameter in /home/ash/Documents/GamesNET/Games/FruitShopChristmasNET/SlotSettings.php on line 312
+[23-Nov-2025 15:01:36 UTC] PHP Deprecated:  Optional parameter $garantType declared before required parameter $lines is implicitly treated as a required parameter in /home/ash/Documents/GamesNET/Games/FruitShopNET/SlotSettings.php on line 148
+[23-Nov-2025 15:01:36 UTC] PHP Deprecated:  Optional parameter $spinWin declared before required parameter $lines is implicitly treated as a required parameter in /home/ash/Documents/GamesNET/Games/FruitShopNET/SlotSettings.php on line 312
+[23-Nov-2025 15:01:36 UTC] PHP Deprecated:  Optional parameter $bonusWin declared before required parameter $lines is implicitly treated as a required parameter in /home/ash/Documents/GamesNET/Games/FruitShopNET/SlotSettings.php on line 312
+[23-Nov-2025 15:01:36 UTC] PHP Deprecated:  Optional parameter $garantType declared before required parameter $lines is implicitly treated as a required parameter in /home/ash/Documents/GamesNET/Games/GoBananasNET/SlotSettings.php on line 156
+[23-Nov-2025 15:01:36 UTC] PHP Deprecated:  Optional parameter $spinWin declared before required parameter $lines is implicitly treated as a required parameter in /home/ash/Documents/GamesNET/Games/GoBananasNET/SlotSettings.php on line 320
+[23-Nov-2025 15:01:36 UTC] PHP Deprecated:  Optional parameter $bonusWin declared before required parameter $lines is implicitly treated as a required parameter in /home/ash/Documents/GamesNET/Games/GoBananasNET/SlotSettings.php on line 320
+[23-Nov-2025 15:01:36 UTC] PHP Deprecated:  Optional parameter $garantType declared before required parameter $lines is implicitly treated as a required parameter in /home/ash/Documents/GamesNET/Games/GoldenGrimoireNET/SlotSettings.php on line 116
+[23-Nov-2025 15:01:36 UTC] PHP Deprecated:  Optional parameter $spinWin declared before required parameter $lines is implicitly treated as a required parameter in /home/ash/Documents/GamesNET/Games/GoldenGrimoireNET/SlotSettings.php on line 280
+[23-Nov-2025 15:01:36 UTC] PHP Deprecated:  Optional parameter $bonusWin declared before required parameter $lines is implicitly treated as a required parameter in /home/ash/Documents/GamesNET/Games/GoldenGrimoireNET/SlotSettings.php on line 280
+[23-Nov-2025 15:01:36 UTC] PHP Deprecated:  Optional parameter $spinWin declared before required parameter $lines is implicitly treated as a required parameter in /home/ash/Documents/GamesNET/Games/GrandSpinnSuperpotNET/SlotSettings.php on line 336
+[23-Nov-2025 15:01:36 UTC] PHP Deprecated:  Optional parameter $bonusWin declared before required parameter $lines is implicitly treated as a required parameter in /home/ash/Documents/GamesNET/Games/GrandSpinnSuperpotNET/SlotSettings.php on line 336
+[23-Nov-2025 15:01:36 UTC] PHP Warning:  Undefined array key 0 in /home/ash/Documents/GamesNET/Games/GrandSpinnSuperpotNET/Server.php on line 123
+[23-Nov-2025 15:01:36 UTC] PHP Warning:  Undefined array key 0 in /home/ash/Documents/GamesNET/Games/GrandSpinnSuperpotNET/Server.php on line 123
+[23-Nov-2025 15:01:36 UTC] PHP Warning:  Undefined array key 0 in /home/ash/Documents/GamesNET/Games/GrandSpinnSuperpotNET/Server.php on line 126
+[23-Nov-2025 15:01:36 UTC] PHP Warning:  Undefined array key 0 in /home/ash/Documents/GamesNET/Games/GrandSpinnSuperpotNET/Server.php on line 126
+[2025-11-23 15:01:36] Worker Fatal Error: Unsupported operand types: string * int in /home/ash/Documents/GamesNET/Games/GrandSpinnSuperpotNET/SlotSettings.php:207
+Stack trace:
+#0 /home/ash/Documents/GamesNET/Games/GrandSpinnSuperpotNET/Server.php(176): Games\GrandSpinnSuperpotNET\SlotSettings->GetSpinSettings('bet', 2, 1)
+#1 /home/ash/Documents/GamesNET/start.php(124): Games\GrandSpinnSuperpotNET\Server->get(Array, Object(Games\GrandSpinnSuperpotNET\SlotSettings))
+#2 /home/ash/Documents/GamesNET/vendor/workerman/workerman/src/Connection/TcpConnection.php(753): {closure}(Object(Workerman\Connection\TcpConnection), '{"gameId":"Gran...')
+#3 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #91, true, NULL)
+#4 /home/ash/Documents/GamesNET/vendor/workerman/workerman/src/Events/Event.php(250): EventBase->loop()
+#5 /home/ash/Documents/GamesNET/vendor/workerman/workerman/src/Worker.php(1756): Workerman\Events\Event->run()
+#6 /home/ash/Documents/GamesNET/vendor/workerman/workerman/src/Worker.php(1552): Workerman\Worker::forkOneWorkerForLinux(Object(Workerman\Worker))
+#7 /home/ash/Documents/GamesNET/vendor/workerman/workerman/src/Worker.php(1532): Workerman\Worker::forkWorkersForLinux()
+#8 /home/ash/Documents/GamesNET/vendor/workerman/workerman/src/Worker.php(601): Workerman\Worker::forkWorkers()
+#9 /home/ash/Documents/GamesNET/start.php(183): Workerman\Worker::runAll()
+#10 {main}
+[2025-11-23 15:01:36] Worker Fatal Error: Unsupported operand types: string * int in /home/ash/Documents/GamesNET/Games/HalloweenJackNET/SlotSettings.php:395
+Stack trace:
+#0 /home/ash/Documents/GamesNET/Games/HalloweenJackNET/Server.php(321): Games\HalloweenJackNET\SlotSettings->GetSpinSettings('bet', 20, 20)
+#1 /home/ash/Documents/GamesNET/start.php(124): Games\HalloweenJackNET\Server->get(Array, Object(Games\HalloweenJackNET\SlotSettings))
+#2 /home/ash/Documents/GamesNET/vendor/workerman/workerman/src/Connection/TcpConnection.php(753): {closure}(Object(Workerman\Connection\TcpConnection), '{"gameId":"Hall...')
+#3 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #105, true, NULL)
+#4 /home/ash/Documents/GamesNET/vendor/workerman/workerman/src/Events/Event.php(250): EventBase->loop()
+#5 /home/ash/Documents/GamesNET/vendor/workerman/workerman/src/Worker.php(1756): Workerman\Events\Event->run()
+#6 /home/ash/Documents/GamesNET/vendor/workerman/workerman/src/Worker.php(1552): Workerman\Worker::forkOneWorkerForLinux(Object(Workerman\Worker))
+#7 /home/ash/Documents/GamesNET/vendor/workerman/workerman/src/Worker.php(1532): Workerman\Worker::forkWorkersForLinux()
+#8 /home/ash/Documents/GamesNET/vendor/workerman/workerman/src/Worker.php(601): Workerman\Worker::forkWorkers()
+#9 /home/ash/Documents/GamesNET/start.php(183): Workerman\Worker::runAll()
+#10 {main}
+[23-Nov-2025 15:01:36 UTC] PHP Deprecated:  Optional parameter $garantType declared before required parameter $lines is implicitly treated as a required parameter in /home/ash/Documents/GamesNET/Games/JumanjiNET/SlotSettings.php on line 140
+[23-Nov-2025 15:01:36 UTC] PHP Deprecated:  Optional parameter $spinWin declared before required parameter $lines is implicitly treated as a required parameter in /home/ash/Documents/GamesNET/Games/JumanjiNET/SlotSettings.php on line 304
+[23-Nov-2025 15:01:36 UTC] PHP Deprecated:  Optional parameter $bonusWin declared before required parameter $lines is implicitly treated as a required parameter in /home/ash/Documents/GamesNET/Games/JumanjiNET/SlotSettings.php on line 304
+[23-Nov-2025 15:01:36 UTC] PHP Deprecated:  Optional parameter $garantType declared before required parameter $lines is implicitly treated as a required parameter in /home/ash/Documents/GamesNET/Games/LightsNET/SlotSettings.php on line 156
+[23-Nov-2025 15:01:36 UTC] PHP Deprecated:  Optional parameter $spinWin declared before required parameter $lines is implicitly treated as a required parameter in /home/ash/Documents/GamesNET/Games/LightsNET/SlotSettings.php on line 320
+[23-Nov-2025 15:01:36 UTC] PHP Deprecated:  Optional parameter $bonusWin declared before required parameter $lines is implicitly treated as a required parameter in /home/ash/Documents/GamesNET/Games/LightsNET/SlotSettings.php on line 320
+[23-Nov-2025 15:01:36 UTC] PHP Deprecated:  Optional parameter $garantType declared before required parameter $lines is implicitly treated as a required parameter in /home/ash/Documents/GamesNET/Games/ReelRush2NET/SlotSettings.php on line 164
+[23-Nov-2025 15:01:36 UTC] PHP Deprecated:  Optional parameter $spinWin declared before required parameter $lines is implicitly treated as a required parameter in /home/ash/Documents/GamesNET/Games/ReelRush2NET/SlotSettings.php on line 328
+[23-Nov-2025 15:01:36 UTC] PHP Deprecated:  Optional parameter $bonusWin declared before required parameter $lines is implicitly treated as a required parameter in /home/ash/Documents/GamesNET/Games/ReelRush2NET/SlotSettings.php on line 328
+[23-Nov-2025 15:01:36 UTC] PHP Deprecated:  Optional parameter $garantType declared before required parameter $lines is implicitly treated as a required parameter in /home/ash/Documents/GamesNET/Games/SantaVSRudolphNET/SlotSettings.php on line 140
+[23-Nov-2025 15:01:36 UTC] PHP Deprecated:  Optional parameter $spinWin declared before required parameter $lines is implicitly treated as a required parameter in /home/ash/Documents/GamesNET/Games/SantaVSRudolphNET/SlotSettings.php on line 304
+[23-Nov-2025 15:01:36 UTC] PHP Deprecated:  Optional parameter $bonusWin declared before required parameter $lines is implicitly treated as a required parameter in /home/ash/Documents/GamesNET/Games/SantaVSRudolphNET/SlotSettings.php on line 304
+[23-Nov-2025 15:01:36 UTC] PHP Deprecated:  Optional parameter $garantType declared before required parameter $lines is implicitly treated as a required parameter in /home/ash/Documents/GamesNET/Games/SpaceWarsNET/SlotSettings.php on line 223
+[23-Nov-2025 15:01:36 UTC] PHP Deprecated:  Optional parameter $spinWin declared before required parameter $lines is implicitly treated as a required parameter in /home/ash/Documents/GamesNET/Games/SpaceWarsNET/SlotSettings.php on line 387
+[23-Nov-2025 15:01:36 UTC] PHP Deprecated:  Optional parameter $bonusWin declared before required parameter $lines is implicitly treated as a required parameter in /home/ash/Documents/GamesNET/Games/SpaceWarsNET/SlotSettings.php on line 387
+[23-Nov-2025 15:01:36 UTC] PHP Deprecated:  Optional parameter $spinWin declared before required parameter $lines is implicitly treated as a required parameter in /home/ash/Documents/GamesNET/Games/StarBurstNET/SlotSettings.php on line 494
+[23-Nov-2025 15:01:36 UTC] PHP Deprecated:  Optional parameter $bonusWin declared before required parameter $lines is implicitly treated as a required parameter in /home/ash/Documents/GamesNET/Games/StarBurstNET/SlotSettings.php on line 494
+[23-Nov-2025 15:01:36 UTC] SlotSettings: Successfully parsed session data. Length: 2
+[23-Nov-2025 15:01:36 UTC] SlotSettings: Successfully parsed session data. Length: 2
+[23-Nov-2025 15:01:36 UTC] SlotSettings: Successfully parsed session data. Length: 2
+[2025-11-23 15:01:36] Worker Fatal Error: Unsupported operand types: string * int in /home/ash/Documents/GamesNET/Games/StarBurstNET/SlotSettings.php:366
+Stack trace:
+#0 /home/ash/Documents/GamesNET/Games/StarBurstNET/Server.php(233): Games\StarBurstNET\SlotSettings->GetSpinSettings('bet', 10, 10)
+#1 /home/ash/Documents/GamesNET/start.php(124): Games\StarBurstNET\Server->get(Array, Object(Games\StarBurstNET\SlotSettings))
+#2 /home/ash/Documents/GamesNET/vendor/workerman/workerman/src/Connection/TcpConnection.php(753): {closure}(Object(Workerman\Connection\TcpConnection), '{"gameId":"Star...')
+#3 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #46, true, NULL)
+#4 /home/ash/Documents/GamesNET/vendor/workerman/workerman/src/Events/Event.php(250): EventBase->loop()
+#5 /home/ash/Documents/GamesNET/vendor/workerman/workerman/src/Worker.php(1756): Workerman\Events\Event->run()
+#6 /home/ash/Documents/GamesNET/vendor/workerman/workerman/src/Worker.php(1552): Workerman\Worker::forkOneWorkerForLinux(Object(Workerman\Worker))
+#7 /home/ash/Documents/GamesNET/vendor/workerman/workerman/src/Worker.php(1532): Workerman\Worker::forkWorkersForLinux()
+#8 /home/ash/Documents/GamesNET/vendor/workerman/workerman/src/Worker.php(601): Workerman\Worker::forkWorkers()
+#9 /home/ash/Documents/GamesNET/start.php(183): Workerman\Worker::runAll()
+#10 {main}
+[23-Nov-2025 15:01:36 UTC] PHP Deprecated:  Optional parameter $spinWin declared before required parameter $lines is implicitly treated as a required parameter in /home/ash/Documents/GamesNET/Games/TheWolfsBaneNET/SlotSettings.php on line 307
+[23-Nov-2025 15:01:36 UTC] PHP Deprecated:  Optional parameter $bonusWin declared before required parameter $lines is implicitly treated as a required parameter in /home/ash/Documents/GamesNET/Games/TheWolfsBaneNET/SlotSettings.php on line 307
+[23-Nov-2025 15:01:36 UTC] PHP Warning:  Array to string conversion in /home/ash/Documents/GamesNET/Games/TheWolfsBaneNET/Server.php on line 138
+[23-Nov-2025 15:01:36 UTC] PHP Warning:  Array to string conversion in /home/ash/Documents/GamesNET/Games/TheWolfsBaneNET/Server.php on line 138
+[23-Nov-2025 15:01:36 UTC] PHP Warning:  Array to string conversion in /home/ash/Documents/GamesNET/Games/TheWolfsBaneNET/Server.php on line 138
+[2025-11-23 15:01:36] Worker Fatal Error: Unsupported operand types: string * int in /home/ash/Documents/GamesNET/Games/TheWolfsBaneNET/SlotSettings.php:178
+Stack trace:
+#0 /home/ash/Documents/GamesNET/Games/TheWolfsBaneNET/Server.php(300): Games\TheWolfsBaneNET\SlotSettings->GetSpinSettings('bet', 10, 10)
+#1 /home/ash/Documents/GamesNET/start.php(124): Games\TheWolfsBaneNET\Server->get(Array, Object(Games\TheWolfsBaneNET\SlotSettings))
+#2 /home/ash/Documents/GamesNET/vendor/workerman/workerman/src/Connection/TcpConnection.php(753): {closure}(Object(Workerman\Connection\TcpConnection), '{"gameId":"TheW...')
+#3 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #57, true, NULL)
+#4 /home/ash/Documents/GamesNET/vendor/workerman/workerman/src/Events/Event.php(250): EventBase->loop()
+#5 /home/ash/Documents/GamesNET/vendor/workerman/workerman/src/Worker.php(1756): Workerman\Events\Event->run()
+#6 /home/ash/Documents/GamesNET/vendor/workerman/workerman/src/Worker.php(1552): Workerman\Worker::forkOneWorkerForLinux(Object(Workerman\Worker))
+#7 /home/ash/Documents/GamesNET/vendor/workerman/workerman/src/Worker.php(1532): Workerman\Worker::forkWorkersForLinux()
+#8 /home/ash/Documents/GamesNET/vendor/workerman/workerman/src/Worker.php(601): Workerman\Worker::forkWorkers()
+#9 /home/ash/Documents/GamesNET/start.php(183): Workerman\Worker::runAll()
+#10 {main}
+[23-Nov-2025 15:01:36 UTC] PHP Deprecated:  Optional parameter $garantType declared before required parameter $lines is implicitly treated as a required parameter in /home/ash/Documents/GamesNET/Games/TurnYourFortuneNET/SlotSettings.php on line 146
+[23-Nov-2025 15:01:36 UTC] PHP Deprecated:  Optional parameter $spinWin declared before required parameter $lines is implicitly treated as a required parameter in /home/ash/Documents/GamesNET/Games/TurnYourFortuneNET/SlotSettings.php on line 310
+[23-Nov-2025 15:01:36 UTC] PHP Deprecated:  Optional parameter $bonusWin declared before required parameter $lines is implicitly treated as a required parameter in /home/ash/Documents/GamesNET/Games/TurnYourFortuneNET/SlotSettings.php on line 310
+[23-Nov-2025 15:01:36 UTC] PHP Deprecated:  Optional parameter $garantType declared before required parameter $lines is implicitly treated as a required parameter in /home/ash/Documents/GamesNET/Games/VikingsNET/SlotSettings.php on line 210
+[23-Nov-2025 15:01:36 UTC] PHP Deprecated:  Optional parameter $spinWin declared before required parameter $lines is implicitly treated as a required parameter in /home/ash/Documents/GamesNET/Games/VikingsNET/SlotSettings.php on line 374
+[23-Nov-2025 15:01:36 UTC] PHP Deprecated:  Optional parameter $bonusWin declared before required parameter $lines is implicitly treated as a required parameter in /home/ash/Documents/GamesNET/Games/VikingsNET/SlotSettings.php on line 374
+[23-Nov-2025 15:01:36 UTC] PHP Deprecated:  Optional parameter $garantType declared before required parameter $lines is implicitly treated as a required parameter in /home/ash/Documents/GamesNET/Games/WildWaterNET/SlotSettings.php on line 114
+[23-Nov-2025 15:01:36 UTC] PHP Deprecated:  Optional parameter $spinWin declared before required parameter $lines is implicitly treated as a required parameter in /home/ash/Documents/GamesNET/Games/WildWaterNET/SlotSettings.php on line 278
+[23-Nov-2025 15:01:36 UTC] PHP Deprecated:  Optional parameter $bonusWin declared before required parameter $lines is implicitly treated as a required parameter in /home/ash/Documents/GamesNET/Games/WildWaterNET/SlotSettings.php on line 278
+[23-Nov-2025 15:01:36 UTC] PHP Deprecated:  Optional parameter $spinWin declared before required parameter $lines is implicitly treated as a required parameter in /home/ash/Documents/GamesNET/Games/WingsOfRichesNET/SlotSettings.php on line 318
+[23-Nov-2025 15:01:36 UTC] PHP Deprecated:  Optional parameter $bonusWin declared before required parameter $lines is implicitly treated as a required parameter in /home/ash/Documents/GamesNET/Games/WingsOfRichesNET/SlotSettings.php on line 318
+[2025-11-23 15:01:36] Worker Fatal Error: Unsupported operand types: string * int in /home/ash/Documents/GamesNET/Games/WingsOfRichesNET/SlotSettings.php:189
+Stack trace:
+#0 /home/ash/Documents/GamesNET/Games/WingsOfRichesNET/Server.php(300): Games\WingsOfRichesNET\SlotSettings->GetSpinSettings('bet', 20, 20)
+#1 /home/ash/Documents/GamesNET/start.php(124): Games\WingsOfRichesNET\Server->get(Array, Object(Games\WingsOfRichesNET\SlotSettings))
+#2 /home/ash/Documents/GamesNET/vendor/workerman/workerman/src/Connection/TcpConnection.php(753): {closure}(Object(Workerman\Connection\TcpConnection), '{"gameId":"Wing...')
+#3 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #159, true, NULL)
+#4 /home/ash/Documents/GamesNET/vendor/workerman/workerman/src/Events/Event.php(250): EventBase->loop()
+#5 /home/ash/Documents/GamesNET/vendor/workerman/workerman/src/Worker.php(1756): Workerman\Events\Event->run()
+#6 /home/ash/Documents/GamesNET/vendor/workerman/workerman/src/Worker.php(1552): Workerman\Worker::forkOneWorkerForLinux(Object(Workerman\Worker))
+#7 /home/ash/Documents/GamesNET/vendor/workerman/workerman/src/Worker.php(1532): Workerman\Worker::forkWorkersForLinux()
+#8 /home/ash/Documents/GamesNET/vendor/workerman/workerman/src/Worker.php(601): Workerman\Worker::forkWorkers()
+#9 /home/ash/Documents/GamesNET/start.php(183): Workerman\Worker::runAll()
+#10 {main}

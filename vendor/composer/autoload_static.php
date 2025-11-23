@@ -46,7 +46,7 @@ class ComposerStaticInit245709cd490df83075d010c4917070e6
         ),
         'Games\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/',
+            0 => __DIR__ . '/../..' . '/Games',
         ),
     );
 
